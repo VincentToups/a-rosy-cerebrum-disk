@@ -1,0 +1,9 @@
+(node-require 
+ (("hooves/operator-functions" :all)
+  ("hooves/lisp-idioms" :all)
+  ((js "http" http)))
+ (console.log (+ "Hello World" (/ 3 2)))
+ (console.log (+ "http is " (JSON.stringify http))))
+
+
+
