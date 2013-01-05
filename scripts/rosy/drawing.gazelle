@@ -1,6 +1,7 @@
 (module 
  (("hooves/operator-functions" :all)
-  ("hooves/lisp-idioms" :all))
+  ("hooves/lisp-idioms" :all)
+  ("rosy/utils" :all))
 
  (define-macro+ save-excursion (context (tail body))
    (let ((-context (gensym "context")))
@@ -12,8 +13,6 @@
 		 _finally
 		 ((.. ,-context (restore)))))))
 
- (define (random m)
-   (* m (Math.random)))
 
  (define+ (with-jitter context n magnitude thunk)
    (for ((var i 0) (< i n) (set! i (+ i 1)))

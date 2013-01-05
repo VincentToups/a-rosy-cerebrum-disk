@@ -1,21 +1,85 @@
-(require 
- (("hooves/operator-functions" :all)
-  ("hooves/lisp-idioms" (:with-prefix idioms- :all))
-  ("jquery/jquery" (:as $))
-  ("rosy/drawing" :all))
- (console.log "Hello World")
- (define canvas [($ "#canvas") 0])
- (console.log canvas)
- (define context (canvas.get-context "2d"))
- (set! context.font "20pt Arial")
- (set! context.fill-style "cornflowerblue")
- (set! context.stroke-style "blue")
- (context.fill-text "A ROSY CEREBRUM DISK" 20 20)
- (define (stroke-fatal-farm context)
-   (let ((x 20)
-		 (y 20))
-	 (context.stroke-text "A ROSY CEREBRUM DISK" x y)))
- (with-jitter context 10 3 stroke-fatal-farm))
+(include-js "jquery/actual-jquery.js")
+(include-js "gamvas/Box2dWeb-2.1.a.3.js")
+(include-js "gamvas/gamvas.debug.js")
+
+(console.log "Before add-on-load?  Can I see this in Chromium?")
+(console.log "gamvas is: " gamvas)
+(console.log "Box2D is: " Box2D)
+
+(var meat-loaded false)
+
+(gamvas.event.add-on-load 
+ (lambda ()
+   (console.log "In load event for gamvas.")
+   (require
+	(("hooves/operator-functions" :all)
+	 ("hooves/lisp-idioms" (:with-prefix idioms- :all))
+	 ("rosy/drawing" :all)
+	 ("rosy/utils" :all))
+	(console.log "Hello World")
+	(var hello-state 
+		 (gamvas.State.extend 
+		  ({} draw (function 
+					(time)
+
+					(set! this.c.fill-style '(rgba 255 0 0 .4))
+					(set! this.c.font "bold 15px sans-serif")
+					(set! this.c.text-align "center")
+					(with-jitter this.c 10 3 
+								 (lambda (c) 
+								   (c.fill-text "A ROSY CEREBRUM DISK" 0 0)
+								   (set! c.fill-style (+ "rgba(" 255 "," (random-int 80) "," (random-int 80) ",.4)"))
+								   (c.begin-path)
+								   (c.arc (random 6 20) (random 6 20) (random 1 10) 0 (* 2 Math.PI) false)
+								   (c.fill)))))))
+	
+	(console.log "Post hello-state." hello-state)
+	
+	(console.log "In add onload callback.")
+	(gamvas.state.add-state 
+	 (new hello-state 'hello-state))
+	(gamvas.start "canvas")
+	(set! meat-loaded true)
+	(console.log "Post add-on-load."))))
+
+(set-timeout 
+ (function () (_if (! meat-loaded)
+				   ((require
+					 (("hooves/operator-functions" :all)
+					  ("hooves/lisp-idioms" (:with-prefix idioms- :all))
+					  ("rosy/drawing" :all)
+					  ("rosy/utils" :all))
+					 (console.log "Hello World")
+					 (var hello-state 
+						  (gamvas.State.extend 
+						   ({} draw (function 
+									 (time)
+
+									 (set! this.c.fill-style '(rgba 255 0 0 .4))
+									 (set! this.c.font "bold 15px sans-serif")
+									 (set! this.c.text-align "center")
+									 (with-jitter this.c 10 3 
+												  (lambda (c) 
+													(c.fill-text "A ROSY CEREBRUM DISK" 0 0)
+													(set! c.fill-style (+ "rgba(" 255 "," (random-int 80) "," (random-int 80) ",.4)"))
+													(c.begin-path)
+													(c.arc (random 6 20) (random 6 20) (random 1 10) 0 (* 2 Math.PI) false)
+													(c.fill)))))))
+					 
+					 (console.log "Post hello-state." hello-state)
+					 
+					 (console.log "In add onload callback.")
+					 (gamvas.state.add-state 
+					  (new hello-state 'hello-state))
+					 (gamvas.start "canvas")
+					 (set! meat-loaded true)
+					 (console.log "Post add-on-load.")))))
+ 1000)
+
+(console.log "After call to game.event.add-on-load.")
+
+
+
 
 
 

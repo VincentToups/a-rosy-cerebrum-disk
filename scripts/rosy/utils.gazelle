@@ -1,0 +1,15 @@
+(module 
+ (("hooves/operator-functions" :all)
+  ("hooves/lisp-idioms" :all))
+
+ (define+ (random 
+		   [((magnitude)
+			 (* magnitude (Math.random)))
+			((magnitude offset)
+			 (+ offset (* magnitude (Math.random))))]))
+
+ (define+ (random-int
+		   [((magnitude)
+			 (Math.round (* magnitude (Math.random))))
+			((magnitude offset)
+			 (Math.round (+ offset (* magnitude (Math.random)))))])))
