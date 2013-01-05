@@ -1,0 +1,38 @@
+(module 
+ (("hooves/operator-functions" :all)
+  ("hooves/lisp-idioms" (:with-prefix idioms- :all))
+  ("rosy/drawing" :all)
+  ("rosy/utils" :all)
+  ((js "gamvas/gamvas-module" gamvas)))
+
+ (define (ball-create name x y)
+   (this._super name x y)
+   (set! this.restitution 0.4)
+   (this.body-circle this.position.x this.position.y 10))
+
+ (define (ball-draw time)
+   (this._super time)
+   (var x this.position.x)
+   (var y this.position.y)
+   (var st (gamvas.state.get-current-state))
+   (var c st.c)
+   (with-jitter st.c 10 3 
+				(lambda (c)
+				  (set! c.fill-style
+						(+ "rgba(" 255 "," 
+						   (random-int 80) "," 
+						   (random-int 80) ",.4)"))
+				  (c.begin-path)
+				  (c.arc (random 4 (- x 2)) 
+						 (random 4 (- y 2)) 
+						 (random .1 10) 
+						 0 
+						 (* 2 Math.PI) 
+						 false)
+				  (c.fill))))
+
+ (define+ Ball 
+   (gamvas.Actor.extend 
+	({}
+	 create ball-create
+	 draw ball-draw))))

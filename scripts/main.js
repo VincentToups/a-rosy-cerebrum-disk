@@ -27554,13 +27554,9 @@ gamvas.ParticleEmitter = gamvas.Actor.extend({
      */
 });
 ;
-console.log("Before add-on-load?  Can I see this in Chromium?");
-console.log("gamvas is: ", gamvas);
-console.log("Box2D is: ", Box2D);
-var meatLoaded = false;
-gamvas.event.addOnLoad((function ()  {
-  console.log("In load event for gamvas.");
-  return require(["hooves/operator-functions", "hooves/lisp-idioms", "rosy/drawing", "rosy/utils"], (function (moduleminus58c4bce870, moduleminus295baa4e1e, moduleminus6acd260b96, moduleC47fa390df)    {
+var mainLoaded = false;
+var main = (function ()  {
+  return require(["hooves/operator-functions", "hooves/lisp-idioms", "rosy/drawing", "rosy/utils", "rosy/levels", "rosy/play-state"], (function (moduleminus58c4bce870, moduleminus295baa4e1e, moduleminus6acd260b96, moduleC47fa390df, moduleDcbf7f2cbd, moduleminus9b6ba5db59)    {
     return ((function ()      {
       // ("hooves/operator-functions" :all)
       ;
@@ -27570,9 +27566,17 @@ gamvas.event.addOnLoad((function ()  {
       ;
       // ("rosy/utils" :all)
       ;
+      // ("rosy/levels" (:with-prefix level- :all))
+      ;
+      // ("rosy/play-state" :all)
+      ;
       console.log("Hello World");
+      // All the real code goes here.
+      ;
+      console.log("Got a level: ", moduleDcbf7f2cbd.testBed);
       var helloState = gamvas.State.extend({        
         draw:(function (time)          {
+          this.elapsed = moduleminus58c4bce870.plus(this.elapsed, time);
           this.c.fillStyle = "rgba(255, 0, 0, 0.4)";
           this.c.font = "bold 15px sans-serif";
           this.c.textAlign = "center";
@@ -27580,55 +27584,29 @@ gamvas.event.addOnLoad((function ()  {
             c.fillText("A ROSY CEREBRUM DISK", 0, 0);
             c.fillStyle = moduleminus58c4bce870.plus("rgba(", 255, ",", moduleC47fa390df.randomInt(80), ",", moduleC47fa390df.randomInt(80), ",.4)");
             c.beginPath();
-            c.arc(moduleC47fa390df.random(6, 20), moduleC47fa390df.random(6, 20), moduleC47fa390df.random(1, 10), 0, moduleminus58c4bce870.times(2, Math.PI), false);
+            c.arc(moduleC47fa390df.random(6, 12), moduleC47fa390df.random(6, 20), moduleC47fa390df.random(1, 10), 0, moduleminus58c4bce870.times(2, Math.PI), false);
             return c.fill();
             }));
+          ((moduleminus58c4bce870.greaterThan(this.elapsed, 3))?(gamvas.state.setState("testPlayState")) : (undefined));
+          }),
+        init:(function ()          {
+          this.elapsed = 0;
           })
       });
-      console.log("Post hello-state.", helloState);
-      console.log("In add onload callback.");
       gamvas.state.addState((new helloState("helloState")));
-      gamvas.start("canvas");
-      meatLoaded = true;
-      return console.log("Post add-on-load.");
+      gamvas.state.addState((new (moduleminus9b6ba5db59.createPlayState(moduleDcbf7f2cbd.testBed))("testPlayState")));
+      gamvas.state.setState("helloState");
+      gamvas.start("canvas", true);
+      mainLoaded = true;
       }))();
     }));
+  });
+gamvas.event.addOnLoad((function ()  {
+  return main();
   }));
 setTimeout((function ()  {
-  if ((!(meatLoaded)))    {
-    require(["hooves/operator-functions", "hooves/lisp-idioms", "rosy/drawing", "rosy/utils"], (function (moduleminus58c4bce870, moduleminus295baa4e1e, moduleminus6acd260b96, moduleC47fa390df)      {
-      return ((function ()        {
-        // ("hooves/operator-functions" :all)
-        ;
-        // ("hooves/lisp-idioms" (:with-prefix idioms- :all))
-        ;
-        // ("rosy/drawing" :all)
-        ;
-        // ("rosy/utils" :all)
-        ;
-        console.log("Hello World");
-        var helloState = gamvas.State.extend({          
-          draw:(function (time)            {
-            this.c.fillStyle = "rgba(255, 0, 0, 0.4)";
-            this.c.font = "bold 15px sans-serif";
-            this.c.textAlign = "center";
-            moduleminus6acd260b96.withJitter(this.c, 10, 3, (function (c)              {
-              c.fillText("A ROSY CEREBRUM DISK", 0, 0);
-              c.fillStyle = moduleminus58c4bce870.plus("rgba(", 255, ",", moduleC47fa390df.randomInt(80), ",", moduleC47fa390df.randomInt(80), ",.4)");
-              c.beginPath();
-              c.arc(moduleC47fa390df.random(6, 20), moduleC47fa390df.random(6, 20), moduleC47fa390df.random(1, 10), 0, moduleminus58c4bce870.times(2, Math.PI), false);
-              return c.fill();
-              }));
-            })
-        });
-        console.log("Post hello-state.", helloState);
-        console.log("In add onload callback.");
-        gamvas.state.addState((new helloState("helloState")));
-        gamvas.start("canvas");
-        meatLoaded = true;
-        return console.log("Post add-on-load.");
-        }))();
-      }));
+  if ((!(mainLoaded)))    {
+    console.log("addOnLoad failed, faking it.");
+    main();
     };
   }), 1000);
-console.log("After call to game.event.add-on-load.");

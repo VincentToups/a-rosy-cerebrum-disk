@@ -1,0 +1,50 @@
+(module 
+ (("hooves/operator-functions" :all)
+  ("hooves/lisp-idioms" (:with-prefix idioms- :all))
+  ("rosy/drawing" :all)
+  ("rosy/utils" :all)
+  ("rosy/wall" :all)
+  ("rosy/ball" :all)
+  ((js "gamvas/gamvas-module" gamvas)))
+
+ (define-macro keyed? (key-sig)
+   `(gamvas.key.is-pressed (.. gamvas key ,key-sig)))
+
+ (define (make-init level)
+   (lambda ()
+	 (set! gamvas.physics.pixelsPerMeter 128)
+	 (var w (gamvas.physics.reset-world 0 9.8 false))
+	 (var self this)
+	 (match (level)
+			(({} geometry g
+				 initial-position [: px py])
+			 (for (i :in g)
+				  (self.add-actor [g i]))
+			 (self.add-actor (new Ball "Player" px py))))))
+
+ (define (draw time)
+   (if (&& (keyed? PAGE_UP)
+		   (< this.camera.zoom-factor 1.5))
+	   (this.camera.zoom (* time 0.7)))
+   (if (&& (keyed? PAGE_DOWN)
+		   (> this.camera.zoom-factor 0.1))
+	   (this.camera.zoom (* time -0.7)))
+
+   (if (keyed? UP)
+	   (this.camera.move 0 (* time -70)))
+   (if (keyed? DOWN)
+	   (this.camera.move 0 (* time 70)))
+   (if (keyed? LEFT)
+	   (this.camera.move (* time -70) 0))
+   (if (keyed? RIGHT)
+	   (this.camera.move (* time 70) 0))
+   (var vec (new gamvas.Vector2D 0 9.8))
+   (gamvas.physics.set-gravity vec))
+
+ (define+ (create-play-state params)
+   (gamvas.State.extend 
+	({} 
+	 init (make-init params)
+	 draw draw))))
+
+

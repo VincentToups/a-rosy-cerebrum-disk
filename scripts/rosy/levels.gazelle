@@ -1,0 +1,19 @@
+(module
+ (("hooves/operator-functions" :all)
+  ("hooves/lisp-idioms" (:with-prefix idioms- :all))
+  ("rosy/drawing" :all)
+  ("rosy/utils" :all)
+  ("rosy/wall" :all)
+  ("rosy/ball" :all)
+  ((js "gamvas/gamvas-module" gamvas)))
+
+ (define wall-count 0)
+ (define (w* x y w h)
+   (set! wall-count (+ 1 wall-count))
+   (new Wall (+ "wall-" wall-count (JSON.stringify [: x y w h])) x y w h))
+
+ (define+ test-bed
+   (lambda () ({} geometry 
+				  [: (w* 0 80  220 10)]
+				  initial-position [: 12 20]))))
+

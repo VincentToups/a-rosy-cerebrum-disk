@@ -2,81 +2,71 @@
 (include-js "gamvas/Box2dWeb-2.1.a.3.js")
 (include-js "gamvas/gamvas.debug.js")
 
-(console.log "Before add-on-load?  Can I see this in Chromium?")
-(console.log "gamvas is: " gamvas)
-(console.log "Box2D is: " Box2D)
+(var main-loaded false)
 
-(var meat-loaded false)
+(define (main)
+  (require
+   (("hooves/operator-functions" :all)
+	("hooves/lisp-idioms" (:with-prefix idioms- :all))
+	("rosy/drawing" :all)
+	("rosy/utils" :all)
+	("rosy/levels" (:with-prefix level- :all))
+	("rosy/play-state" :all))
+   (console.log "Hello World")
+
+   (comment "All the real code goes here.")
+   (console.log "Got a level: " level-test-bed)
+
+   (var hello-state 
+		(gamvas.State.extend 
+		 ({} draw 
+			 (function 
+			  (time)
+			  (set! this.elapsed (+ this.elapsed time))
+			  (set! this.c.fill-style '(rgba 255 0 0 .4))
+			  (set! this.c.font "bold 15px sans-serif")
+			  (set! this.c.text-align "center")
+			  (with-jitter 
+			   this.c 10 3 
+			   (lambda (c) 
+				 (c.fill-text 
+				  "A ROSY CEREBRUM DISK" 0 0)
+				 (set! c.fill-style 
+					   (+ "rgba(" 255 "," 
+						  (random-int 80) "," 
+						  (random-int 80) ",.4)"))
+				 (c.begin-path)
+				 (c.arc (random 6 12) 
+						(random 6 20) 
+						(random 1 10) 
+						0 
+						(* 2 Math.PI) 
+						false)
+				 (c.fill)))
+			  (if (> this.elapsed 3)
+				  (gamvas.state.set-state 'test-play-state)))
+			 init
+			 (function ()
+					   (set! this.elapsed 0)))))   
+   (gamvas.state.add-state 
+	(new hello-state 'hello-state))
+   (gamvas.state.add-state 
+	(new (create-play-state level-test-bed) 'test-play-state))
+   (gamvas.state.set-state 'hello-state)
+   (gamvas.start "canvas" true)
+   (set! main-loaded true)))
 
 (gamvas.event.add-on-load 
  (lambda ()
-   (console.log "In load event for gamvas.")
-   (require
-	(("hooves/operator-functions" :all)
-	 ("hooves/lisp-idioms" (:with-prefix idioms- :all))
-	 ("rosy/drawing" :all)
-	 ("rosy/utils" :all))
-	(console.log "Hello World")
-	(var hello-state 
-		 (gamvas.State.extend 
-		  ({} draw (function 
-					(time)
-
-					(set! this.c.fill-style '(rgba 255 0 0 .4))
-					(set! this.c.font "bold 15px sans-serif")
-					(set! this.c.text-align "center")
-					(with-jitter this.c 10 3 
-								 (lambda (c) 
-								   (c.fill-text "A ROSY CEREBRUM DISK" 0 0)
-								   (set! c.fill-style (+ "rgba(" 255 "," (random-int 80) "," (random-int 80) ",.4)"))
-								   (c.begin-path)
-								   (c.arc (random 6 20) (random 6 20) (random 1 10) 0 (* 2 Math.PI) false)
-								   (c.fill)))))))
-	
-	(console.log "Post hello-state." hello-state)
-	
-	(console.log "In add onload callback.")
-	(gamvas.state.add-state 
-	 (new hello-state 'hello-state))
-	(gamvas.start "canvas")
-	(set! meat-loaded true)
-	(console.log "Post add-on-load."))))
+   (main)))
 
 (set-timeout 
- (function () (_if (! meat-loaded)
-				   ((require
-					 (("hooves/operator-functions" :all)
-					  ("hooves/lisp-idioms" (:with-prefix idioms- :all))
-					  ("rosy/drawing" :all)
-					  ("rosy/utils" :all))
-					 (console.log "Hello World")
-					 (var hello-state 
-						  (gamvas.State.extend 
-						   ({} draw (function 
-									 (time)
-
-									 (set! this.c.fill-style '(rgba 255 0 0 .4))
-									 (set! this.c.font "bold 15px sans-serif")
-									 (set! this.c.text-align "center")
-									 (with-jitter this.c 10 3 
-												  (lambda (c) 
-													(c.fill-text "A ROSY CEREBRUM DISK" 0 0)
-													(set! c.fill-style (+ "rgba(" 255 "," (random-int 80) "," (random-int 80) ",.4)"))
-													(c.begin-path)
-													(c.arc (random 6 20) (random 6 20) (random 1 10) 0 (* 2 Math.PI) false)
-													(c.fill)))))))
-					 
-					 (console.log "Post hello-state." hello-state)
-					 
-					 (console.log "In add onload callback.")
-					 (gamvas.state.add-state 
-					  (new hello-state 'hello-state))
-					 (gamvas.start "canvas")
-					 (set! meat-loaded true)
-					 (console.log "Post add-on-load.")))))
+ (function () (_if (! main-loaded)
+				   ((console.log "addOnLoad failed, faking it.")
+					(main))))
  1000)
 
-(console.log "After call to game.event.add-on-load.")
+
 
 
 
