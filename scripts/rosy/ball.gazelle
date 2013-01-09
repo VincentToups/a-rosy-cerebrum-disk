@@ -5,13 +5,20 @@
   ("rosy/utils" :all)
   ((js "gamvas/gamvas-module" gamvas)))
 
- (define (ball-create name x y)
-   (this._super name x y)
-   (set! this.restitution 0.4)
-   (this.body-circle this.position.x this.position.y 10))
+ (define (ball-create 
+		  [((name x y)
+			(recur name x y gamvas.physics.DYNAMIC))
+		   ((name x y dynamical-character)
+			(this._super name x y)
+			(set! this.restitution 0.4)
+			(set! this.p-1 [: x y])
+			(set! this.p-2 [: (+ 1 x) (+ 1 y)])
+			(this.body-circle this.position.x this.position.y 10 dynamical-character))]))
 
  (define (ball-draw time)
    (this._super time)
+   (set! this.p-2 this.p-1)
+   (set! this.p-1 [: this.position.x this.position.y])
    (var x this.position.x)
    (var y this.position.y)
    (var st (gamvas.state.get-current-state))
@@ -31,8 +38,19 @@
 						 false)
 				  (c.fill))))
 
+ (define (stationary?)
+   (let ((x this.position.x)
+		 (y this.position.y)
+		 ([: x-1 y-1] this.p-1)
+		 ([: x-2 y-2] this.p-2))
+	 (&& (=== x x-1)
+		 (=== x-1 x-2)
+		 (=== y y-1)
+		 (=== y-1 y-2))))
+
  (define+ Ball 
    (gamvas.Actor.extend 
 	({}
 	 create ball-create
-	 draw ball-draw))))
+	 draw ball-draw
+	 stationary? stationary?))))

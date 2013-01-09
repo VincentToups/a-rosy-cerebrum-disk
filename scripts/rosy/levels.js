@@ -1,9 +1,9 @@
 define(["hooves/operator-functions", "hooves/lisp-idioms", "rosy/drawing", "rosy/utils", "rosy/wall", "rosy/ball", "gamvas/gamvas-module"], (function (moduleminus58c4bce870, moduleminus295baa4e1e, moduleminus6acd260b96, moduleC47fa390df, moduleB147560188, moduleC4807d4439, gamvas)  {
-  var currentModuleminus84794 = {    
+  var currentModuleminus44750 = {    
     
   };
   var setModuleObject = (function (value)    {
-    currentModuleminus84794 = value;
+    currentModuleminus44750 = value;
     });
   ((function ()    {
     var defineplus = "macro - no dynamic value.";
@@ -27,12 +27,12 @@ define(["hooves/operator-functions", "hooves/lisp-idioms", "rosy/drawing", "rosy
       wallCount = moduleminus58c4bce870.plus(1, wallCount);
       return (new moduleB147560188.Wall(moduleminus58c4bce870.plus("wall-", wallCount, JSON.stringify([x, y, w, h])), x, y, w, h));
       });
-    currentModuleminus84794.testBed = (function ()      {
+    currentModuleminus44750.testBed = (function ()      {
       return {        
         geometry:[wtimes(0, 80, 220, 10)],
         initialPosition:[12, 20]
       };
       });
     }))();
-  return currentModuleminus84794;
+  return currentModuleminus44750;
   }))

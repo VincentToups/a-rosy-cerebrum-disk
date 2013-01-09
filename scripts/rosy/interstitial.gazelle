@@ -1,0 +1,123 @@
+(module 
+ (("hooves/operator-functions" :all)
+  ("hooves/lisp-idioms" :all)
+  ("hooves/hooves" :all)
+  ("rosy/drawing" :all)
+  ("rosy/utils" :all)
+  ((js "gamvas/gamvas-module" gamvas)))
+
+ (define+ (make-message str)
+   (map (lambda (x)
+		  [: x]) 
+		(str.split " ")))
+
+ (define (make-init messages :-
+					(options{} 
+					 (done-callback (lambda () undefined))
+					 (font-size 10)
+					 (font-style "bold")
+					 (font-name "sans-serif")
+					 (dwell-time 1.5)
+					 (zoom-factor .75)
+					 (jitter 1.5)
+					 (fill-rgba '(rgba 255 0 0 .4))
+					 (dead-time 1.0)))
+   (lambda (init)
+	 (set! (@ messages) messages)
+	 (set! (@ messages-remaining) messages)
+	 (set! (@ options) (collect{} 
+						done-callback
+						font-size
+						font-style
+						font-name
+						dwell-time
+						zoom-factor
+						jitter
+						fill-rgba
+						dead-time))
+	 (match (gamvas.get-canvas-dimension)
+			(({} w w h h)
+			 (set! (@ w) w)
+			 (set! (@ h) h)))
+	 (set! (@ font-string) (+ font-style " " font-size "px " font-name))
+	 (set! (@ y-scale) (* zoom-factor (/ (@ h) font-size )))
+	 (set! (@ sub-state) :start)
+	 (console.log "In interstitial init, got " (@ messages) " and " (@ options))))
+
+ (define (next-message)
+   (match (@ messages-remaining)
+		  ([: (and current-message
+				   [:- message])
+			  (tail rest)]
+		   (set! (@ messages-remaining) rest)
+		   (set! (@ x-scale) (* (@ options zoom-factor) (/ (@ w) (.. (.. (@ c) (measure-text message)) width))))
+		   (set! (@ sub-state) [: :message current-message 0])
+		   (console.log "Interstitial switch: " (@ sub-state) (.. (@ c) (measure-text message)) (@ x-scale) (@ y-scale)))
+		  ([:]
+		   (console.log "Interstitial done, calling callback.")
+		   ((@ options done-callback)))))
+
+ (define (draw-start time)
+   (set! (@ t-acc) (+ this.t-acc time))
+   (if (empty? (@ messages-remaining))
+	   ((@ options done-callback))
+	 (@ (next-message))))
+
+ (define (draw-message time)
+   (var c (@ c))
+   (match (@ sub-state)
+		  ([: :message 
+			  (and whole-message
+				   [: message-text 
+					  (tail [:- (opt message-dwell 1.5)
+								(opt dead-dwell 1)])])
+			  elapsed]
+		   (save-excursion c
+						   (set! c.font (@ font-string))
+						   (set! c.text-align "center")
+						   (set! c.text-baseline "middle")
+						   (set! c.fill-style (@ options fill-rgba))
+						   (this.camera.set-zoom (@ x-scale)
+												 (@ y-scale)) 
+						   (comment (c.scale (@ x-scale) (@ y-scale)))
+						   (with-jitter 
+							this.c 10 (@ options jitter) 
+							(lambda (c) 
+							  (c.fill-text 
+							   message-text 0 0))))
+		   (if (> elapsed message-dwell)
+			   (@ (to-dead-time))
+			 (set! (@ sub-state)
+				   [: :message whole-message (+ elapsed time)])))))
+
+ (define (to-dead-time)
+   (set! (@ sub-state)
+		 (match (@ sub-state)
+				([: :message [: message-text 
+								(tail [:- (opt message-dwell 1.5)
+										  (opt dead-dwell 1)])] elapsed]
+				 [: :dead-time dead-dwell elapsed]))))
+
+ (define (draw-dead-time time)
+   (match (@ sub-state)
+		  ([: :dead-time dead-dwell elapsed]
+		   (if (> elapsed dead-dwell)
+			   (@ (next-message))
+			 (set! (@ sub-state)
+				   [: :dead-time dead-dwell (+ elapsed time)])))))
+
+ (define (draw time)
+   (match (@ sub-state)
+		  (:start (@ (next-message)))
+		  ([: :message (tail _)] (@ (draw-message time)))
+		  ([: :dead-time (tail _)] (@ (draw-dead-time time)))))
+
+ (define+ (make-interstitial messages options) 
+   (gamvas.State.extend 
+	({} init (make-init messages options)
+		draw draw
+		next-message next-message
+		draw-start draw-start
+		draw-message draw-message
+		to-dead-time to-dead-time
+		draw-dead-time draw-dead-time))))

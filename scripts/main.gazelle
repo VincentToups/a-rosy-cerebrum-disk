@@ -11,7 +11,8 @@
 	("rosy/drawing" :all)
 	("rosy/utils" :all)
 	("rosy/levels" (:with-prefix level- :all))
-	("rosy/play-state" :all))
+	("rosy/play-state" :all)
+	("rosy/interstitial" :all))
    (console.log "Hello World")
 
    (comment "All the real code goes here.")
@@ -44,16 +45,25 @@
 						false)
 				 (c.fill)))
 			  (if (> this.elapsed 3)
-				  (gamvas.state.set-state 'test-play-state)))
+				  (gamvas.state.set-state 'interstitial-test)))
 			 init
 			 (function ()
-					   (set! this.elapsed 0)))))   
+					   (set! this.elapsed 0)))))
+   (console.log "Adding interstitial.")
+   (gamvas.state.add-state 
+	(new (make-interstitial (make-message "This is an interstitial screen test ?"
+										  )
+							({} done-callback
+								(lambda ()
+								  (console.log "Trying to set to test-play-state")
+								  (gamvas.state.set-state 'test-play-state)))) 
+		 'interstitial-test))
    (gamvas.state.add-state 
 	(new hello-state 'hello-state))
    (gamvas.state.add-state 
 	(new (create-play-state level-test-bed) 'test-play-state))
-   (gamvas.state.set-state 'hello-state)
    (gamvas.start "canvas" true)
+   (gamvas.state.set-state 'hello-state)
    (set! main-loaded true)))
 
 (gamvas.event.add-on-load 

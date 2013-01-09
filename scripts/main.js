@@ -27556,7 +27556,7 @@ gamvas.ParticleEmitter = gamvas.Actor.extend({
 ;
 var mainLoaded = false;
 var main = (function ()  {
-  return require(["hooves/operator-functions", "hooves/lisp-idioms", "rosy/drawing", "rosy/utils", "rosy/levels", "rosy/play-state"], (function (moduleminus58c4bce870, moduleminus295baa4e1e, moduleminus6acd260b96, moduleC47fa390df, moduleDcbf7f2cbd, moduleminus9b6ba5db59)    {
+  return require(["hooves/operator-functions", "hooves/lisp-idioms", "rosy/drawing", "rosy/utils", "rosy/levels", "rosy/play-state", "rosy/interstitial"], (function (moduleminus58c4bce870, moduleminus295baa4e1e, moduleminus6acd260b96, moduleC47fa390df, moduleDcbf7f2cbd, moduleminus9b6ba5db59, moduleminus35a3619332)    {
     return ((function ()      {
       // ("hooves/operator-functions" :all)
       ;
@@ -27569,6 +27569,8 @@ var main = (function ()  {
       // ("rosy/levels" (:with-prefix level- :all))
       ;
       // ("rosy/play-state" :all)
+      ;
+      // ("rosy/interstitial" :all)
       ;
       console.log("Hello World");
       // All the real code goes here.
@@ -27587,16 +27589,23 @@ var main = (function ()  {
             c.arc(moduleC47fa390df.random(6, 12), moduleC47fa390df.random(6, 20), moduleC47fa390df.random(1, 10), 0, moduleminus58c4bce870.times(2, Math.PI), false);
             return c.fill();
             }));
-          ((moduleminus58c4bce870.greaterThan(this.elapsed, 3))?(gamvas.state.setState("testPlayState")) : (undefined));
+          ((moduleminus58c4bce870.greaterThan(this.elapsed, 3))?(gamvas.state.setState("interstitialTest")) : (undefined));
           }),
         init:(function ()          {
           this.elapsed = 0;
           })
       });
+      console.log("Adding interstitial.");
+      gamvas.state.addState((new (moduleminus35a3619332.makeInterstitial(moduleminus35a3619332.makeMessage("This is an interstitial screen test ?"), {        
+        doneCallback:(function ()          {
+          console.log("Trying to set to test-play-state");
+          return gamvas.state.setState("testPlayState");
+          })
+      }))("interstitialTest")));
       gamvas.state.addState((new helloState("helloState")));
       gamvas.state.addState((new (moduleminus9b6ba5db59.createPlayState(moduleDcbf7f2cbd.testBed))("testPlayState")));
-      gamvas.state.setState("helloState");
       gamvas.start("canvas", true);
+      gamvas.state.setState("helloState");
       mainLoaded = true;
       }))();
     }));

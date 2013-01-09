@@ -15,14 +15,18 @@
 	 (set! gamvas.physics.pixelsPerMeter 128)
 	 (var w (gamvas.physics.reset-world 0 9.8 false))
 	 (var self this)
+	 (set! this.sub-state :in-play)
+	 (set! this.log-counter 0)
 	 (match (level)
 			(({} geometry g
 				 initial-position [: px py])
 			 (for (i :in g)
-				  (self.add-actor [g i]))
-			 (self.add-actor (new Ball "Player" px py))))))
+				  (this.add-actor [g i]))
+			 (set! this.ball (new Ball "Player" px py))
+			 (this.add-actor this.ball)))
+	 (console.log "this.ball is " this.ball)))
 
- (define (draw time)
+ (define (draw-in-play time)
    (if (&& (keyed? PAGE_UP)
 		   (< this.camera.zoom-factor 1.5))
 	   (this.camera.zoom (* time 0.7)))
@@ -39,12 +43,32 @@
    (if (keyed? RIGHT)
 	   (this.camera.move (* time 70) 0))
    (var vec (new gamvas.Vector2D 0 9.8))
-   (gamvas.physics.set-gravity vec))
+   (gamvas.physics.set-gravity vec)
+   (if (&& (! (=== "undefined" (typeof this.ball))) 
+		   (this.ball.stationary?))
+	   (set! this.sub-state :ball-at-rest)))
+
+ (define (draw time)
+   (set! this.log-counter (+ 1 this.log-counter))
+   (match this.sub-state
+		  (:in-play (this.draw-in-play time))
+		  (other-value 
+		   (this.draw-in-play time))))
+
+ (define (log 
+		  [((arguments (defined modulo))
+			(if (%===0 this.log-counter modulo)
+				(console.log.apply console arguments)))
+		   ((arguments)
+			(recur arguments 300))]))
 
  (define+ (create-play-state params)
    (gamvas.State.extend 
 	({} 
 	 init (make-init params)
-	 draw draw))))
+	 draw draw
+	 draw-in-play draw-in-play
+	 log log))))
+
 
 

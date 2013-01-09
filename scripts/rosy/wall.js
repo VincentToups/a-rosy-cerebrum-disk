@@ -1,9 +1,9 @@
 define(["hooves/operator-functions", "hooves/lisp-idioms", "rosy/drawing", "rosy/utils", "gamvas/gamvas-module"], (function (moduleminus58c4bce870, moduleminus295baa4e1e, moduleminus6acd260b96, moduleC47fa390df, gamvas)  {
-  var currentModuleminus84098 = {    
+  var currentModuleminus44753 = {    
     
   };
   var setModuleObject = (function (value)    {
-    currentModuleminus84098 = value;
+    currentModuleminus44753 = value;
     });
   ((function ()    {
     var defineplus = "macro - no dynamic value.";
@@ -57,10 +57,10 @@ define(["hooves/operator-functions", "hooves/lisp-idioms", "rosy/drawing", "rosy
         return c.fill();
         }));
       });
-    currentModuleminus84098.Wall = gamvas.Actor.extend({      
+    currentModuleminus44753.Wall = gamvas.Actor.extend({      
       create:wallCreate,
       draw:wallDraw
     });
     }))();
-  return currentModuleminus84098;
+  return currentModuleminus44753;
   }))

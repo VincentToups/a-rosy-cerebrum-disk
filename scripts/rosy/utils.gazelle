@@ -2,6 +2,9 @@
  (("hooves/operator-functions" :all)
   ("hooves/lisp-idioms" :all))
 
+ (define+ (%===0 n m)
+   (=== 0 (% n m)))
+
  (define+ (random 
 		   [((magnitude)
 			 (* magnitude (Math.random)))
