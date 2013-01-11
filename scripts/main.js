@@ -27596,7 +27596,7 @@ var main = (function ()  {
           })
       });
       console.log("Adding interstitial.");
-      gamvas.state.addState((new (moduleminus35a3619332.makeInterstitial(moduleminus35a3619332.makeMessage("This is an interstitial screen test ?"), {        
+      gamvas.state.addState((new (moduleminus35a3619332.makeInterstitial(moduleminus35a3619332.makeMessage("Hi"), {        
         doneCallback:(function ()          {
           console.log("Trying to set to test-play-state");
           return gamvas.state.setState("testPlayState");

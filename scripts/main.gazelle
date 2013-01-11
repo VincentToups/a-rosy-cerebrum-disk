@@ -51,7 +51,7 @@
 					   (set! this.elapsed 0)))))
    (console.log "Adding interstitial.")
    (gamvas.state.add-state 
-	(new (make-interstitial (make-message "This is an interstitial screen test ?"
+	(new (make-interstitial (make-message "Hi"
 										  )
 							({} done-callback
 								(lambda ()

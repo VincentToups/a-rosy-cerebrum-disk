@@ -19,7 +19,7 @@
 					 (font-name "sans-serif")
 					 (dwell-time 1.5)
 					 (zoom-factor .75)
-					 (jitter 1.5)
+					 (jitter 3)
 					 (fill-rgba '(rgba 255 0 0 .4))
 					 (dead-time 1.0)))
    (lambda (init)
@@ -81,7 +81,7 @@
 												 (@ y-scale)) 
 						   (comment (c.scale (@ x-scale) (@ y-scale)))
 						   (with-jitter 
-							this.c 10 (@ options jitter) 
+							this.c 10 (/ (@ options jitter) (@ x-scale)) 
 							(lambda (c) 
 							  (c.fill-text 
 							   message-text 0 0))))

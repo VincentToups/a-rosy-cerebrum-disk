@@ -1,0 +1,51 @@
+(module 
+ (("hooves/operator-functions" :all)
+  ("hooves/lisp-idioms" :all)
+  ("hooves/hooves" :all)
+  ((js "gamvas/gamvas-module" gamvas)))
+
+ (defmacro @g ((tail exprs))
+   `(.. gamvas ,@exprs))
+
+ (defmacro @gk (tail exprs)
+   `(.. gamvas ,@exprs))
+
+ (defmacro @gm (tail exprs)
+   `(.. gamvas key ,@exprs))
+
+ (var mouse-left gamvas.mouse.LEFT
+	  mouse-right gamvas.mouse.RIGHT
+	  mouse-center gamvas.mouse.CENTER
+	  up (gk UP)
+	  down (gk DOWN)
+	  left (gk LEFT)
+	  right (gk RIGHT)
+	  w (gk W)
+	  n (gk N)
+	  t (gk T)
+	  s (gk S)
+	  l (gk L)
+	  r (gk R))
+
+ (define (mouse-pressed? b)
+   (gamvas.mouse.is-pressed b))
+
+ (define (key-pressed k)
+   (gamvas.key.is-pressed k))
+
+ (define (init)
+   (set! (@ sub-state) :unfocused))
+
+ (define (mouse-in-world)
+   (var-match ({} x x y y)
+			  (gamvas.mouse.get-position))
+   (@ camera (to-world x y)))
+
+ (define (move-to-mouse)
+   (var-match ({} x x y y) (@ (mouse-in-world)))
+   (@ camera (set-position x y)))
+
+ (define (draw-unfocused time)
+   (if (mouse-pressed? mouse-left)
+	   (@ (move-to-mouse))))
+

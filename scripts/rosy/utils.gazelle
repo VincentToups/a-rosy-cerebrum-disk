@@ -1,9 +1,23 @@
 (module 
  (("hooves/operator-functions" :all)
-  ("hooves/lisp-idioms" :all))
+  ("hooves/lisp-idioms" :all)
+  ((js "gamvas/gamvas-module" gamvas)))
 
  (define+ (%===0 n m)
    (=== 0 (% n m)))
+
+ (define+ (move-towards (and camera
+							 ({}- position ({} x cx y cy))) 
+						({} x x y y)
+						time)
+   (var d (new gamvas.Vector2D (- x cx)
+			   (- y cy)))
+   (var len (d.length))
+   (var dir (d.normalized))
+   (var move (new gamvas.Vector2D 
+				  (* time dir.x (Math.pow (* 0.1 len) 4))
+				  (* time dir.y (Math.pow (* 0.1 len) 4))))
+   (camera.move move.x move.y))
 
  (define+ (random 
 		   [((magnitude)

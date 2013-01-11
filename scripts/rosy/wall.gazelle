@@ -8,12 +8,17 @@
  (define (small-jitter about)
    (+ about (random 1)))
 
- (define (wall-create name x y w h)
+
+ (define (wall-create name x y w h :- (opt r 0))
    (this._super name x y)
    (set! this.wall-w w)
    (set! this.wall-h h)
    (console.log "Creating a wall at " (JSON.stringify [: x y w h]))
-   (this.body-rect this.position.x this.position.y w h gamvas.physics.STATIC))
+   (this.body-rect this.position.x this.position.y w h gamvas.physics.STATIC)
+   (this.set-rotation r)
+   (set! this.rotation r)
+   (set! this.r r)
+   (console.log "wall rotation is " this.rotation))
 
  (define (wall-draw time)
    (this._super time)
@@ -22,17 +27,29 @@
    (var hw (/ this.wall-w 2))
    (var hh (/ this.wall-h 2))
 
-   (var tlx (- x hw))
-   (var tly (+ y hh))
+   (comment   (var tlx (- x hw))
+			  (var tly (+ y hh))
 
-   (var trx (+ x hw))
-   (var try* (+ y hh))
+			  (var trx (+ x hw))
+			  (var try* (+ y hh))
 
-   (var brx (+ x hw))
-   (var bry (- y hh))
+			  (var brx (+ x hw))
+			  (var bry (- y hh))
 
-   (var blx (- x hw))
-   (var bly (- y hh))
+			  (var blx (- x hw))
+			  (var bly (- y hh)))
+
+   (var tlx (- hw))
+   (var tly (+ hh))
+
+   (var trx (+ hw))
+   (var try* (+ hh))
+
+   (var brx (+ hw))
+   (var bry (- hh))
+
+   (var blx (- hw))
+   (var bly (- hh))
 
    (var st (gamvas.state.get-current-state))
    (var c st.c)
@@ -40,12 +57,15 @@
 					 (x y)
 					 (c.line-to (small-jitter x)
 								(small-jitter y))))
+   (var r this.rotation)
    (with-jitter c 10 3 
 				(lambda (c)
 				  (set! c.fill-style 
-						(+ "rgba(" (random-int 80) "," 
-						   (random-int 80) "," 
-						   255 ",.4)"))
+						(+ "rgba(" (random-int 20 100) "," 
+						   (random-int 20 149) "," 
+						   237 ",.4)"))
+				  (c.translate x y)
+				  (c.rotate r)
 				  (c.begin-path)
 				  (c.move-to (small-jitter tlx) (small-jitter tly))
 				  (jit-line-to trx try*)

@@ -45,8 +45,13 @@
    (var vec (new gamvas.Vector2D 0 9.8))
    (gamvas.physics.set-gravity vec)
    (if (&& (! (=== "undefined" (typeof this.ball))) 
-		   (this.ball.stationary?))
-	   (set! this.sub-state :ball-at-rest)))
+		   (this.ball.stationary?)
+		   (=== this.state :in-play))
+	   (progn 
+		 (console.log "Ball stationary at " this.ball.position)
+		 (set! this.sub-state :ball-at-rest)))
+   (comment (this.camera.set-position this.ball.position.x this.ball.position.y))
+   (move-towards this.camera this.ball.position time))
 
  (define (draw time)
    (set! this.log-counter (+ 1 this.log-counter))

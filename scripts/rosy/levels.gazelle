@@ -8,12 +8,15 @@
   ((js "gamvas/gamvas-module" gamvas)))
 
  (define wall-count 0)
- (define (w* x y w h)
+ (define (w* x y w h :- (opt r 0))
    (set! wall-count (+ 1 wall-count))
-   (new Wall (+ "wall-" wall-count (JSON.stringify [: x y w h])) x y w h))
+   (new Wall (+ "wall-" wall-count (JSON.stringify [: x y w h])) x y w h r))
+
+ (define pi Math.PI)
 
  (define+ test-bed
    (lambda () ({} geometry 
-				  [: (w* 0 80  220 10)]
+				  [: (w* 0 80  800 10 (/ pi 10))
+					 (w* 0 110 800 10 (- (/ pi 10)))]
 				  initial-position [: 12 20]))))
 

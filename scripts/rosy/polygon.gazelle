@@ -1,0 +1,77 @@
+(module 
+ (("hooves/operator-functions" :all)
+  ("hooves/lisp-idioms" (:with-prefix idioms- :all))
+  ("hooves/hooves" :all)
+  ("rosy/drawing" :all)
+  ("rosy/utils" :all)
+  ((js "gamvas/gamvas-module" gamvas)))
+
+ (define (small-jitter about)
+   (+ about (random 1)))
+
+ (define (center-of-mass points)
+   (var n 0)
+   (var cx 0)
+   (var cy 0)
+   (for (i :in points)
+		(set! cx (+ cx [[points i] 0]))
+		(set! cy (+ cy [[points i] 1])))
+   (new gamvas.Vector2D (/ cx n) (/ cy n)))
+
+ (define (remove-reference ref points)
+   (map 
+	(lambda ([: x y])
+	  [: (- x [ref 0])
+		 (- y [ref 0])])
+	points))
+
+ (define (add-reference [: x y] points)
+   (remove-reference [: (- x) (- y)] points))
+
+ (define (polygon-create name points :- (options{} (reference [: 0 0])))
+   (this._super name rx ry)
+   (var points (remove-reference reference points))
+   (var center (center-of-mass points))
+   (var points (add-reference center points)))
+
+ (define (polygon-draw time)
+   (this._super time)
+   (var x this.position.x)
+   (var y this.position.y)
+   (var hw (/ this.polygon-w 2))
+   (var hh (/ this.polygon-h 2))
+
+   (var tlx (- x hw))
+   (var tly (+ y hh))
+
+   (var trx (+ x hw))
+   (var try* (+ y hh))
+
+   (var brx (+ x hw))
+   (var bry (- y hh))
+
+   (var blx (- x hw))
+   (var bly (- y hh))
+
+   (var st (gamvas.state.get-current-state))
+   (var c st.c)
+   (var jit-line-to (function
+					 (x y)
+					 (c.line-to (small-jitter x)
+								(small-jitter y))))
+   (with-jitter c 10 3 
+				(lambda (c)
+				  (set! c.fill-style 
+						(+ "rgba(" (random-int 80) "," 
+						   (random-int 80) "," 
+						   255 ",.4)"))
+				  (c.begin-path)
+				  (c.move-to (small-jitter tlx) (small-jitter tly))
+				  (jit-line-to trx try*)
+				  (jit-line-to brx bry)
+				  (jit-line-to blx bly)
+				  (c.fill))))
+
+ (define+ Wall 
+   (gamvas.Actor.extend ({} create polygon-create
+							draw polygon-draw))))
