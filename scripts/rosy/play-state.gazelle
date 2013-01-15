@@ -58,7 +58,8 @@
    (match this.sub-state
 		  (:in-play (this.draw-in-play time))
 		  (other-value 
-		   (this.draw-in-play time))))
+		   (this.draw-in-play time)))
+   (gamvas.physics.draw-debug))
 
  (define (log 
 		  [((arguments (defined modulo))

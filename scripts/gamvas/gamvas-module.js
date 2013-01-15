@@ -1,6 +1,8 @@
 define(["gamvas/box-2d-module"],function(Box2D){
 
 	if (typeof gamvas==="undefined"){
+		console.log("Gamvas module found that there is no global gamvas object"
+					+ ", importing its own code.")
 		/**
 		 * Copyright (C) 2012 Heiko Irrgang <hi@93i.de>
 		 * 
@@ -7221,6 +7223,8 @@ define(["gamvas/box-2d-module"],function(Box2D){
 		window.gamvas = gamvas;
 
 
+	} else {
+		console.log ("gamvas already initialized, returning global gamvas object.")
 	}
 
 	return gamvas;

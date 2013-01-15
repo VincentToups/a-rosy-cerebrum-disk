@@ -1,10 +1,74 @@
 (module 
  (("hooves/operator-functions" :all)
   ("hooves/lisp-idioms" :all)
+  ("hooves/hooves" :all)
   ((js "gamvas/gamvas-module" gamvas)))
 
  (define+ (%===0 n m)
    (=== 0 (% n m)))
+
+ (define+ (drgba :- (options{} (r 100)
+							  (dr 0)
+							  (g 100)
+							  (dg 0)
+							  (b 100)
+							  (db 0)
+							  (a 0)
+							  (da 0)))
+
+   (set! (@ r) r)
+   (set! (@ g) g)
+   (set! (@ b) b)
+   (set! (@ a) a)
+
+   (set! (@ dr) dr)
+   (set! (@ dg) dg)
+   (set! (@ db) db)
+   (set! (@ da) da)
+   this)
+
+ (define (color-rectify v)
+   (Math.round 
+	(if (> v 255) 
+		255
+	  (if (< v 0) 0 v))))
+
+ (define (alpha-rectify a)
+   (if (> a 1) 
+	   1
+	 (if (< a 0) 0 a)))
+
+ (define (color-random c m)
+   (var r (- (/ m 2) (random m)))
+
+   (var a (color-rectify (+ c r)))
+
+   a)
+
+ (define (alpha-random c m)
+   (var r (- (/ m 2) (random m)))
+
+   (var a (alpha-rectify (+ c r)))
+
+   a)
+
+ 
+
+ (set! drgba.prototype.to-string 
+	   (lambda ()
+
+		 (+ "rgba(" 
+			(color-random (@ r) (@ dr))
+			","
+			(color-random (@ g) (@ dg))
+			","
+			(color-random (@ b) (@ db))
+			","
+			(alpha-random (@ a) (@ da))
+			")")))
+
+ (define+ (make-drgba options)
+   (new drgba options))
 
  (define+ (move-towards (and camera
 							 ({}- position ({} x cx y cy))) 

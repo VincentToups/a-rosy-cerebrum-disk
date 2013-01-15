@@ -5,14 +5,40 @@
   ("rosy/utils" :all)
   ((js "gamvas/gamvas-module" gamvas)))
 
+ (define Wall-Focus-State 
+   (gamvas.ActorState.extend 
+	({} 
+	 init 
+	 (lambda ()
+	   (console.log "Wall-Focus-State initialized."))
+	 enter
+	 (lambda ()
+	   (console.log "Wall-Focus-State entered."))
+	 leave
+	 (lambda ()
+	   (console.log "Wall-Focus-State left."))
+	 do-collide (lambda (a b)
+				  (console.log "In do collide.")
+				  true)
+	 on-collision-enter 
+ 	 (lambda (a)
+	   (console.log "Wall hit." a)
+	   (comment (match a
+					   ((instance Wall wall)
+						(set! wall.focused true))
+					   (otherwise 
+						undefined)))))))
+ 
  (define (ball-create 
 		  [((name x y)
 			(recur name x y gamvas.physics.DYNAMIC))
 		   ((name x y dynamical-character)
 			(this._super name x y)
 			(set! this.restitution 0.4)
+			(this.add-state (new Wall-Focus-State 'wall-focus) true)
 			(set! this.p-1 [: x y])
 			(set! this.p-2 [: (+ 1 x) (+ 1 y)])
+			(this.set-state 'wall-focus)
 			(this.body-circle this.position.x this.position.y 10 dynamical-character))]))
 
  (define (ball-draw time)

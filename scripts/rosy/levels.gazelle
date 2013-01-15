@@ -13,10 +13,16 @@
    (new Wall (+ "wall-" wall-count (JSON.stringify [: x y w h])) x y w h r))
 
  (define pi Math.PI)
+ (set! window.level-geometry undefined)
 
  (define+ test-bed
-   (lambda () ({} geometry 
-				  [: (w* 0 80  800 10 (/ pi 10))
-					 (w* 0 110 800 10 (- (/ pi 10)))]
-				  initial-position [: 12 20]))))
+   (lambda () 
+	 (var geometry [: (w* 0 80  800 10 (/ pi 10))
+					  (w* 0 110 800 10 (- (/ pi 10)))])
+	 (set! window.level-geometry geometry)
+	 ({} geometry 
+		 geometry
+		 initial-position 
+		 [: 12 20]))))
+
 

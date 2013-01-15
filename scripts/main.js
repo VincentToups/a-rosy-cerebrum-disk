@@ -27576,6 +27576,16 @@ var main = (function ()  {
       // All the real code goes here.
       ;
       console.log("Got a level: ", moduleDcbf7f2cbd.testBed);
+      var color = moduleC47fa390df.makeDrgba({        
+        r:100,
+        dr:20,
+        g:149,
+        dg:20,
+        b:237,
+        db:0,
+        a:0.4
+      });
+      console.log("color: ", color.toString());
       var helloState = gamvas.State.extend({        
         draw:(function (time)          {
           this.elapsed = moduleminus58c4bce870.plus(this.elapsed, time);
@@ -27605,7 +27615,7 @@ var main = (function ()  {
       gamvas.state.addState((new helloState("helloState")));
       gamvas.state.addState((new (moduleminus9b6ba5db59.createPlayState(moduleDcbf7f2cbd.testBed))("testPlayState")));
       gamvas.start("canvas", true);
-      gamvas.state.setState("helloState");
+      gamvas.state.setState("testPlayState");
       mainLoaded = true;
       }))();
     }));

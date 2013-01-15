@@ -5,19 +5,70 @@
   ("rosy/utils" :all)
   ((js "gamvas/gamvas-module" gamvas)))
 
+ (define (static-wall-create name x y w h :- (opt r 0))
+   (this._super name x y)
+   (this.body-rect this.position.x this.position.y w h gamvas.physics.STATIC)
+   (this.set-rotation r))
+
+ (define Static-Wall 
+   (gamvas.Actor.extend 
+	({} create static-wall-create)))
+
  (define (small-jitter about)
    (+ about (random 1)))
 
+ (define detect-collision-state 
+   (gamvas.ActorState.extend 
+	({} on-collision-enter 
+		(lambda (a)
+		  (console.log "Wall hit." a)))))
 
  (define (wall-create name x y w h :- (opt r 0))
    (this._super name x y)
+   (set! this.focused false)
    (set! this.wall-w w)
    (set! this.wall-h h)
    (console.log "Creating a wall at " (JSON.stringify [: x y w h]))
-   (this.body-rect this.position.x this.position.y w h gamvas.physics.STATIC)
+   (this.body-rect this.position.x this.position.y w h gamvas.physics.DYNAMIC)
    (this.set-rotation r)
    (set! this.rotation r)
    (set! this.r r)
+
+   (set! this.static-wall 
+		 (new Static-Wall (+ "static-" name) x y (* 0.25 w) (* 0.25 h) r))
+
+   ;; (this.add-revolute-joint this.static-wall 
+   ;; 							(new gamvas.Vector2D 0 0))
+
+   (this.add-revolute-joint this.static-wall 
+							(new gamvas.Vector2D (/ w 4) 0))
+
+   (this.add-revolute-joint this.static-wall 
+							(new gamvas.Vector2D (/ (- w) 4) 0))
+
+   (var state (gamvas.state.get-current-state))
+   (state.add-actor this.static-wall)
+
+   (set! this.drgba (make-drgba 
+					 ({} r 100
+						 dr 20
+						 g 149 
+						 dg 20
+						 b 237 
+						 db 20
+						 a 0.4)))
+
+   (this.add-state (new detect-collision-state 'detect-collision))
+   (this.set-state 'detect-collision)
+   (set! this.focus-drgba 
+		 (make-drgba 
+		  ({} r 20
+			  dr 20
+			  g 70 
+			  dg 20
+			  b 255 
+			  db 20
+			  a 0.4)))
    (console.log "wall rotation is " this.rotation))
 
  (define (wall-draw time)
@@ -58,12 +109,19 @@
 					 (c.line-to (small-jitter x)
 								(small-jitter y))))
    (var r this.rotation)
+   (var self this)
    (with-jitter c 10 3 
 				(lambda (c)
-				  (set! c.fill-style 
-						(+ "rgba(" (random-int 20 100) "," 
-						   (random-int 20 149) "," 
-						   237 ",.4)"))
+				  (comment
+				   (set! c.fill-style 
+						 (+ "rgba(" (random-int 20 100) "," 
+							(random-int 20 149) "," 
+							237 ",.4)")))
+				  (if self.focused
+					  (set! c.fill-style 
+							(.. self.focus-drgba (to-string)))
+					(set! c.fill-style 
+						  (.. self.drgba (to-string))))
 				  (c.translate x y)
 				  (c.rotate r)
 				  (c.begin-path)

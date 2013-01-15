@@ -17,6 +17,15 @@
 
    (comment "All the real code goes here.")
    (console.log "Got a level: " level-test-bed)
+   (var color (make-drgba 
+			   ({} r 100
+				   dr 20
+				   g 149 
+				   dg 20
+				   b 237 
+				   db 0
+				   a 0.4)))
+   (console.log "color: " (color.to-string))
 
    (var hello-state 
 		(gamvas.State.extend 
@@ -63,7 +72,7 @@
    (gamvas.state.add-state 
 	(new (create-play-state level-test-bed) 'test-play-state))
    (gamvas.start "canvas" true)
-   (gamvas.state.set-state 'hello-state)
+   (gamvas.state.set-state 'test-play-state)
    (set! main-loaded true)))
 
 (gamvas.event.add-on-load 
