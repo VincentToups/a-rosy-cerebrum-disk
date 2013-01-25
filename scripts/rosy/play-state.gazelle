@@ -1,11 +1,16 @@
 (module 
  (("hooves/operator-functions" :all)
   ("hooves/lisp-idioms" (:with-prefix idioms- :all))
+  ("hooves/hooves" :all)
   ("rosy/drawing" :all)
   ("rosy/utils" :all)
   ("rosy/wall" :all)
   ("rosy/ball" :all)
-  ((js "gamvas/gamvas-module" gamvas)))
+  ((js "gamvas/gamvas-module" gamvas))
+  ((js "gamvas/box-2d-module" b2d)))
+
+
+ (comment "This comment better appear.")
 
  (define-macro keyed? (key-sig)
    `(gamvas.key.is-pressed (.. gamvas key ,key-sig)))
@@ -44,12 +49,6 @@
 	   (this.camera.move (* time 70) 0))
    (var vec (new gamvas.Vector2D 0 9.8))
    (gamvas.physics.set-gravity vec)
-   (if (&& (! (=== "undefined" (typeof this.ball))) 
-		   (this.ball.stationary?)
-		   (=== this.state :in-play))
-	   (progn 
-		 (console.log "Ball stationary at " this.ball.position)
-		 (set! this.sub-state :ball-at-rest)))
    (comment (this.camera.set-position this.ball.position.x this.ball.position.y))
    (move-towards this.camera this.ball.position time))
 
@@ -58,8 +57,7 @@
    (match this.sub-state
 		  (:in-play (this.draw-in-play time))
 		  (other-value 
-		   (this.draw-in-play time)))
-   (gamvas.physics.draw-debug))
+		   (this.draw-in-play time))))
 
  (define (log 
 		  [((arguments (defined modulo))
@@ -68,12 +66,19 @@
 		   ((arguments)
 			(recur arguments 300))]))
 
+ (define (on-mouse-down btn x y evt)
+   (var actors (@ (get-actors)))
+   (for (index :in actors)
+		(var actor [actors index])
+		(.. (actor.get-current-state) (on-mouse-down btn x y evt))))
+
  (define+ (create-play-state params)
    (gamvas.State.extend 
 	({} 
 	 init (make-init params)
 	 draw draw
 	 draw-in-play draw-in-play
+	 on-mouse-down on-mouse-down
 	 log log))))
 
 

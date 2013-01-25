@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Spoonbill Editor</title>
+      <!-- data-main attribute tells require.js to load
+           scripts/main.js after require.js loads. -->
+      <script data-main="scripts/spoonbill-main.js" src="scripts/require.js"></script>
+    </head>
+    <body>
+	  <canvas id="canvas" width="256" height="192" style="float:left; margin:30px;">
+		Canvas is not supported.
+	  </canvas>
+	  <div>
+		<h3>Controls</h3>
+		<ul>
+		  <li>click
+			depends on mode
+			<ul>
+			  <li>mode:unfocused</li> move camera to position.
+			  <li>mode:create</li> click corners to create a wall.
+			  <li>mode:moveBallStart</li> click to change the ball's initial position.
+		  </ul></li> 
+		  <li>i</li> enter move initial ball position mode.
+		  <li>c</li> enter wall create mode.
+ 		</ul>
+	  </div>
+	  <h3>Output</h3>
+	  <textarea id="spoonbillOutput"></textarea>
+    </body>
+</html>
+
+

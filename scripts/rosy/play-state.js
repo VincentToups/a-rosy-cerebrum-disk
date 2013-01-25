@@ -1,16 +1,18 @@
-define(["hooves/operator-functions", "hooves/lisp-idioms", "rosy/drawing", "rosy/utils", "rosy/wall", "rosy/ball", "gamvas/gamvas-module"], (function (moduleminus58c4bce870, moduleminus295baa4e1e, moduleminus6acd260b96, moduleC47fa390df, moduleB147560188, moduleC4807d4439, gamvas)  {
-  var currentModuleminus26463 = {    
+define(["hooves/operator-functions", "hooves/lisp-idioms", "hooves/hooves", "rosy/drawing", "rosy/utils", "rosy/wall", "rosy/ball", "gamvas/gamvas-module", "gamvas/box-2d-module"], (function (moduleminus58c4bce870, moduleminus295baa4e1e, moduleminus4745e9d952, moduleminus6acd260b96, moduleC47fa390df, moduleB147560188, moduleC4807d4439, gamvas, b2d)  {
+  var currentModuleminus69837 = {    
     
   };
   var setModuleObject = (function (value)    {
-    currentModuleminus26463 = value;
+    currentModuleminus69837 = value;
     });
-  ((function ()    {
+  (function (arguments)    {
     var defineplus = "macro - no dynamic value.";
     var defineMacroplus = "macro - no dynamic value.";
     // ("hooves/operator-functions" :all)
     ;
     // ("hooves/lisp-idioms" (:with-prefix idioms- :all))
+    ;
+    // ("hooves/hooves" :all)
     ;
     // ("rosy/drawing" :all)
     ;
@@ -22,6 +24,10 @@ define(["hooves/operator-functions", "hooves/lisp-idioms", "rosy/drawing", "rosy
     ;
     // ((js "gamvas/gamvas-module" gamvas))
     ;
+    // ((js "gamvas/box-2d-module" b2d))
+    ;
+    // This comment better appear.
+    ;
     var keyedPredicate = "macro - no dynamic value.";
     var makeInit = (function (level)      {
       return (function ()        {
@@ -31,34 +37,37 @@ define(["hooves/operator-functions", "hooves/lisp-idioms", "rosy/drawing", "rosy
         this.subState = "inPlay";
         this.logCounter = 0;
         (function (arguments)          {
-          var G26482 = undefined;
-          var G26483 = level();
-          G26482 = (function (arguments)            {
-            var matchValminus26484 = G26483;
-            var matchObjectTempminus26485 = matchValminus26484.geometry;
-            if ((("undefined")===((typeof matchObjectTempminus26485))))              {
+          var G69856 = undefined;
+          var G69857 = level();
+          G69856 = (function (arguments)            {
+            var matchValminus69858 = G69857;
+            var matchObjectTempminus69859 = matchValminus69858.geometry;
+            if ((("undefined")===((typeof matchObjectTempminus69859))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            var g = matchObjectTempminus26485;
-            var matchObjectTempminus26486 = matchValminus26484.initialPosition;
-            if ((("undefined")===((typeof matchObjectTempminus26486))))              {
+            var g = matchObjectTempminus69859;
+            var matchObjectTempminus69860 = matchValminus69858.initialPosition;
+            if ((("undefined")===((typeof matchObjectTempminus69860))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            if ((!((2===matchObjectTempminus26486.length))))              {
+            if ((!((("object")===((typeof matchObjectTempminus69860))))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            var px = matchObjectTempminus26486[0];
-            var py = matchObjectTempminus26486[1];
+            if ((!((2===matchObjectTempminus69860.length))))              {
+              return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
+              };
+            var px = matchObjectTempminus69860[0];
+            var py = matchObjectTempminus69860[1];
             for (i in (g))              {
               this.addActor(g[i]);
               };
             this.ball = (new moduleC4807d4439.Ball("Player", px, py));
             return this.addActor(this.ball);
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G26482))))            {
-            return G26482;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G69856))))            {
+            return G69856;
             };
-          throw ((("match-fail at ((match (level) (({} geometry g initial-position [: px py]) (for (i :in g) (this\.add-actor [g i])) (set! this\.ball (new Ball ''Player'' px py)) (this\.add-actor this\.ball)))) for value ")+(JSON.stringify(G26483))));
+          throw ((("match-fail at ((match (level) (({} geometry g initial-position [: px py]) (for (i :in g) (this\.add-actor [g i])) (set! this\.ball (new Ball ''Player'' px py)) (this\.add-actor this\.ball)))) for value ")+(JSON.stringify(G69857))));
           }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
         return console.log("this.ball is ", this.ball);
         });
@@ -72,112 +81,121 @@ define(["hooves/operator-functions", "hooves/lisp-idioms", "rosy/drawing", "rosy
       ((gamvas.key.isPressed(gamvas.key.RIGHT))?(this.camera.move(moduleminus58c4bce870.times(time, 70), 0)) : (undefined));
       var vec = (new gamvas.Vector2D(0, 9.8));
       gamvas.physics.setGravity(vec);
-      (((((!(moduleminus58c4bce870.TripleEqualminus("undefined", (typeof this.ball)))))&&(((this.ball.stationaryPredicate())&&(moduleminus58c4bce870.TripleEqualminus(this.state, "inPlay"))))))?((function (arguments)        {
-        console.log("Ball stationary at ", this.ball.position);
-        this.subState = "ballAtRest";
-        }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)))) : (undefined));
       // (this\.camera\.set-position this\.ball\.position\.x this\.ball\.position\.y)
       ;
       return moduleC47fa390df.moveTowards(this.camera, this.ball.position, time);
       });
     var draw = (function (time)      {
       this.logCounter = moduleminus58c4bce870.plus(1, this.logCounter);
-      (function (arguments)        {
-        var G26567 = undefined;
-        var G26568 = this.subState;
-        G26567 = (function (arguments)          {
-          var matchValminus26569 = G26568;
-          if ((!(("inPlay"===matchValminus26569))))            {
+      return (function (arguments)        {
+        var G69917 = undefined;
+        var G69918 = this.subState;
+        G69917 = (function (arguments)          {
+          var matchValminus69919 = G69918;
+          if ((!(("inPlay"===matchValminus69919))))            {
             return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
             };
           return this.drawInPlay(time);
           }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-        if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G26567))))          {
-          return G26567;
+        if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G69917))))          {
+          return G69917;
           };
-        G26567 = (function (arguments)          {
-          var matchValminus26570 = G26568;
-          var otherValue = matchValminus26570;
+        G69917 = (function (arguments)          {
+          var matchValminus69920 = G69918;
+          var otherValue = matchValminus69920;
           return this.drawInPlay(time);
           }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-        if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G26567))))          {
-          return G26567;
+        if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G69917))))          {
+          return G69917;
           };
-        throw ((("match-fail at ((match this\.sub-state (:in-play (this\.draw-in-play time)) (other-value (this\.draw-in-play time)))) for value ")+(JSON.stringify(G26568))));
+        throw ((("match-fail at ((match this\.sub-state (:in-play (this\.draw-in-play time)) (other-value (this\.draw-in-play time)))) for value ")+(JSON.stringify(G69918))));
         }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-      return gamvas.physics.drawDebug();
       });
     var log = (function ()      {
-      var returnValueminus26572 = undefined;
+      var returnValueminus69922 = undefined;
       var recur = (function ()        {
         return {          
-          recurSigil:"recurSigilminus26571",
+          recurSigil:"recurSigilminus69921",
           args:arguments
         };
         });
-      var recurP26575 = (function (valminus26576)        {
-        if ((("undefined")===((typeof valminus26576))))          {
+      var recurP69925 = (function (valminus69926)        {
+        if ((("undefined")===((typeof valminus69926))))          {
           return false;
           };
-        return (valminus26576.recurSigil===("recurSigilminus26571"));
+        return (valminus69926.recurSigil===("recurSigilminus69921"));
         });
-      var actualFunminus26574 = (function ()        {
+      var actualFunminus69924 = (function ()        {
         return (function (arguments)          {
-          var G26578 = undefined;
-          var G26579 = Array.prototype.slice.apply(arguments);
-          G26578 = (function (arguments)            {
-            var matchValminus26580 = G26579;
-            if ((!((2===matchValminus26580.length))))              {
+          var G69928 = undefined;
+          var G69929 = Array.prototype.slice.apply(arguments);
+          G69928 = (function (arguments)            {
+            var matchValminus69930 = G69929;
+            if ((!((("object")===((typeof matchValminus69930))))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            var matchTempminus26581 = matchValminus26580[0];
-            var matchTempminus26582 = matchValminus26580[1];
-            var arguments = matchTempminus26581;
-            if ((("undefined")===((typeof matchTempminus26582))))              {
+            if ((!((2===matchValminus69930.length))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            var modulo = matchTempminus26582;
+            var matchTempminus69931 = matchValminus69930[0];
+            var matchTempminus69932 = matchValminus69930[1];
+            var arguments = matchTempminus69931;
+            if ((("undefined")===((typeof matchTempminus69932))))              {
+              return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
+              };
+            var modulo = matchTempminus69932;
             return ((moduleC47fa390df.modsignTripleEqualminus0(this.logCounter, modulo))?(console.log.apply(console, arguments)) : (undefined));
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G26578))))            {
-            return G26578;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G69928))))            {
+            return G69928;
             };
-          G26578 = (function (arguments)            {
-            var matchValminus26583 = G26579;
-            if ((!((1===matchValminus26583.length))))              {
+          G69928 = (function (arguments)            {
+            var matchValminus69933 = G69929;
+            if ((!((("object")===((typeof matchValminus69933))))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            var arguments = matchValminus26583[0];
+            if ((!((1===matchValminus69933.length))))              {
+              return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
+              };
+            var arguments = matchValminus69933[0];
             return recur(arguments, 300);
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G26578))))            {
-            return G26578;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G69928))))            {
+            return G69928;
             };
-          G26578 = (function (arguments)            {
-            var matchValminus26584 = G26579;
-            var anythingElseminus26577 = matchValminus26584;
-            throw ((("Match fail in log against: ")+anythingElseminus26577));
+          G69928 = (function (arguments)            {
+            var matchValminus69934 = G69929;
+            var anythingElseminus69927 = matchValminus69934;
+            throw ((("Match fail in log against: ")+anythingElseminus69927));
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G26578))))            {
-            return G26578;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G69928))))            {
+            return G69928;
             };
-          throw ((("match-fail at ((match (\.\. Array prototype slice (apply arguments)) ([: arguments (defined modulo)] (if (%===0 this\.log-counter modulo) (console\.log\.apply console arguments))) ([: arguments] (recur arguments 300)) (anything-else-26577 (_throw (_+ ''Match fail in log against: '' anything-else-26577))))) for value ")+(JSON.stringify(G26579))));
+          throw ((("match-fail at ((match (\.\. Array prototype slice (apply arguments)) ([: arguments (defined modulo)] (if (%===0 this\.log-counter modulo) (console\.log\.apply console arguments))) ([: arguments] (recur arguments 300)) (anything-else-69927 (_throw (_+ ''Match fail in log against: '' anything-else-69927))))) for value ")+(JSON.stringify(G69929))));
           }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
         });
-      returnValueminus26572 = actualFunminus26574.apply(this, arguments);
-      while (recurP26575(returnValueminus26572))        {
-        returnValueminus26572 = actualFunminus26574.apply(this, returnValueminus26572.args);
+      returnValueminus69922 = actualFunminus69924.apply(this, arguments);
+      while (recurP69925(returnValueminus69922))        {
+        returnValueminus69922 = actualFunminus69924.apply(this, returnValueminus69922.args);
         };
-      return returnValueminus26572;
+      return returnValueminus69922;
       });
-    currentModuleminus26463.createPlayState = (function (params)      {
+    var onMouseDown = (function (btn, x, y, evt)      {
+      var actors = this.getActors();
+      for (index in (actors))        {
+        var actor = actors[index];
+        actor.getCurrentState().onMouseDown(btn, x, y, evt);
+        };
+      });
+    currentModuleminus69837.createPlayState = (function (params)      {
       return gamvas.State.extend({        
         init:makeInit(params),
         draw:draw,
         drawInPlay:drawInPlay,
+        onMouseDown:onMouseDown,
         log:log
       });
       });
-    }))();
-  return currentModuleminus26463;
+    }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
+  return currentModuleminus69837;
   }))

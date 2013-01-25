@@ -1,0 +1,310 @@
+(module 
+ (("hooves/operator-functions" :all)
+  ("hooves/lisp-idioms" :all)
+  ("hooves/hooves" :all)
+  ("rosy/utils" :all)
+  ("rosy/wall" :all)
+  ("rosy/drawing" :all)
+  ((js "gamvas/gamvas-module" gamvas)))
+
+ (define-macro keyed? (key-sig)
+   `(gamvas.key.is-pressed (.. gamvas key ,key-sig)))
+
+ (define extension ({}))
+
+ (define (pair-to-rect [: x1 y1] [: x2 y2])
+   (var cx (/ (+ x1 x2) 2)
+		cy (/ (+ y1 y2) 2)
+		w (Math.abs (- x1 x2))
+		h (Math.abs (- y1 y2)))
+   [: cx cy w h 0])
+
+ (define-macro @g ((tail exprs))
+   `(.. gamvas ,@exprs))
+
+ (define-macro @gk ((tail exprs))
+   `(.. gamvas key ,@exprs))
+
+ (define-macro @gm ((tail exprs))
+   `(.. gamvas mouse ,@exprs))
+
+ (var mouse-left gamvas.mouse.LEFT
+	  mouse-right gamvas.mouse.RIGHT
+	  mouse-center gamvas.mouse.CENTER
+	  up (@gk UP)
+	  down (@gk DOWN)
+	  left (@gk LEFT)
+	  right (@gk RIGHT)
+	  escape  (@gk ESCAPE)
+	  page-up (@gk PAGE_UP)
+	  page-down (@gk PAGE_DOWN)
+	  u (@gk U)
+	  a (@gk A)
+	  i (@gk I)
+	  w (@gk W)
+	  n (@gk N)
+	  t (@gk T)
+	  s (@gk S)
+	  l (@gk L)
+	  r (@gk R)
+	  c (@gk C))
+
+ (define (mouse-pressed? b)
+   (gamvas.mouse.is-pressed b))
+
+ (define (key-pressed? k)
+   (gamvas.key.is-pressed k))
+
+ (define-to extension (init)
+   (set! gamvas.physics.pixelsPerMeter 128)
+   (var w (gamvas.physics.reset-world 0 9.8 false))
+   (set! (@ sub-state) :unfocused)
+   (set! (@ ball-start) [: 0 0])
+   (set! (@ mouse-click) undefined)
+   (set! (@ key-press) undefined)
+   (set! (@ wall-count) 0)
+   (console.log "init sub-state " (@ sub-state)))
+
+ (define-to extension (on-mouse-down b x y evt)
+   (set! (@ mouse-click) [: b x y evt]))
+
+ (define-to extension (on-key-down k c evt)
+   (set! (@ key-press) k))
+
+ (define-to extension (maybe-pop-key)
+   (var k (@ key-press))
+   (set! (@ key-press) undefined)
+   k)
+
+ (define-to extension (mouse-in-world)
+   (var-match ({} x x y y)
+			  (gamvas.mouse.get-position))
+   (@ camera (to-world x y)))
+
+ (define-to extension (move-to-mouse)
+   (var-match [: btn x y evt] this.mouse-click)
+   (var-match ({} x x y y)
+			  (.. this.camera (to-world x y)))
+   (console.log "Mouse in world is " x y)
+   (@ camera (set-position x y)))
+
+ (define-to extension (draw-ball-position)
+   (with-slots (ball-start c) this
+	 (save-excursion 
+	   c 
+	   (c.begin-path)
+	   (set! c.stroke-style "red")
+	   (var-match [: x y] ball-start)
+	   (c.translate x y)
+	   (c.arc 0 0 10 0 (* 3 Math.PI))
+	   (c.stroke)
+	   (set! c.fill-style "blue")
+	   (c.fill-text "START" 0 0))))
+
+ (define-to extension (point->intersecting-walls x y)
+   (var walls [:])
+   (var actors (@ (get-actors)))
+   (for (index in actors)
+		(match [actors index]
+			   ((instance Wall wall)
+				(if (wall.point-inside x y)
+					(walls.push wall)))
+			   (anything undefined)))
+   walls)
+
+ (define-to extension (handle-click-creating)
+   (match (@ create-points)
+		  (undefined 
+		   (var-match ({} x mx y my)
+					  (@ (mouse-in-world)))
+		   (set! (@ create-points)
+				 [: [: mx my]]))
+		  ([: p1] 
+		   (var-match ({} x mx y my)
+					  (@ (mouse-in-world)))
+		   (var-match [: x y w h _]
+					  (pair-to-rect p1 [: mx my]))
+		   (console.log "Create " x y w h)
+		   (this.add-actor (new Wall (+ "Wall-" (@ wall-count)) x y w h 0))
+		   (set! (@ wall-count) (+ 1 (@ wall-count)))
+		   (set! (@ create-points) undefined)
+		   (set! (@ sub-state) :unfocused))
+		  (otherwise 
+		   undefined)))
+
+ (define-to extension (handle-click-unfocused)
+   (@ (move-to-mouse))
+   (var-match [: btn x y evt]
+			  this.mouse-click)
+   (var-match ({} x wx y wy)
+			  (this.camera.to-world x y))
+   (match (@ (point->intersecting-walls wx wy))
+		  ([:] undefined)
+		  ([: w]
+		   (var actors (@ (get-actors)))
+		   (for (index in actors)
+				(match [actors index]
+					   ((instance Wall wall)
+						(set! wall.focused false))
+					   (anything undefined)))
+		   (set! w.focused true)
+		   (set! (@ focus) w)
+		   (set! (@ sub-state) :focused))
+		  (anything-else undefined)))
+
+ (define-to extension (handle-key-press-unfocused k)
+   (match (@ (maybe-pop-key))
+		  ((p (===_ c))
+		   (set! (@ sub-state) :creating))
+		  ((p (===_ i))
+		   (set! (@ sub-state) :move-ball-start))
+		  (otherwise undefined)))
+
+ (define-to extension (handle-key-press-move-ball-start k)
+   (match (@ (maybe-pop-key))
+		  ((p (===_ escape))
+		   (set! (@ this.mouse-click) undefined)
+		   (set! (@ sub-state) :unfocused))
+		  (anything undefined)))
+
+ (define-to extension (handle-key-press-creating k)
+   (match (@ (maybe-pop-key))
+		  ((p (===_ escape))
+		   (if (defined? create-points)
+			   (progn 
+				 (set! (@ create-points) undefined)
+				 (set! (@ mouse-click) undefined))
+			 (progn 
+			   (set! (@ create-points) undefined)
+			   (set! (@ mouse-click undefined))
+			   (set! (@ sub-state) :unfocused))))
+		  (anything undefined)))
+
+ (define-to extension (handle-key-press-focused time)
+   (var-match ({} x x y y) this.focus.position)
+   (var r this.focus.rotation)
+   (match (@ (maybe-pop-key))
+		  ((or (p (===_ escape))
+			   (p (===_ u)))
+		   (set! focus.focused false)
+		   (set! (@ focus) undefined)
+		   (set! (@ sub-state) :unfocused))
+		  ((p (===_ up))
+		   (this.focus.move 0 (* time -70)))
+		  ((p (===_ down))
+		   (this.focus.move 0 (* time 70)))
+		  ((p (===_ right))
+		   (this.focus.move (* time 70) 0))
+		  ((p (===_ left))
+		   (this.focus.move (* time -70) 0))
+		  ((p (===_ page-up))
+		   (this.focus.rotate (/ Math.PI 32)))
+		  ((p (===_ page-down))
+		   (this.focus.rotate (- (/ Math.PI 32))))
+		  (anything undefined)))
+
+ (define-to extension (handle-key-press time)
+   (unless (=== :focused (@ sub-state)) 
+	 (if (&& (keyed? PAGE_UP)
+			 (< this.camera.zoom-factor 1.5))
+		 (this.camera.zoom (* time 0.7)))
+	 (if (&& (keyed? PAGE_DOWN)
+			 (> this.camera.zoom-factor 0.1))
+		 (this.camera.zoom (* time -0.7)))
+
+	 (if (keyed? UP)
+		 (this.camera.move 0 (* time -70)))
+	 (if (keyed? DOWN)
+		 (this.camera.move 0 (* time 70)))
+	 (if (keyed? LEFT)
+		 (this.camera.move (* time -70) 0))
+	 (if (keyed? RIGHT)
+		 (this.camera.move (* time 70) 0)))
+
+
+   (match (@ sub-state)
+		  (:unfocused 
+		   (@ (handle-key-press-unfocused)))
+		  (:move-ball-start 
+		   (@ (handle-key-press-move-ball-start)))
+		  (:creating 
+		   (@ (handle-key-press-creating)))
+		  (:focused 
+		   (@ (handle-key-press-focused time)))
+		  (anything undefined)))
+
+ (define-to extension (handle-click)
+   (if (defined? (@ mouse-click))
+	   (match (@ sub-state)
+			  (:unfocused 
+			   (@ (handle-click-unfocused)))
+			  (:creating 
+			   (@ (handle-click-creating)))
+			  (:move-ball-start 
+			   (var-match [: btn x y evt] this.mouse-click)
+			   (var-match ({} x x y y)
+						  (.. this.camera (to-world x y)))
+			   (set! (@ ball-start) [: x y])
+			   (set! (@ sub-state) :unfocused))
+			  (:focused 
+			   (@ (handle-click-unfocused)))))
+   (set! (@ mouse-click) undefined))
+
+ (define-to extension (draw-unfocused time)
+   undefined)
+
+ (define-to extension (draw-creating time)
+   (var c (@ c))
+   (match (@ create-points)
+		  (undefined undefined)
+		  ([: [: cx cy]]
+		   (save-excursion 
+			 c
+			 (var-match 
+			  ({} x mx y my)
+			  (@ (mouse-in-world)))
+			 (var xs [: mx ])
+			 (var-match [: x1 x2]
+						(.. [: cx mx] (sort)))
+			 (var-match [: y1 y2]
+						(.. [: cy my] (sort)))
+			 (set! c.stroke-style "red")
+			 (c.begin-path)
+			 (c.move-to x1 y1)
+			 (c.line-to x2 y1)
+			 (c.line-to x2 y2)
+			 (c.line-to x1 y2)
+			 (c.line-to x1 y1)
+			 (c.stroke)))
+		  (anything anything)))
+
+ (define-to extension (draw time)
+   (with-slots (c sub-state) this
+	 (@ (handle-click))
+	 (@ (handle-key-press time))
+	 (match sub-state
+			(:unfocused 
+			 (@ (draw-unfocused time)))
+			(:focused 
+			 (@ (draw-unfocused time)))
+			(:move-ball-start
+			 (@ (draw-unfocused time)))
+			(:creating 
+			 (@ (draw-creating time))))
+	 (@ (draw-ball-position))
+	 (this.camera.stop)
+	 (save-excursion 
+	   (@ c)
+	   (set! c.text-align :center)
+	   (set! c.fill-style :red)
+	   (set! c.font "bold 10px sans-serif")
+	   (var-match ({} w w h h)
+				  (gamvas.get-canvas-dimension))
+	   (c.fill-text (@ sub-state) (/ w 2) 18)
+	   (var-match ({} x x y y) (gamvas.mouse.get-position))
+	   (var-match ({} x x y y) (.. (@ camera) (to-world x y)))
+	   (c.fill-text (+ x ", " y) (/ w 2) (* 18 2)))))
+
+ (define+ Spoonbill 
+   (gamvas.State.extend 
+	extension)))

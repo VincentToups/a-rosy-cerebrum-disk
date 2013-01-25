@@ -4268,7 +4268,9 @@ define(["gamvas/box-2d-module"],function(Box2D){
 					gamvas._world = new Box2D.Dynamics.b2World(new Box2D.Common.Math.b2Vec2(gx, gy), doSleep);
 				}
 				this._debugDrawer = null;
-				var l = (gamvas.isSet(listener)) ? listener : new Box2D.Dynamics.b2ContactListener();
+				console.log("Vincent added his own changes to the listener.")
+				//var l = (gamvas.isSet(listener)) ? listener : new Box2D.Dynamics.b2ContactListener();
+				var l = (gamvas.isSet(listener)) ? listener : new gamvas.physics.ContactListener();
 				var w = gamvas.physics.getWorld();
 				w.SetContactListener(l);
 			},
@@ -4387,6 +4389,7 @@ define(["gamvas/box-2d-module"],function(Box2D){
 			gamvas.physics.ContactListener = Box2D.Dynamics.b2ContactListener;
 
 			gamvas.physics.ContactListener.prototype.BeginContact = function(c) {
+				console.log("In gamvas code.",c)
 				var uda = c.GetFixtureA().GetBody().GetUserData();
 				var udb = c.GetFixtureB().GetBody().GetUserData();
 				if ( (uda.type == 'actor') && (udb.type == 'actor' ) ) {

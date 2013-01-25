@@ -1,11 +1,11 @@
 define(["hooves/operator-functions", "hooves/lisp-idioms", "hooves/hooves", "gamvas/gamvas-module"], (function (moduleminus58c4bce870, moduleminus295baa4e1e, moduleminus4745e9d952, gamvas)  {
-  var currentModuleminus24597 = {    
+  var currentModuleminus69256 = {    
     
   };
   var setModuleObject = (function (value)    {
-    currentModuleminus24597 = value;
+    currentModuleminus69256 = value;
     });
-  ((function ()    {
+  (function (arguments)    {
     var defineplus = "macro - no dynamic value.";
     var defineMacroplus = "macro - no dynamic value.";
     // ("hooves/operator-functions" :all)
@@ -16,263 +16,269 @@ define(["hooves/operator-functions", "hooves/lisp-idioms", "hooves/hooves", "gam
     ;
     // ((js "gamvas/gamvas-module" gamvas))
     ;
-    currentModuleminus24597.modsignTripleEqualminus0 = (function (n, m)      {
+    currentModuleminus69256.modsignTripleEqualminus0 = (function (n, m)      {
       return moduleminus58c4bce870.TripleEqualminus(0, moduleminus58c4bce870.modsign(n, m));
       });
-    currentModuleminus24597.drgba = (function ()      {
-      var returnValueminus24792 = undefined;
+    currentModuleminus69256.drgba = (function ()      {
+      var returnValueminus69304 = undefined;
       var recur = (function ()        {
         return {          
-          recurSigil:"recurSigilminus24791",
+          recurSigil:"recurSigilminus69303",
           args:arguments
         };
         });
-      var recurP24795 = (function (valminus24796)        {
-        if ((("undefined")===((typeof valminus24796))))          {
+      var recurP69307 = (function (valminus69308)        {
+        if ((("undefined")===((typeof valminus69308))))          {
           return false;
           };
-        return (valminus24796.recurSigil===("recurSigilminus24791"));
+        return (valminus69308.recurSigil===("recurSigilminus69303"));
         });
-      var actualFunminus24794 = (function ()        {
+      var actualFunminus69306 = (function ()        {
         return (function (arguments)          {
-          var G24798 = undefined;
-          var G24799 = Array.prototype.slice.apply(arguments);
-          G24798 = (function (arguments)            {
-            var matchValminus24800 = G24799;
-            if ((!((matchValminus24800.length>=0))))              {
+          var G69310 = undefined;
+          var G69311 = Array.prototype.slice.apply(arguments);
+          G69310 = (function (arguments)            {
+            var matchValminus69312 = G69311;
+            if ((!((("object")===((typeof matchValminus69312))))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            var matchArraySimplePartminus24801 = Array.prototype.slice.call(matchValminus24800, 0, 0);
-            if ((!((0===matchArraySimplePartminus24801.length))))              {
+            if ((!((matchValminus69312.length>=0))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            var matchArrayTailPartminus24802 = Array.prototype.slice.call(matchValminus24800, 0);
-            var matchTempminus24803 = matchArrayTailPartminus24802[0];
-            if ((("undefined")===((typeof matchTempminus24803))))              {
-              matchTempminus24803 = {                
+            var matchArraySimplePartminus69313 = Array.prototype.slice.call(matchValminus69312, 0, 0);
+            if ((!((("object")===((typeof matchArraySimplePartminus69313))))))              {
+              return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
+              };
+            if ((!((0===matchArraySimplePartminus69313.length))))              {
+              return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
+              };
+            var matchArrayTailPartminus69314 = Array.prototype.slice.call(matchValminus69312, 0);
+            var matchTempminus69315 = matchArrayTailPartminus69314[0];
+            if ((("undefined")===((typeof matchTempminus69315))))              {
+              matchTempminus69315 = {                
                 
               };
               };
-            var matchObjectTempminus24804 = matchTempminus24803.r;
-            var previousMatchSucceededminus24812 = true;
+            var matchObjectTempminus69316 = matchTempminus69315.r;
+            var previousMatchSucceededminus69324 = true;
             switch (1){
                           case 1:
-              if ((("undefined")===((typeof matchObjectTempminus24804))))                {
-                previousMatchSucceededminus24812 = false;
+              if ((("undefined")===((typeof matchObjectTempminus69316))))                {
+                previousMatchSucceededminus69324 = false;
                 };
-              var r = matchObjectTempminus24804;
-              if (previousMatchSucceededminus24812)                {
+              var r = matchObjectTempminus69316;
+              if (previousMatchSucceededminus69324)                {
                 break;
                 };
-              previousMatchSucceededminus24812 = true;
+              previousMatchSucceededminus69324 = true;
               case 1:
-              var fResult24813 = ((function (x)                {
+              var fResult69325 = ((function (x)                {
                 return 100;
-                }))(matchObjectTempminus24804);
-              if ((fResult24813===("match-fail-e1aa3b7e7ce9731266013c178de842b5")))                {
-                previousMatchSucceededminus24812 = false;
+                }))(matchObjectTempminus69316);
+              if ((fResult69325===("match-fail-e1aa3b7e7ce9731266013c178de842b5")))                {
+                previousMatchSucceededminus69324 = false;
                 };
-              var r = fResult24813;
-              if (previousMatchSucceededminus24812)                {
+              var r = fResult69325;
+              if (previousMatchSucceededminus69324)                {
                 break;
                 };
-              previousMatchSucceededminus24812 = true;
+              previousMatchSucceededminus69324 = true;
               default :
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               
             };
-            var matchObjectTempminus24805 = matchTempminus24803.dr;
-            var previousMatchSucceededminus24814 = true;
+            var matchObjectTempminus69317 = matchTempminus69315.dr;
+            var previousMatchSucceededminus69326 = true;
             switch (1){
                           case 1:
-              if ((("undefined")===((typeof matchObjectTempminus24805))))                {
-                previousMatchSucceededminus24814 = false;
+              if ((("undefined")===((typeof matchObjectTempminus69317))))                {
+                previousMatchSucceededminus69326 = false;
                 };
-              var dr = matchObjectTempminus24805;
-              if (previousMatchSucceededminus24814)                {
+              var dr = matchObjectTempminus69317;
+              if (previousMatchSucceededminus69326)                {
                 break;
                 };
-              previousMatchSucceededminus24814 = true;
+              previousMatchSucceededminus69326 = true;
               case 1:
-              var fResult24815 = ((function (x)                {
+              var fResult69327 = ((function (x)                {
                 return 0;
-                }))(matchObjectTempminus24805);
-              if ((fResult24815===("match-fail-e1aa3b7e7ce9731266013c178de842b5")))                {
-                previousMatchSucceededminus24814 = false;
+                }))(matchObjectTempminus69317);
+              if ((fResult69327===("match-fail-e1aa3b7e7ce9731266013c178de842b5")))                {
+                previousMatchSucceededminus69326 = false;
                 };
-              var dr = fResult24815;
-              if (previousMatchSucceededminus24814)                {
+              var dr = fResult69327;
+              if (previousMatchSucceededminus69326)                {
                 break;
                 };
-              previousMatchSucceededminus24814 = true;
+              previousMatchSucceededminus69326 = true;
               default :
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               
             };
-            var matchObjectTempminus24806 = matchTempminus24803.g;
-            var previousMatchSucceededminus24816 = true;
+            var matchObjectTempminus69318 = matchTempminus69315.g;
+            var previousMatchSucceededminus69328 = true;
             switch (1){
                           case 1:
-              if ((("undefined")===((typeof matchObjectTempminus24806))))                {
-                previousMatchSucceededminus24816 = false;
+              if ((("undefined")===((typeof matchObjectTempminus69318))))                {
+                previousMatchSucceededminus69328 = false;
                 };
-              var g = matchObjectTempminus24806;
-              if (previousMatchSucceededminus24816)                {
+              var g = matchObjectTempminus69318;
+              if (previousMatchSucceededminus69328)                {
                 break;
                 };
-              previousMatchSucceededminus24816 = true;
+              previousMatchSucceededminus69328 = true;
               case 1:
-              var fResult24817 = ((function (x)                {
+              var fResult69329 = ((function (x)                {
                 return 100;
-                }))(matchObjectTempminus24806);
-              if ((fResult24817===("match-fail-e1aa3b7e7ce9731266013c178de842b5")))                {
-                previousMatchSucceededminus24816 = false;
+                }))(matchObjectTempminus69318);
+              if ((fResult69329===("match-fail-e1aa3b7e7ce9731266013c178de842b5")))                {
+                previousMatchSucceededminus69328 = false;
                 };
-              var g = fResult24817;
-              if (previousMatchSucceededminus24816)                {
+              var g = fResult69329;
+              if (previousMatchSucceededminus69328)                {
                 break;
                 };
-              previousMatchSucceededminus24816 = true;
+              previousMatchSucceededminus69328 = true;
               default :
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               
             };
-            var matchObjectTempminus24807 = matchTempminus24803.dg;
-            var previousMatchSucceededminus24818 = true;
+            var matchObjectTempminus69319 = matchTempminus69315.dg;
+            var previousMatchSucceededminus69330 = true;
             switch (1){
                           case 1:
-              if ((("undefined")===((typeof matchObjectTempminus24807))))                {
-                previousMatchSucceededminus24818 = false;
+              if ((("undefined")===((typeof matchObjectTempminus69319))))                {
+                previousMatchSucceededminus69330 = false;
                 };
-              var dg = matchObjectTempminus24807;
-              if (previousMatchSucceededminus24818)                {
+              var dg = matchObjectTempminus69319;
+              if (previousMatchSucceededminus69330)                {
                 break;
                 };
-              previousMatchSucceededminus24818 = true;
+              previousMatchSucceededminus69330 = true;
               case 1:
-              var fResult24819 = ((function (x)                {
+              var fResult69331 = ((function (x)                {
                 return 0;
-                }))(matchObjectTempminus24807);
-              if ((fResult24819===("match-fail-e1aa3b7e7ce9731266013c178de842b5")))                {
-                previousMatchSucceededminus24818 = false;
+                }))(matchObjectTempminus69319);
+              if ((fResult69331===("match-fail-e1aa3b7e7ce9731266013c178de842b5")))                {
+                previousMatchSucceededminus69330 = false;
                 };
-              var dg = fResult24819;
-              if (previousMatchSucceededminus24818)                {
+              var dg = fResult69331;
+              if (previousMatchSucceededminus69330)                {
                 break;
                 };
-              previousMatchSucceededminus24818 = true;
+              previousMatchSucceededminus69330 = true;
               default :
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               
             };
-            var matchObjectTempminus24808 = matchTempminus24803.b;
-            var previousMatchSucceededminus24820 = true;
+            var matchObjectTempminus69320 = matchTempminus69315.b;
+            var previousMatchSucceededminus69332 = true;
             switch (1){
                           case 1:
-              if ((("undefined")===((typeof matchObjectTempminus24808))))                {
-                previousMatchSucceededminus24820 = false;
+              if ((("undefined")===((typeof matchObjectTempminus69320))))                {
+                previousMatchSucceededminus69332 = false;
                 };
-              var b = matchObjectTempminus24808;
-              if (previousMatchSucceededminus24820)                {
+              var b = matchObjectTempminus69320;
+              if (previousMatchSucceededminus69332)                {
                 break;
                 };
-              previousMatchSucceededminus24820 = true;
+              previousMatchSucceededminus69332 = true;
               case 1:
-              var fResult24821 = ((function (x)                {
+              var fResult69333 = ((function (x)                {
                 return 100;
-                }))(matchObjectTempminus24808);
-              if ((fResult24821===("match-fail-e1aa3b7e7ce9731266013c178de842b5")))                {
-                previousMatchSucceededminus24820 = false;
+                }))(matchObjectTempminus69320);
+              if ((fResult69333===("match-fail-e1aa3b7e7ce9731266013c178de842b5")))                {
+                previousMatchSucceededminus69332 = false;
                 };
-              var b = fResult24821;
-              if (previousMatchSucceededminus24820)                {
+              var b = fResult69333;
+              if (previousMatchSucceededminus69332)                {
                 break;
                 };
-              previousMatchSucceededminus24820 = true;
+              previousMatchSucceededminus69332 = true;
               default :
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               
             };
-            var matchObjectTempminus24809 = matchTempminus24803.db;
-            var previousMatchSucceededminus24822 = true;
+            var matchObjectTempminus69321 = matchTempminus69315.db;
+            var previousMatchSucceededminus69334 = true;
             switch (1){
                           case 1:
-              if ((("undefined")===((typeof matchObjectTempminus24809))))                {
-                previousMatchSucceededminus24822 = false;
+              if ((("undefined")===((typeof matchObjectTempminus69321))))                {
+                previousMatchSucceededminus69334 = false;
                 };
-              var db = matchObjectTempminus24809;
-              if (previousMatchSucceededminus24822)                {
+              var db = matchObjectTempminus69321;
+              if (previousMatchSucceededminus69334)                {
                 break;
                 };
-              previousMatchSucceededminus24822 = true;
+              previousMatchSucceededminus69334 = true;
               case 1:
-              var fResult24823 = ((function (x)                {
+              var fResult69335 = ((function (x)                {
                 return 0;
-                }))(matchObjectTempminus24809);
-              if ((fResult24823===("match-fail-e1aa3b7e7ce9731266013c178de842b5")))                {
-                previousMatchSucceededminus24822 = false;
+                }))(matchObjectTempminus69321);
+              if ((fResult69335===("match-fail-e1aa3b7e7ce9731266013c178de842b5")))                {
+                previousMatchSucceededminus69334 = false;
                 };
-              var db = fResult24823;
-              if (previousMatchSucceededminus24822)                {
+              var db = fResult69335;
+              if (previousMatchSucceededminus69334)                {
                 break;
                 };
-              previousMatchSucceededminus24822 = true;
+              previousMatchSucceededminus69334 = true;
               default :
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               
             };
-            var matchObjectTempminus24810 = matchTempminus24803.a;
-            var previousMatchSucceededminus24824 = true;
+            var matchObjectTempminus69322 = matchTempminus69315.a;
+            var previousMatchSucceededminus69336 = true;
             switch (1){
                           case 1:
-              if ((("undefined")===((typeof matchObjectTempminus24810))))                {
-                previousMatchSucceededminus24824 = false;
+              if ((("undefined")===((typeof matchObjectTempminus69322))))                {
+                previousMatchSucceededminus69336 = false;
                 };
-              var a = matchObjectTempminus24810;
-              if (previousMatchSucceededminus24824)                {
+              var a = matchObjectTempminus69322;
+              if (previousMatchSucceededminus69336)                {
                 break;
                 };
-              previousMatchSucceededminus24824 = true;
+              previousMatchSucceededminus69336 = true;
               case 1:
-              var fResult24825 = ((function (x)                {
+              var fResult69337 = ((function (x)                {
                 return 0;
-                }))(matchObjectTempminus24810);
-              if ((fResult24825===("match-fail-e1aa3b7e7ce9731266013c178de842b5")))                {
-                previousMatchSucceededminus24824 = false;
+                }))(matchObjectTempminus69322);
+              if ((fResult69337===("match-fail-e1aa3b7e7ce9731266013c178de842b5")))                {
+                previousMatchSucceededminus69336 = false;
                 };
-              var a = fResult24825;
-              if (previousMatchSucceededminus24824)                {
+              var a = fResult69337;
+              if (previousMatchSucceededminus69336)                {
                 break;
                 };
-              previousMatchSucceededminus24824 = true;
+              previousMatchSucceededminus69336 = true;
               default :
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               
             };
-            var matchObjectTempminus24811 = matchTempminus24803.da;
-            var previousMatchSucceededminus24826 = true;
+            var matchObjectTempminus69323 = matchTempminus69315.da;
+            var previousMatchSucceededminus69338 = true;
             switch (1){
                           case 1:
-              if ((("undefined")===((typeof matchObjectTempminus24811))))                {
-                previousMatchSucceededminus24826 = false;
+              if ((("undefined")===((typeof matchObjectTempminus69323))))                {
+                previousMatchSucceededminus69338 = false;
                 };
-              var da = matchObjectTempminus24811;
-              if (previousMatchSucceededminus24826)                {
+              var da = matchObjectTempminus69323;
+              if (previousMatchSucceededminus69338)                {
                 break;
                 };
-              previousMatchSucceededminus24826 = true;
+              previousMatchSucceededminus69338 = true;
               case 1:
-              var fResult24827 = ((function (x)                {
+              var fResult69339 = ((function (x)                {
                 return 0;
-                }))(matchObjectTempminus24811);
-              if ((fResult24827===("match-fail-e1aa3b7e7ce9731266013c178de842b5")))                {
-                previousMatchSucceededminus24826 = false;
+                }))(matchObjectTempminus69323);
+              if ((fResult69339===("match-fail-e1aa3b7e7ce9731266013c178de842b5")))                {
+                previousMatchSucceededminus69338 = false;
                 };
-              var da = fResult24827;
-              if (previousMatchSucceededminus24826)                {
+              var da = fResult69339;
+              if (previousMatchSucceededminus69338)                {
                 break;
                 };
-              previousMatchSucceededminus24826 = true;
+              previousMatchSucceededminus69338 = true;
               default :
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               
@@ -287,25 +293,25 @@ define(["hooves/operator-functions", "hooves/lisp-idioms", "hooves/hooves", "gam
             this.da = da;
             return this;
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G24798))))            {
-            return G24798;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G69310))))            {
+            return G69310;
             };
-          G24798 = (function (arguments)            {
-            var matchValminus24860 = G24799;
-            var anythingElseminus24797 = matchValminus24860;
-            throw ((("Match fail in rosy/utils-drgba against: ")+anythingElseminus24797));
+          G69310 = (function (arguments)            {
+            var matchValminus69372 = G69311;
+            var anythingElseminus69309 = matchValminus69372;
+            throw ((("Match fail in rosy/utils-drgba against: ")+anythingElseminus69309));
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G24798))))            {
-            return G24798;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G69310))))            {
+            return G69310;
             };
-          throw ((("match-fail at ((match (\.\. Array prototype slice (apply arguments)) ([: :- (options{} (r 100) (dr 0) (g 100) (dg 0) (b 100) (db 0) (a 0) (da 0))] (set! (@ r) r) (set! (@ g) g) (set! (@ b) b) (set! (@ a) a) (set! (@ dr) dr) (set! (@ dg) dg) (set! (@ db) db) (set! (@ da) da) this) (anything-else-24797 (_throw (_+ ''Match fail in rosy/utils-drgba against: '' anything-else-24797))))) for value ")+(JSON.stringify(G24799))));
+          throw ((("match-fail at ((match (\.\. Array prototype slice (apply arguments)) ([: :- (options{} (r 100) (dr 0) (g 100) (dg 0) (b 100) (db 0) (a 0) (da 0))] (set! (@ r) r) (set! (@ g) g) (set! (@ b) b) (set! (@ a) a) (set! (@ dr) dr) (set! (@ dg) dg) (set! (@ db) db) (set! (@ da) da) this) (anything-else-69309 (_throw (_+ ''Match fail in rosy/utils-drgba against: '' anything-else-69309))))) for value ")+(JSON.stringify(G69311))));
           }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
         });
-      returnValueminus24792 = actualFunminus24794.apply(this, arguments);
-      while (recurP24795(returnValueminus24792))        {
-        returnValueminus24792 = actualFunminus24794.apply(this, returnValueminus24792.args);
+      returnValueminus69304 = actualFunminus69306.apply(this, arguments);
+      while (recurP69307(returnValueminus69304))        {
+        returnValueminus69304 = actualFunminus69306.apply(this, returnValueminus69304.args);
         };
-      return returnValueminus24792;
+      return returnValueminus69304;
       });
     var colorRectify = (function (v)      {
       return Math.round(((moduleminus58c4bce870.greaterThan(v, 255))?(255) : (((moduleminus58c4bce870.lessThan(v, 0))?(0) : (v)))));
@@ -314,213 +320,228 @@ define(["hooves/operator-functions", "hooves/lisp-idioms", "hooves/hooves", "gam
       return ((moduleminus58c4bce870.greaterThan(a, 1))?(1) : (((moduleminus58c4bce870.lessThan(a, 0))?(0) : (a))));
       });
     var colorRandom = (function (c, m)      {
-      var r = moduleminus58c4bce870.minus(moduleminus58c4bce870.divide(m, 2), currentModuleminus24597.random(m));
+      var r = moduleminus58c4bce870.minus(moduleminus58c4bce870.divide(m, 2), currentModuleminus69256.random(m));
       var a = colorRectify(moduleminus58c4bce870.plus(c, r));
       return a;
       });
     var alphaRandom = (function (c, m)      {
-      var r = moduleminus58c4bce870.minus(moduleminus58c4bce870.divide(m, 2), currentModuleminus24597.random(m));
+      var r = moduleminus58c4bce870.minus(moduleminus58c4bce870.divide(m, 2), currentModuleminus69256.random(m));
       var a = alphaRectify(moduleminus58c4bce870.plus(c, r));
       return a;
       });
-    currentModuleminus24597.drgba.prototype.toString = (function ()      {
+    currentModuleminus69256.drgba.prototype.toString = (function ()      {
       return moduleminus58c4bce870.plus("rgba(", colorRandom(this.r, this.dr), ",", colorRandom(this.g, this.dg), ",", colorRandom(this.b, this.db), ",", alphaRandom(this.a, this.da), ")");
       });
-    currentModuleminus24597.makeDrgba = (function (options)      {
-      return (new currentModuleminus24597.drgba(options));
+    currentModuleminus69256.makeDrgba = (function (options)      {
+      return (new currentModuleminus69256.drgba(options));
       });
-    currentModuleminus24597.moveTowards = (function ()      {
-      var returnValueminus24970 = undefined;
+    currentModuleminus69256.moveTowards = (function ()      {
+      var returnValueminus69482 = undefined;
       var recur = (function ()        {
         return {          
-          recurSigil:"recurSigilminus24969",
+          recurSigil:"recurSigilminus69481",
           args:arguments
         };
         });
-      var recurP24973 = (function (valminus24974)        {
-        if ((("undefined")===((typeof valminus24974))))          {
+      var recurP69485 = (function (valminus69486)        {
+        if ((("undefined")===((typeof valminus69486))))          {
           return false;
           };
-        return (valminus24974.recurSigil===("recurSigilminus24969"));
+        return (valminus69486.recurSigil===("recurSigilminus69481"));
         });
-      var actualFunminus24972 = (function ()        {
+      var actualFunminus69484 = (function ()        {
         return (function (arguments)          {
-          var G24976 = undefined;
-          var G24977 = Array.prototype.slice.apply(arguments);
-          G24976 = (function (arguments)            {
-            var matchValminus24978 = G24977;
-            if ((!((3===matchValminus24978.length))))              {
+          var G69488 = undefined;
+          var G69489 = Array.prototype.slice.apply(arguments);
+          G69488 = (function (arguments)            {
+            var matchValminus69490 = G69489;
+            if ((!((("object")===((typeof matchValminus69490))))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            var matchTempminus24979 = matchValminus24978[0];
-            var matchTempminus24980 = matchValminus24978[1];
-            var matchTempminus24981 = matchValminus24978[2];
-            var camera = matchTempminus24979;
-            if ((("undefined")===((typeof matchTempminus24979))))              {
-              matchTempminus24979 = {                
+            if ((!((3===matchValminus69490.length))))              {
+              return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
+              };
+            var matchTempminus69491 = matchValminus69490[0];
+            var matchTempminus69492 = matchValminus69490[1];
+            var matchTempminus69493 = matchValminus69490[2];
+            var camera = matchTempminus69491;
+            if ((("undefined")===((typeof matchTempminus69491))))              {
+              matchTempminus69491 = {                
                 
               };
               };
-            var matchObjectTempminus24982 = matchTempminus24979.position;
-            var cx = matchObjectTempminus24982.x;
+            var matchObjectTempminus69494 = matchTempminus69491.position;
+            var cx = matchObjectTempminus69494.x;
             if ((("undefined")===((typeof cx))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            var cy = matchObjectTempminus24982.y;
+            var cy = matchObjectTempminus69494.y;
             if ((("undefined")===((typeof cy))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            var x = matchTempminus24980.x;
+            var x = matchTempminus69492.x;
             if ((("undefined")===((typeof x))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            var y = matchTempminus24980.y;
+            var y = matchTempminus69492.y;
             if ((("undefined")===((typeof y))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            var time = matchTempminus24981;
+            var time = matchTempminus69493;
             var d = (new gamvas.Vector2D(moduleminus58c4bce870.minus(x, cx), moduleminus58c4bce870.minus(y, cy)));
             var len = d.length();
             var dir = d.normalized();
             var move = (new gamvas.Vector2D(moduleminus58c4bce870.times(time, dir.x, Math.pow(moduleminus58c4bce870.times(0.1, len), 4)), moduleminus58c4bce870.times(time, dir.y, Math.pow(moduleminus58c4bce870.times(0.1, len), 4))));
             return camera.move(move.x, move.y);
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G24976))))            {
-            return G24976;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G69488))))            {
+            return G69488;
             };
-          G24976 = (function (arguments)            {
-            var matchValminus24983 = G24977;
-            var anythingElseminus24975 = matchValminus24983;
-            throw ((("Match fail in rosy/utils-move-towards against: ")+anythingElseminus24975));
+          G69488 = (function (arguments)            {
+            var matchValminus69495 = G69489;
+            var anythingElseminus69487 = matchValminus69495;
+            throw ((("Match fail in rosy/utils-move-towards against: ")+anythingElseminus69487));
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G24976))))            {
-            return G24976;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G69488))))            {
+            return G69488;
             };
-          throw ((("match-fail at ((match (\.\. Array prototype slice (apply arguments)) ([: (and camera ({}- position ({} x cx y cy))) ({} x x y y) time] (var d (new gamvas\.Vector2D (- x cx) (- y cy))) (var len (d\.length)) (var dir (d\.normalized)) (var move (new gamvas\.Vector2D (* time dir\.x (Math\.pow (* 0.1 len) 4)) (* time dir\.y (Math\.pow (* 0.1 len) 4)))) (camera\.move move\.x move\.y)) (anything-else-24975 (_throw (_+ ''Match fail in rosy/utils-move-towards against: '' anything-else-24975))))) for value ")+(JSON.stringify(G24977))));
+          throw ((("match-fail at ((match (\.\. Array prototype slice (apply arguments)) ([: (and camera ({}- position ({} x cx y cy))) ({} x x y y) time] (var d (new gamvas\.Vector2D (- x cx) (- y cy))) (var len (d\.length)) (var dir (d\.normalized)) (var move (new gamvas\.Vector2D (* time dir\.x (Math\.pow (* 0.1 len) 4)) (* time dir\.y (Math\.pow (* 0.1 len) 4)))) (camera\.move move\.x move\.y)) (anything-else-69487 (_throw (_+ ''Match fail in rosy/utils-move-towards against: '' anything-else-69487))))) for value ")+(JSON.stringify(G69489))));
           }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
         });
-      returnValueminus24970 = actualFunminus24972.apply(this, arguments);
-      while (recurP24973(returnValueminus24970))        {
-        returnValueminus24970 = actualFunminus24972.apply(this, returnValueminus24970.args);
+      returnValueminus69482 = actualFunminus69484.apply(this, arguments);
+      while (recurP69485(returnValueminus69482))        {
+        returnValueminus69482 = actualFunminus69484.apply(this, returnValueminus69482.args);
         };
-      return returnValueminus24970;
+      return returnValueminus69482;
       });
-    currentModuleminus24597.random = (function ()      {
-      var returnValueminus25014 = undefined;
+    currentModuleminus69256.random = (function ()      {
+      var returnValueminus69526 = undefined;
       var recur = (function ()        {
         return {          
-          recurSigil:"recurSigilminus25013",
+          recurSigil:"recurSigilminus69525",
           args:arguments
         };
         });
-      var recurP25017 = (function (valminus25018)        {
-        if ((("undefined")===((typeof valminus25018))))          {
+      var recurP69529 = (function (valminus69530)        {
+        if ((("undefined")===((typeof valminus69530))))          {
           return false;
           };
-        return (valminus25018.recurSigil===("recurSigilminus25013"));
+        return (valminus69530.recurSigil===("recurSigilminus69525"));
         });
-      var actualFunminus25016 = (function ()        {
+      var actualFunminus69528 = (function ()        {
         return (function (arguments)          {
-          var G25020 = undefined;
-          var G25021 = Array.prototype.slice.apply(arguments);
-          G25020 = (function (arguments)            {
-            var matchValminus25022 = G25021;
-            if ((!((1===matchValminus25022.length))))              {
+          var G69532 = undefined;
+          var G69533 = Array.prototype.slice.apply(arguments);
+          G69532 = (function (arguments)            {
+            var matchValminus69534 = G69533;
+            if ((!((("object")===((typeof matchValminus69534))))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            var magnitude = matchValminus25022[0];
+            if ((!((1===matchValminus69534.length))))              {
+              return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
+              };
+            var magnitude = matchValminus69534[0];
             return moduleminus58c4bce870.times(magnitude, Math.random());
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G25020))))            {
-            return G25020;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G69532))))            {
+            return G69532;
             };
-          G25020 = (function (arguments)            {
-            var matchValminus25023 = G25021;
-            if ((!((2===matchValminus25023.length))))              {
+          G69532 = (function (arguments)            {
+            var matchValminus69535 = G69533;
+            if ((!((("object")===((typeof matchValminus69535))))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            var magnitude = matchValminus25023[0];
-            var offset = matchValminus25023[1];
+            if ((!((2===matchValminus69535.length))))              {
+              return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
+              };
+            var magnitude = matchValminus69535[0];
+            var offset = matchValminus69535[1];
             return moduleminus58c4bce870.plus(offset, moduleminus58c4bce870.times(magnitude, Math.random()));
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G25020))))            {
-            return G25020;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G69532))))            {
+            return G69532;
             };
-          G25020 = (function (arguments)            {
-            var matchValminus25024 = G25021;
-            var anythingElseminus25019 = matchValminus25024;
-            throw ((("Match fail in rosy/utils-random against: ")+anythingElseminus25019));
+          G69532 = (function (arguments)            {
+            var matchValminus69536 = G69533;
+            var anythingElseminus69531 = matchValminus69536;
+            throw ((("Match fail in rosy/utils-random against: ")+anythingElseminus69531));
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G25020))))            {
-            return G25020;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G69532))))            {
+            return G69532;
             };
-          throw ((("match-fail at ((match (\.\. Array prototype slice (apply arguments)) ([: magnitude] (* magnitude (Math\.random))) ([: magnitude offset] (+ offset (* magnitude (Math\.random)))) (anything-else-25019 (_throw (_+ ''Match fail in rosy/utils-random against: '' anything-else-25019))))) for value ")+(JSON.stringify(G25021))));
+          throw ((("match-fail at ((match (\.\. Array prototype slice (apply arguments)) ([: magnitude] (* magnitude (Math\.random))) ([: magnitude offset] (+ offset (* magnitude (Math\.random)))) (anything-else-69531 (_throw (_+ ''Match fail in rosy/utils-random against: '' anything-else-69531))))) for value ")+(JSON.stringify(G69533))));
           }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
         });
-      returnValueminus25014 = actualFunminus25016.apply(this, arguments);
-      while (recurP25017(returnValueminus25014))        {
-        returnValueminus25014 = actualFunminus25016.apply(this, returnValueminus25014.args);
+      returnValueminus69526 = actualFunminus69528.apply(this, arguments);
+      while (recurP69529(returnValueminus69526))        {
+        returnValueminus69526 = actualFunminus69528.apply(this, returnValueminus69526.args);
         };
-      return returnValueminus25014;
+      return returnValueminus69526;
       });
-    currentModuleminus24597.randomInt = (function ()      {
-      var returnValueminus25055 = undefined;
+    currentModuleminus69256.randomInt = (function ()      {
+      var returnValueminus69567 = undefined;
       var recur = (function ()        {
         return {          
-          recurSigil:"recurSigilminus25054",
+          recurSigil:"recurSigilminus69566",
           args:arguments
         };
         });
-      var recurP25058 = (function (valminus25059)        {
-        if ((("undefined")===((typeof valminus25059))))          {
+      var recurP69570 = (function (valminus69571)        {
+        if ((("undefined")===((typeof valminus69571))))          {
           return false;
           };
-        return (valminus25059.recurSigil===("recurSigilminus25054"));
+        return (valminus69571.recurSigil===("recurSigilminus69566"));
         });
-      var actualFunminus25057 = (function ()        {
+      var actualFunminus69569 = (function ()        {
         return (function (arguments)          {
-          var G25061 = undefined;
-          var G25062 = Array.prototype.slice.apply(arguments);
-          G25061 = (function (arguments)            {
-            var matchValminus25063 = G25062;
-            if ((!((1===matchValminus25063.length))))              {
+          var G69573 = undefined;
+          var G69574 = Array.prototype.slice.apply(arguments);
+          G69573 = (function (arguments)            {
+            var matchValminus69575 = G69574;
+            if ((!((("object")===((typeof matchValminus69575))))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            var magnitude = matchValminus25063[0];
+            if ((!((1===matchValminus69575.length))))              {
+              return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
+              };
+            var magnitude = matchValminus69575[0];
             return Math.round(moduleminus58c4bce870.times(magnitude, Math.random()));
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G25061))))            {
-            return G25061;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G69573))))            {
+            return G69573;
             };
-          G25061 = (function (arguments)            {
-            var matchValminus25064 = G25062;
-            if ((!((2===matchValminus25064.length))))              {
+          G69573 = (function (arguments)            {
+            var matchValminus69576 = G69574;
+            if ((!((("object")===((typeof matchValminus69576))))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            var magnitude = matchValminus25064[0];
-            var offset = matchValminus25064[1];
+            if ((!((2===matchValminus69576.length))))              {
+              return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
+              };
+            var magnitude = matchValminus69576[0];
+            var offset = matchValminus69576[1];
             return Math.round(moduleminus58c4bce870.plus(offset, moduleminus58c4bce870.times(magnitude, Math.random())));
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G25061))))            {
-            return G25061;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G69573))))            {
+            return G69573;
             };
-          G25061 = (function (arguments)            {
-            var matchValminus25065 = G25062;
-            var anythingElseminus25060 = matchValminus25065;
-            throw ((("Match fail in rosy/utils-random-int against: ")+anythingElseminus25060));
+          G69573 = (function (arguments)            {
+            var matchValminus69577 = G69574;
+            var anythingElseminus69572 = matchValminus69577;
+            throw ((("Match fail in rosy/utils-random-int against: ")+anythingElseminus69572));
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G25061))))            {
-            return G25061;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G69573))))            {
+            return G69573;
             };
-          throw ((("match-fail at ((match (\.\. Array prototype slice (apply arguments)) ([: magnitude] (Math\.round (* magnitude (Math\.random)))) ([: magnitude offset] (Math\.round (+ offset (* magnitude (Math\.random))))) (anything-else-25060 (_throw (_+ ''Match fail in rosy/utils-random-int against: '' anything-else-25060))))) for value ")+(JSON.stringify(G25062))));
+          throw ((("match-fail at ((match (\.\. Array prototype slice (apply arguments)) ([: magnitude] (Math\.round (* magnitude (Math\.random)))) ([: magnitude offset] (Math\.round (+ offset (* magnitude (Math\.random))))) (anything-else-69572 (_throw (_+ ''Match fail in rosy/utils-random-int against: '' anything-else-69572))))) for value ")+(JSON.stringify(G69574))));
           }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
         });
-      returnValueminus25055 = actualFunminus25057.apply(this, arguments);
-      while (recurP25058(returnValueminus25055))        {
-        returnValueminus25055 = actualFunminus25057.apply(this, returnValueminus25055.args);
+      returnValueminus69567 = actualFunminus69569.apply(this, arguments);
+      while (recurP69570(returnValueminus69567))        {
+        returnValueminus69567 = actualFunminus69569.apply(this, returnValueminus69567.args);
         };
-      return returnValueminus25055;
+      return returnValueminus69567;
       });
-    }))();
-  return currentModuleminus24597;
+    }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
+  return currentModuleminus69256;
   }))

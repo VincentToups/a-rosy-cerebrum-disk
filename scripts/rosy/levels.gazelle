@@ -17,8 +17,9 @@
 
  (define+ test-bed
    (lambda () 
-	 (var geometry [: (w* 0 80  800 10 (/ pi 10))
-					  (w* 0 110 800 10 (- (/ pi 10)))])
+	 (var shift -40)
+	 (var geometry [: (w* 0 (+ shift 200)  800 10 (/ pi 10))
+					   (w* 0 (+ shift 230)  800 10 (- (/ pi 10)))])
 	 (set! window.level-geometry geometry)
 	 ({} geometry 
 		 geometry

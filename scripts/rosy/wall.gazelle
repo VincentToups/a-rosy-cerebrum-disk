@@ -1,9 +1,11 @@
 (module 
  (("hooves/operator-functions" :all)
   ("hooves/lisp-idioms" (:with-prefix idioms- :all))
+  ("hooves/hooves" :all)
   ("rosy/drawing" :all)
   ("rosy/utils" :all)
-  ((js "gamvas/gamvas-module" gamvas)))
+  ((js "gamvas/gamvas-module" gamvas))
+  ((js "gamvas/box-2d-module" Box2D)))
 
  (define (static-wall-create name x y w h :- (opt r 0))
    (this._super name x y)
@@ -19,9 +21,22 @@
 
  (define detect-collision-state 
    (gamvas.ActorState.extend 
-	({} on-collision-enter 
-		(lambda (a)
-		  (console.log "Wall hit." a)))))
+	({} 
+	 enter (lambda ()
+			 (console.log "Entering collision state."))
+
+	 leave (lambda ()
+			 (console.log "Leaving collision state."))
+
+	 on-collision-enter 
+	 (lambda (a)
+	   (set! this.actor.focused true))
+	 on-mouse-down
+ 	 (lambda (button x y event)
+	   (if (this.actor.click-inside x y)
+		   (console.log "True.")
+		 (console.log "False."))
+	   ))))
 
  (define (wall-create name x y w h :- (opt r 0))
    (this._super name x y)
@@ -29,26 +44,10 @@
    (set! this.wall-w w)
    (set! this.wall-h h)
    (console.log "Creating a wall at " (JSON.stringify [: x y w h]))
-   (this.body-rect this.position.x this.position.y w h gamvas.physics.DYNAMIC)
+   (this.body-rect this.position.x this.position.y w h gamvas.physics.STATIC)
    (this.set-rotation r)
    (set! this.rotation r)
    (set! this.r r)
-
-   (set! this.static-wall 
-		 (new Static-Wall (+ "static-" name) x y (* 0.25 w) (* 0.25 h) r))
-
-   ;; (this.add-revolute-joint this.static-wall 
-   ;; 							(new gamvas.Vector2D 0 0))
-
-   (this.add-revolute-joint this.static-wall 
-							(new gamvas.Vector2D (/ w 4) 0))
-
-   (this.add-revolute-joint this.static-wall 
-							(new gamvas.Vector2D (/ (- w) 4) 0))
-
-   (var state (gamvas.state.get-current-state))
-   (state.add-actor this.static-wall)
-
    (set! this.drgba (make-drgba 
 					 ({} r 100
 						 dr 20
@@ -131,6 +130,30 @@
 				  (jit-line-to blx bly)
 				  (c.fill))))
 
+ (define (click-inside mouse-x mouse-y)
+   (with-slots (fixture) this 
+	 (var camera (.. (gamvas.state.get-current-state) camera))
+	 (var-match ({} x world-x 
+					y world-y)
+				(camera.to-world mouse-x mouse-y))
+	 (var physics-x 
+		  (gamvas.physics.to-world world-x)
+		  physics-y 
+		  (gamvas.physics.to-world world-y))
+	 (var result (fixture.TestPoint (new Box2D.Common.Math.b2Vec2 physics-x physics-y)))
+	 result))
+
+ (define (point-inside world-x world-y)
+   (with-slots (fixture) this 
+	 (var physics-x 
+		  (gamvas.physics.to-world world-x)
+		  physics-y 
+		  (gamvas.physics.to-world world-y))
+	 (var result (fixture.TestPoint (new Box2D.Common.Math.b2Vec2 physics-x physics-y)))
+	 result))
+
  (define+ Wall 
    (gamvas.Actor.extend ({} create wall-create
-							draw wall-draw))))
+							draw wall-draw
+							click-inside click-inside
+							point-inside point-inside))))

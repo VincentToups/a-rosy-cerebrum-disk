@@ -4263,7 +4263,9 @@ gamvas.physics = {
             gamvas._world = new Box2D.Dynamics.b2World(new Box2D.Common.Math.b2Vec2(gx, gy), doSleep);
         }
         this._debugDrawer = null;
-        var l = (gamvas.isSet(listener)) ? listener : new Box2D.Dynamics.b2ContactListener();
+		console.log("Vincent added his own changes to the listener.")
+		//var l = (gamvas.isSet(listener)) ? listener : new Box2D.Dynamics.b2ContactListener();
+		var l = (gamvas.isSet(listener)) ? listener : new gamvas.physics.ContactListener();
         var w = gamvas.physics.getWorld();
         w.SetContactListener(l);
     },

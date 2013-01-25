@@ -1,16 +1,18 @@
-define(["hooves/operator-functions", "hooves/lisp-idioms", "rosy/drawing", "rosy/utils", "gamvas/gamvas-module"], (function (moduleminus58c4bce870, moduleminus295baa4e1e, moduleminus6acd260b96, moduleC47fa390df, gamvas)  {
-  var currentModuleminus26922 = {    
+define(["hooves/operator-functions", "hooves/lisp-idioms", "hooves/hooves", "rosy/drawing", "rosy/utils", "gamvas/gamvas-module", "gamvas/box-2d-module"], (function (moduleminus58c4bce870, moduleminus295baa4e1e, moduleminus4745e9d952, moduleminus6acd260b96, moduleC47fa390df, gamvas, Box2D)  {
+  var currentModuleminus69621 = {    
     
   };
   var setModuleObject = (function (value)    {
-    currentModuleminus26922 = value;
+    currentModuleminus69621 = value;
     });
-  ((function ()    {
+  (function (arguments)    {
     var defineplus = "macro - no dynamic value.";
     var defineMacroplus = "macro - no dynamic value.";
     // ("hooves/operator-functions" :all)
     ;
     // ("hooves/lisp-idioms" (:with-prefix idioms- :all))
+    ;
+    // ("hooves/hooves" :all)
     ;
     // ("rosy/drawing" :all)
     ;
@@ -18,63 +20,71 @@ define(["hooves/operator-functions", "hooves/lisp-idioms", "rosy/drawing", "rosy
     ;
     // ((js "gamvas/gamvas-module" gamvas))
     ;
+    // ((js "gamvas/box-2d-module" Box2D))
+    ;
     var staticWallCreate = (function ()      {
-      var returnValueminus26926 = undefined;
+      var returnValueminus69625 = undefined;
       var recur = (function ()        {
         return {          
-          recurSigil:"recurSigilminus26925",
+          recurSigil:"recurSigilminus69624",
           args:arguments
         };
         });
-      var recurP26929 = (function (valminus26930)        {
-        if ((("undefined")===((typeof valminus26930))))          {
+      var recurP69628 = (function (valminus69629)        {
+        if ((("undefined")===((typeof valminus69629))))          {
           return false;
           };
-        return (valminus26930.recurSigil===("recurSigilminus26925"));
+        return (valminus69629.recurSigil===("recurSigilminus69624"));
         });
-      var actualFunminus26928 = (function ()        {
+      var actualFunminus69627 = (function ()        {
         return (function (arguments)          {
-          var G26932 = undefined;
-          var G26933 = Array.prototype.slice.apply(arguments);
-          G26932 = (function (arguments)            {
-            var matchValminus26934 = G26933;
-            if ((!((matchValminus26934.length>=5))))              {
+          var G69631 = undefined;
+          var G69632 = Array.prototype.slice.apply(arguments);
+          G69631 = (function (arguments)            {
+            var matchValminus69633 = G69632;
+            if ((!((("object")===((typeof matchValminus69633))))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            var matchArraySimplePartminus26935 = Array.prototype.slice.call(matchValminus26934, 0, 5);
-            if ((!((5===matchArraySimplePartminus26935.length))))              {
+            if ((!((matchValminus69633.length>=5))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            var name = matchArraySimplePartminus26935[0];
-            var x = matchArraySimplePartminus26935[1];
-            var y = matchArraySimplePartminus26935[2];
-            var w = matchArraySimplePartminus26935[3];
-            var h = matchArraySimplePartminus26935[4];
-            var matchArrayTailPartminus26936 = Array.prototype.slice.call(matchValminus26934, 5);
-            var matchTempminus26937 = matchArrayTailPartminus26936[0];
-            var previousMatchSucceededminus26938 = true;
+            var matchArraySimplePartminus69634 = Array.prototype.slice.call(matchValminus69633, 0, 5);
+            if ((!((("object")===((typeof matchArraySimplePartminus69634))))))              {
+              return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
+              };
+            if ((!((5===matchArraySimplePartminus69634.length))))              {
+              return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
+              };
+            var name = matchArraySimplePartminus69634[0];
+            var x = matchArraySimplePartminus69634[1];
+            var y = matchArraySimplePartminus69634[2];
+            var w = matchArraySimplePartminus69634[3];
+            var h = matchArraySimplePartminus69634[4];
+            var matchArrayTailPartminus69635 = Array.prototype.slice.call(matchValminus69633, 5);
+            var matchTempminus69636 = matchArrayTailPartminus69635[0];
+            var previousMatchSucceededminus69637 = true;
             switch (1){
                           case 1:
-              if ((("undefined")===((typeof matchTempminus26937))))                {
-                previousMatchSucceededminus26938 = false;
+              if ((("undefined")===((typeof matchTempminus69636))))                {
+                previousMatchSucceededminus69637 = false;
                 };
-              var r = matchTempminus26937;
-              if (previousMatchSucceededminus26938)                {
+              var r = matchTempminus69636;
+              if (previousMatchSucceededminus69637)                {
                 break;
                 };
-              previousMatchSucceededminus26938 = true;
+              previousMatchSucceededminus69637 = true;
               case 1:
-              var fResult26939 = ((function (x)                {
+              var fResult69638 = ((function (x)                {
                 return 0;
-                }))(matchTempminus26937);
-              if ((fResult26939===("match-fail-e1aa3b7e7ce9731266013c178de842b5")))                {
-                previousMatchSucceededminus26938 = false;
+                }))(matchTempminus69636);
+              if ((fResult69638===("match-fail-e1aa3b7e7ce9731266013c178de842b5")))                {
+                previousMatchSucceededminus69637 = false;
                 };
-              var r = fResult26939;
-              if (previousMatchSucceededminus26938)                {
+              var r = fResult69638;
+              if (previousMatchSucceededminus69637)                {
                 break;
                 };
-              previousMatchSucceededminus26938 = true;
+              previousMatchSucceededminus69637 = true;
               default :
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               
@@ -83,25 +93,25 @@ define(["hooves/operator-functions", "hooves/lisp-idioms", "rosy/drawing", "rosy
             this.bodyRect(this.position.x, this.position.y, w, h, gamvas.physics.STATIC);
             return this.setRotation(r);
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G26932))))            {
-            return G26932;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G69631))))            {
+            return G69631;
             };
-          G26932 = (function (arguments)            {
-            var matchValminus26940 = G26933;
-            var anythingElseminus26931 = matchValminus26940;
-            throw ((("Match fail in static-wall-create against: ")+anythingElseminus26931));
+          G69631 = (function (arguments)            {
+            var matchValminus69639 = G69632;
+            var anythingElseminus69630 = matchValminus69639;
+            throw ((("Match fail in static-wall-create against: ")+anythingElseminus69630));
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G26932))))            {
-            return G26932;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G69631))))            {
+            return G69631;
             };
-          throw ((("match-fail at ((match (\.\. Array prototype slice (apply arguments)) ([: name x y w h :- (opt r 0)] (this\._super name x y) (this\.body-rect this\.position\.x this\.position\.y w h gamvas\.physics\.STATIC) (this\.set-rotation r)) (anything-else-26931 (_throw (_+ ''Match fail in static-wall-create against: '' anything-else-26931))))) for value ")+(JSON.stringify(G26933))));
+          throw ((("match-fail at ((match (\.\. Array prototype slice (apply arguments)) ([: name x y w h :- (opt r 0)] (this\._super name x y) (this\.body-rect this\.position\.x this\.position\.y w h gamvas\.physics\.STATIC) (this\.set-rotation r)) (anything-else-69630 (_throw (_+ ''Match fail in static-wall-create against: '' anything-else-69630))))) for value ")+(JSON.stringify(G69632))));
           }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
         });
-      returnValueminus26926 = actualFunminus26928.apply(this, arguments);
-      while (recurP26929(returnValueminus26926))        {
-        returnValueminus26926 = actualFunminus26928.apply(this, returnValueminus26926.args);
+      returnValueminus69625 = actualFunminus69627.apply(this, arguments);
+      while (recurP69628(returnValueminus69625))        {
+        returnValueminus69625 = actualFunminus69627.apply(this, returnValueminus69625.args);
         };
-      return returnValueminus26926;
+      return returnValueminus69625;
       });
     var StaticWall = gamvas.Actor.extend({      
       create:staticWallCreate
@@ -110,67 +120,82 @@ define(["hooves/operator-functions", "hooves/lisp-idioms", "rosy/drawing", "rosy
       return moduleminus58c4bce870.plus(about, moduleC47fa390df.random(1));
       });
     var detectCollisionState = gamvas.ActorState.extend({      
+      enter:(function ()        {
+        return console.log("Entering collision state.");
+        }),
+      leave:(function ()        {
+        return console.log("Leaving collision state.");
+        }),
       onCollisionEnter:(function (a)        {
-        return console.log("Wall hit.", a);
+        this.actor.focused = true;
+        }),
+      onMouseDown:(function (button, x, y, event)        {
+        return ((this.actor.clickInside(x, y))?(console.log("True.")) : (console.log("False.")));
         })
     });
     var wallCreate = (function ()      {
-      var returnValueminus26942 = undefined;
+      var returnValueminus69641 = undefined;
       var recur = (function ()        {
         return {          
-          recurSigil:"recurSigilminus26941",
+          recurSigil:"recurSigilminus69640",
           args:arguments
         };
         });
-      var recurP26945 = (function (valminus26946)        {
-        if ((("undefined")===((typeof valminus26946))))          {
+      var recurP69644 = (function (valminus69645)        {
+        if ((("undefined")===((typeof valminus69645))))          {
           return false;
           };
-        return (valminus26946.recurSigil===("recurSigilminus26941"));
+        return (valminus69645.recurSigil===("recurSigilminus69640"));
         });
-      var actualFunminus26944 = (function ()        {
+      var actualFunminus69643 = (function ()        {
         return (function (arguments)          {
-          var G26948 = undefined;
-          var G26949 = Array.prototype.slice.apply(arguments);
-          G26948 = (function (arguments)            {
-            var matchValminus26950 = G26949;
-            if ((!((matchValminus26950.length>=5))))              {
+          var G69647 = undefined;
+          var G69648 = Array.prototype.slice.apply(arguments);
+          G69647 = (function (arguments)            {
+            var matchValminus69649 = G69648;
+            if ((!((("object")===((typeof matchValminus69649))))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            var matchArraySimplePartminus26951 = Array.prototype.slice.call(matchValminus26950, 0, 5);
-            if ((!((5===matchArraySimplePartminus26951.length))))              {
+            if ((!((matchValminus69649.length>=5))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            var name = matchArraySimplePartminus26951[0];
-            var x = matchArraySimplePartminus26951[1];
-            var y = matchArraySimplePartminus26951[2];
-            var w = matchArraySimplePartminus26951[3];
-            var h = matchArraySimplePartminus26951[4];
-            var matchArrayTailPartminus26952 = Array.prototype.slice.call(matchValminus26950, 5);
-            var matchTempminus26953 = matchArrayTailPartminus26952[0];
-            var previousMatchSucceededminus26954 = true;
+            var matchArraySimplePartminus69650 = Array.prototype.slice.call(matchValminus69649, 0, 5);
+            if ((!((("object")===((typeof matchArraySimplePartminus69650))))))              {
+              return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
+              };
+            if ((!((5===matchArraySimplePartminus69650.length))))              {
+              return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
+              };
+            var name = matchArraySimplePartminus69650[0];
+            var x = matchArraySimplePartminus69650[1];
+            var y = matchArraySimplePartminus69650[2];
+            var w = matchArraySimplePartminus69650[3];
+            var h = matchArraySimplePartminus69650[4];
+            var matchArrayTailPartminus69651 = Array.prototype.slice.call(matchValminus69649, 5);
+            var matchTempminus69652 = matchArrayTailPartminus69651[0];
+            var previousMatchSucceededminus69653 = true;
             switch (1){
                           case 1:
-              if ((("undefined")===((typeof matchTempminus26953))))                {
-                previousMatchSucceededminus26954 = false;
+              if ((("undefined")===((typeof matchTempminus69652))))                {
+                previousMatchSucceededminus69653 = false;
                 };
-              var r = matchTempminus26953;
-              if (previousMatchSucceededminus26954)                {
+              var r = matchTempminus69652;
+              if (previousMatchSucceededminus69653)                {
                 break;
                 };
-              previousMatchSucceededminus26954 = true;
+              previousMatchSucceededminus69653 = true;
               case 1:
-              var fResult26955 = ((function (x)                {
+              var fResult69654 = ((function (x)                {
                 return 0;
-                }))(matchTempminus26953);
-              if ((fResult26955===("match-fail-e1aa3b7e7ce9731266013c178de842b5")))                {
-                previousMatchSucceededminus26954 = false;
+                }))(matchTempminus69652);
+              if ((fResult69654===("match-fail-e1aa3b7e7ce9731266013c178de842b5")))                {
+                previousMatchSucceededminus69653 = false;
                 };
-              var r = fResult26955;
-              if (previousMatchSucceededminus26954)                {
+              var r = fResult69654;
+              if (previousMatchSucceededminus69653)                {
                 break;
                 };
-              previousMatchSucceededminus26954 = true;
+              previousMatchSucceededminus69653 = true;
               default :
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               
@@ -180,15 +205,10 @@ define(["hooves/operator-functions", "hooves/lisp-idioms", "rosy/drawing", "rosy
             this.wallW = w;
             this.wallH = h;
             console.log("Creating a wall at ", JSON.stringify([x, y, w, h]));
-            this.bodyRect(this.position.x, this.position.y, w, h, gamvas.physics.DYNAMIC);
+            this.bodyRect(this.position.x, this.position.y, w, h, gamvas.physics.STATIC);
             this.setRotation(r);
             this.rotation = r;
             this.r = r;
-            this.staticWall = (new StaticWall(moduleminus58c4bce870.plus("static-", name), x, y, moduleminus58c4bce870.times(0.25, w), moduleminus58c4bce870.times(0.25, h), r));
-            this.addRevoluteJoint(this.staticWall, (new gamvas.Vector2D(moduleminus58c4bce870.divide(w, 4), 0)));
-            this.addRevoluteJoint(this.staticWall, (new gamvas.Vector2D(moduleminus58c4bce870.divide(moduleminus58c4bce870.minus(w), 4), 0)));
-            var state = gamvas.state.getCurrentState();
-            state.addActor(this.staticWall);
             this.drgba = moduleC47fa390df.makeDrgba({              
               r:100,
               dr:20,
@@ -211,25 +231,25 @@ define(["hooves/operator-functions", "hooves/lisp-idioms", "rosy/drawing", "rosy
             });
             return console.log("wall rotation is ", this.rotation);
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G26948))))            {
-            return G26948;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G69647))))            {
+            return G69647;
             };
-          G26948 = (function (arguments)            {
-            var matchValminus26956 = G26949;
-            var anythingElseminus26947 = matchValminus26956;
-            throw ((("Match fail in wall-create against: ")+anythingElseminus26947));
+          G69647 = (function (arguments)            {
+            var matchValminus69655 = G69648;
+            var anythingElseminus69646 = matchValminus69655;
+            throw ((("Match fail in wall-create against: ")+anythingElseminus69646));
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G26948))))            {
-            return G26948;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G69647))))            {
+            return G69647;
             };
-          throw ((("match-fail at ((match (\.\. Array prototype slice (apply arguments)) ([: name x y w h :- (opt r 0)] (this\._super name x y) (set! this\.focused false) (set! this\.wall-w w) (set! this\.wall-h h) (console\.log ''Creating a wall at '' (JSON\.stringify [: x y w h])) (this\.body-rect this\.position\.x this\.position\.y w h gamvas\.physics\.DYNAMIC) (this\.set-rotation r) (set! this\.rotation r) (set! this\.r r) (set! this\.static-wall (new Static-Wall (+ ''static-'' name) x y (* 0.25 w) (* 0.25 h) r)) (this\.add-revolute-joint this\.static-wall (new gamvas\.Vector2D (/ w 4) 0)) (this\.add-revolute-joint this\.static-wall (new gamvas\.Vector2D (/ (- w) 4) 0)) (var state (gamvas\.state\.get-current-state)) (state\.add-actor this\.static-wall) (set! this\.drgba (make-drgba ({} r 100 dr 20 g 149 dg 20 b 237 db 20 a 0.4))) (this\.add-state (new detect-collision-state (quote detect-collision))) (this\.set-state (quote detect-collision)) (set! this\.focus-drgba (make-drgba ({} r 20 dr 20 g 70 dg 20 b 255 db 20 a 0.4))) (console\.log ''wall rotation is '' this\.rotation)) (anything-else-26947 (_throw (_+ ''Match fail in wall-create against: '' anything-else-26947))))) for value ")+(JSON.stringify(G26949))));
+          throw ((("match-fail at ((match (\.\. Array prototype slice (apply arguments)) ([: name x y w h :- (opt r 0)] (this\._super name x y) (set! this\.focused false) (set! this\.wall-w w) (set! this\.wall-h h) (console\.log ''Creating a wall at '' (JSON\.stringify [: x y w h])) (this\.body-rect this\.position\.x this\.position\.y w h gamvas\.physics\.STATIC) (this\.set-rotation r) (set! this\.rotation r) (set! this\.r r) (set! this\.drgba (make-drgba ({} r 100 dr 20 g 149 dg 20 b 237 db 20 a 0.4))) (this\.add-state (new detect-collision-state (quote detect-collision))) (this\.set-state (quote detect-collision)) (set! this\.focus-drgba (make-drgba ({} r 20 dr 20 g 70 dg 20 b 255 db 20 a 0.4))) (console\.log ''wall rotation is '' this\.rotation)) (anything-else-69646 (_throw (_+ ''Match fail in wall-create against: '' anything-else-69646))))) for value ")+(JSON.stringify(G69648))));
           }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
         });
-      returnValueminus26942 = actualFunminus26944.apply(this, arguments);
-      while (recurP26945(returnValueminus26942))        {
-        returnValueminus26942 = actualFunminus26944.apply(this, returnValueminus26942.args);
+      returnValueminus69641 = actualFunminus69643.apply(this, arguments);
+      while (recurP69644(returnValueminus69641))        {
+        returnValueminus69641 = actualFunminus69643.apply(this, returnValueminus69641.args);
         };
-      return returnValueminus26942;
+      return returnValueminus69641;
       });
     var wallDraw = (function (time)      {
       this._super(time);
@@ -275,10 +295,43 @@ define(["hooves/operator-functions", "hooves/lisp-idioms", "rosy/drawing", "rosy
         return c.fill();
         }));
       });
-    currentModuleminus26922.Wall = gamvas.Actor.extend({      
+    var clickInside = (function (mouseX, mouseY)      {
+      return (function (arguments)        {
+        var G69678 = this;
+        return (function (arguments)          {
+          var camera = gamvas.state.getCurrentState().camera;
+          var matchVar69683 = camera.toWorld(mouseX, mouseY);
+          var worldX = matchVar69683.x;
+          if ((("undefined")===((typeof worldX))))            {
+            throw ((("Match error in var-match (({} x world-x y world-y) (camera\.to-world mouse-x mouse-y)) against: ")+matchVar69683));
+            };
+          var worldY = matchVar69683.y;
+          if ((("undefined")===((typeof worldY))))            {
+            throw ((("Match error in var-match (({} x world-x y world-y) (camera\.to-world mouse-x mouse-y)) against: ")+matchVar69683));
+            };
+          ;
+          var physicsX = gamvas.physics.toWorld(worldX), physicsY = gamvas.physics.toWorld(worldY);
+          var result = G69678.fixture.TestPoint((new Box2D.Common.Math.b2Vec2(physicsX, physicsY)));
+          return result;
+          }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
+        }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
+      });
+    var pointInside = (function (worldX, worldY)      {
+      return (function (arguments)        {
+        var G69705 = this;
+        return (function (arguments)          {
+          var physicsX = gamvas.physics.toWorld(worldX), physicsY = gamvas.physics.toWorld(worldY);
+          var result = G69705.fixture.TestPoint((new Box2D.Common.Math.b2Vec2(physicsX, physicsY)));
+          return result;
+          }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
+        }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
+      });
+    currentModuleminus69621.Wall = gamvas.Actor.extend({      
       create:wallCreate,
-      draw:wallDraw
+      draw:wallDraw,
+      clickInside:clickInside,
+      pointInside:pointInside
     });
-    }))();
-  return currentModuleminus26922;
+    }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
+  return currentModuleminus69621;
   }))
