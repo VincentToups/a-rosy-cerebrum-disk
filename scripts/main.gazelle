@@ -73,10 +73,8 @@
 	(new hello-state 'hello-state))
    (gamvas.state.add-state 
 	(new (create-play-state level-test-bed) 'test-play-state))
-   (gamvas.state.add-state
-	(new Spoonbill 'spoonbill))
    (gamvas.start "canvas" true)
-   (gamvas.state.set-state 'spoonbill)
+   (gamvas.state.set-state 'test-play-state)
    (set! main-loaded true)))
 
 (gamvas.event.add-on-load 

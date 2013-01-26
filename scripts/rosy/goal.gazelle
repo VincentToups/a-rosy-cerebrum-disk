@@ -1,0 +1,130 @@
+(module 
+ (("hooves/operator-functions" :all)
+  ("hooves/lisp-idioms" :all)
+  ("hooves/hooves" :all)
+  ("rosy/drawing" :all)
+  ("rosy/utils" :all)
+  ((js "gamvas/gamvas-module" gamvas))
+  ((js "gamvas/box-2d-module" Box2D)))
+
+ (define state-extension ({}))
+ (define actor-extension ({}))
+
+ (define vec (lambda (x y) 
+			   (new Box2D.Common.Math.b2Vec2 x y)))
+
+ (define goal-radius 30)
+ (define goal-color (make-drgba ({} r 255
+									g 212
+									b 36
+									dr 10
+									dg 10
+									db 10
+									a 0.4)))
+ (define number-of-circles 8)
+
+ (define-to state-extension 
+   (do-collide (a c om)
+			   false))
+
+ (define-to state-extension 
+   (update time)
+   (when (defined? this.actor.ball)
+	 (var-match ({} x x y y) this.actor.ball.position)
+	 (when (this.actor.point-inside x y)
+	   (this.actor.ball.cancel-gravity-next-update 0)
+	   (var-match 
+		(and ball-center 
+			 ({} x bx y by))
+		(this.actor.ball.body.GetWorldCenter))
+	   (var-match 
+		({} x gx y gy)
+		(this.actor.body.GetWorldCenter))
+	   (var b->g (new gamvas.Vector2D 
+					  (- gx bx)
+					  (- gy by)))
+	   (var r (b->g.length))
+	   (var-match ({} x fx y fy) 
+				  (b->g.normalized))
+	   (this.actor.ball.add-damping-next-update (/ 1 r))
+	   (this.actor.ball.add-force (vec (* fx (* 5 r r r r))
+									   (* fy (* 5 r r r r)))
+								  ball-center))))
+
+ (define Goal-State 
+   (gamvas.Actor-State.extend state-extension))
+
+ (define-to actor-extension 
+   (create name cx cy :- ball)
+   (this._super name cx cy)
+   (var-match ({} x cx y cy) this.position)
+   (this.body-circle cx cy goal-radius gamvas.physics.STATIC)
+   (set! (@ vis-radii)
+		 (range 0 1 number-of-circles
+				(lambda ()
+				  [: (random-normal (/ goal-radius 2)) 0])))
+   (this.add-state (new Goal-State :goal-state))
+   (this.set-state :goal-state)
+   (set! (@ ball) ball)
+   (console.log "In goal create using color " (goal-color.to-string) " ball is " ball))
+
+ (define (clamp val low high)
+   (if (> val high) high
+	 (if (< val low) low val)))
+
+ (define (circle-clamp val low high)
+   (if (> val high) (+ low (- val high))
+	 (if (< val low) (- high (- low val)) val)))
+
+ (define (_clamp low high)
+   (lambda (val)
+	 (clamp val low high)))
+
+ (define-to actor-extension
+   (update-radii time)
+   (set! (@ vis-radii)
+		 (map 
+		  (lambda ([: r d])
+			[: (circle-clamp (+ r (* time d)) 0 goal-radius)
+			   (clamp (+ d (random-normal)) -10 10)])
+		  (@ vis-radii))))
+
+ (define-to actor-extension 
+   (draw-one-circle r)
+   (var-match 
+	({} x x y y)
+	this.position)
+   (var c (.. (gamvas.state.get-current-state) c))
+   (with-jitter 
+	c 10 3
+	(lambda (c)
+	  (set! c.stroke-style 
+			(goal-color.to-string))
+	  (c.begin-path)
+	  (c.arc (random 4 (- x 2)) 
+			 (random 4 (- y 2)) 
+			 (random .1 r) 
+			 0 
+			 (* 2 Math.PI) 
+			 false)
+	  (c.stroke))))
+
+ (define-to actor-extension
+   (draw time)
+   (this._super time)
+   (@ (update-radii time))
+   (for* ((index [: r d]) in (@ vis-radii))
+		 (@ (draw-one-circle r))))
+
+ (define-to actor-extension 
+   (point-inside world-x world-y)
+   (var fixture (@ fixture))
+   (var physics-x 
+		(gamvas.physics.to-world world-x)
+		physics-y
+		(gamvas.physics.to-world world-y))
+   (fixture.TestPoint (new Box2D.Common.Math.b2Vec2 physics-x physics-y)))
+
+ (define+ Goal 
+   (gamvas.Actor.extend actor-extension)))
+

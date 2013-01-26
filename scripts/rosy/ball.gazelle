@@ -3,6 +3,7 @@
   ("hooves/lisp-idioms" (:with-prefix idioms- :all))
   ("rosy/drawing" :all)
   ("rosy/utils" :all)
+  ("hooves/hooves" :all)
   ((js "gamvas/gamvas-module" gamvas)))
 
  (define Wall-Focus-State 
@@ -18,7 +19,6 @@
 	 (lambda ()
 	   (console.log "Wall-Focus-State left."))
 	 do-collide (lambda (a b)
-				  (console.log "In do collide.")
 				  true)
 	 on-collision
 	 (lambda (a ni ti c)
@@ -26,6 +26,33 @@
 	 on-collision-enter 
  	 (lambda (a)
 	   (console.log "Wall hit." a)))))
+
+ (define Forceable-State 
+   (gamvas.ActorState.extend 
+	({} update 
+		(lambda (time)
+		  (if (defined? this.actor.g-factors)
+			  (progn (var gf 1)
+					 (for* ((index element) in this.actor.g-factors)
+						   (set! gf (* gf element)))
+					 (set! this.actor.g-factors undefined)
+					 (set! this.actor.body.gravityFactor gf))
+			(progn 
+			  (set! this.actor.body.gravityFactor 1)))
+
+		  (if (defined? this.actor.d-factors)
+			  (progn (var df 0)
+					 (for* ((index element) in this.actor.d-factors)
+						   (set! df (+ df element)))
+					 (set! this.actor.d-factors undefined)
+					 (this.actor.setLinearDamping df))
+			(progn 
+			  (this.actor.setLinearDamping 0)))
+
+		  (when (defined? this.actor.forces)
+			(for* ((index force-desc) in this.actor.forces)
+				  (this.actor.body.ApplyForce.apply this.actor.body force-desc))
+			(set! this.actor.forces undefined))))))
  
  (define (ball-create 
 		  [((name x y)
@@ -33,10 +60,11 @@
 		   ((name x y dynamical-character)
 			(this._super name x y)
 			(set! this.restitution 0.4)
-			
+
 			(set! this.p-1 [: x y])
 			(set! this.p-2 [: (+ 1 x) (+ 1 y)])
-			
+			(this.add-state (new Forceable-State :forceable))
+			(this.set-state :forceable)			
 			(this.body-circle this.position.x this.position.y 10 dynamical-character))]))
 
  (define (ball-draw time)
@@ -77,4 +105,18 @@
 	({}
 	 create ball-create
 	 draw ball-draw
+	 add-force (lambda (f a)
+				 (if (undefined? this.forces)
+					 (set! this.forces [:]))
+				 (this.forces.push [: f a]))
+	 cancel-gravity-next-update 
+	 (lambda (:- (opt by 0))
+	   (if (undefined? this.g-factors)
+		   (set! this.g-factors [:]))
+	   (this.g-factors.push by))
+	 add-damping-next-update 
+	 (lambda (:- (opt by 0))
+	   (if (undefined? this.d-factors)
+		   (set! this.d-factors [:]))
+	   (this.d-factors.push by))
 	 stationary? stationary?))))

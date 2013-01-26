@@ -6,6 +6,7 @@
   ("rosy/utils" :all)
   ("rosy/wall" :all)
   ("rosy/ball" :all)
+  ("rosy/goal" :all)
   ((js "gamvas/gamvas-module" gamvas))
   ((js "gamvas/box-2d-module" b2d)))
 
@@ -28,7 +29,8 @@
 			 (for (i :in g)
 				  (this.add-actor [g i]))
 			 (set! this.ball (new Ball "Player" px py))
-			 (this.add-actor this.ball)))
+			 (this.add-actor this.ball)
+			 (this.add-actor (new Goal "Goal" 25 150 this.ball))))
 	 (console.log "this.ball is " this.ball)))
 
  (define (draw-in-play time)
@@ -57,7 +59,8 @@
    (match this.sub-state
 		  (:in-play (this.draw-in-play time))
 		  (other-value 
-		   (this.draw-in-play time))))
+		   (this.draw-in-play time)))
+   (comment (gamvas.physics.draw-debug)))
 
  (define (log 
 		  [((arguments (defined modulo))

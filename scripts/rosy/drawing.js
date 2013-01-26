@@ -1,9 +1,9 @@
 define(["hooves/operator-functions", "hooves/lisp-idioms", "rosy/utils"], (function (moduleminus58c4bce870, moduleminus295baa4e1e, moduleC47fa390df)  {
-  var currentModuleminus69253 = {    
+  var currentModuleminus267353 = {    
     
   };
   var setModuleObject = (function (value)    {
-    currentModuleminus69253 = value;
+    currentModuleminus267353 = value;
     });
   (function (arguments)    {
     var defineplus = "macro - no dynamic value.";
@@ -15,21 +15,21 @@ define(["hooves/operator-functions", "hooves/lisp-idioms", "rosy/utils"], (funct
     // ("rosy/utils" :all)
     ;
     var saveExcursion = "macro - no dynamic value.";
-    currentModuleminus69253.withJitter = (function (context, n, magnitude, thunk)      {
+    currentModuleminus267353.withJitter = (function (context, n, magnitude, thunk)      {
       for (var i = 0;moduleminus58c4bce870.lessThan(i, n);i = moduleminus58c4bce870.plus(i, 1))        {
         (function (arguments)          {
-          var context69617 = context;
-          context69617.save();
+          var context267758 = context;
+          context267758.save();
           try            {
             context.translate(moduleminus58c4bce870.minus(moduleminus58c4bce870.divide(magnitude, 2), moduleC47fa390df.random(magnitude)), moduleminus58c4bce870.minus(moduleminus58c4bce870.divide(magnitude, 2), moduleC47fa390df.random(magnitude)));
             thunk(context);
             }finally             {
-            context69617.restore();
+            context267758.restore();
             };
           }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
         };
       return context;
       });
     }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-  return currentModuleminus69253;
+  return currentModuleminus267353;
   }))
