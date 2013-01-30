@@ -1,9 +1,9 @@
 define(["hooves/operator-functions", "hooves/lisp-idioms", "hooves/hooves", "rosy/utils", "rosy/wall", "rosy/drawing", "gamvas/gamvas-module"], (function (moduleminus58c4bce870, moduleminus295baa4e1e, moduleminus4745e9d952, moduleC47fa390df, moduleB147560188, moduleminus6acd260b96, gamvas)  {
-  var currentModuleminus268984 = {    
+  var currentModuleminus10490 = {    
     
   };
   var setModuleObject = (function (value)    {
-    currentModuleminus268984 = value;
+    currentModuleminus10490 = value;
     });
   (function (arguments)    {
     var defineplus = "macro - no dynamic value.";
@@ -27,71 +27,71 @@ define(["hooves/operator-functions", "hooves/lisp-idioms", "hooves/hooves", "ros
       
     };
     var pairToRect = (function ()      {
-      var returnValueminus268989 = undefined;
+      var returnValueminus10495 = undefined;
       var recur = (function ()        {
         return {          
-          recurSigil:"recurSigilminus268988",
+          recurSigil:"recurSigilminus10494",
           args:arguments
         };
         });
-      var recurP268992 = (function (valminus268993)        {
-        if ((("undefined")===((typeof valminus268993))))          {
+      var recurP10498 = (function (valminus10499)        {
+        if ((("undefined")===((typeof valminus10499))))          {
           return false;
           };
-        return (valminus268993.recurSigil===("recurSigilminus268988"));
+        return (valminus10499.recurSigil===("recurSigilminus10494"));
         });
-      var actualFunminus268991 = (function ()        {
+      var actualFunminus10497 = (function ()        {
         return (function (arguments)          {
-          var G268995 = undefined;
-          var G268996 = Array.prototype.slice.apply(arguments);
-          G268995 = (function (arguments)            {
-            var matchValminus268997 = G268996;
-            if ((!((("object")===((typeof matchValminus268997))))))              {
+          var G10501 = undefined;
+          var G10502 = Array.prototype.slice.apply(arguments);
+          G10501 = (function (arguments)            {
+            var matchValminus10503 = G10502;
+            if ((!((("object")===((typeof matchValminus10503))))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            if ((!((2===matchValminus268997.length))))              {
+            if ((!((2===matchValminus10503.length))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            var matchTempminus268998 = matchValminus268997[0];
-            var matchTempminus268999 = matchValminus268997[1];
-            if ((!((("object")===((typeof matchTempminus268998))))))              {
+            var matchTempminus10504 = matchValminus10503[0];
+            var matchTempminus10505 = matchValminus10503[1];
+            if ((!((("object")===((typeof matchTempminus10504))))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            if ((!((2===matchTempminus268998.length))))              {
+            if ((!((2===matchTempminus10504.length))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            var x1 = matchTempminus268998[0];
-            var y1 = matchTempminus268998[1];
-            if ((!((("object")===((typeof matchTempminus268999))))))              {
+            var x1 = matchTempminus10504[0];
+            var y1 = matchTempminus10504[1];
+            if ((!((("object")===((typeof matchTempminus10505))))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            if ((!((2===matchTempminus268999.length))))              {
+            if ((!((2===matchTempminus10505.length))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            var x2 = matchTempminus268999[0];
-            var y2 = matchTempminus268999[1];
+            var x2 = matchTempminus10505[0];
+            var y2 = matchTempminus10505[1];
             var cx = moduleminus58c4bce870.divide(moduleminus58c4bce870.plus(x1, x2), 2), cy = moduleminus58c4bce870.divide(moduleminus58c4bce870.plus(y1, y2), 2), w = Math.abs(moduleminus58c4bce870.minus(x1, x2)), h = Math.abs(moduleminus58c4bce870.minus(y1, y2));
             return [cx, cy, w, h, 0];
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G268995))))            {
-            return G268995;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G10501))))            {
+            return G10501;
             };
-          G268995 = (function (arguments)            {
-            var matchValminus269000 = G268996;
-            var anythingElseminus268994 = matchValminus269000;
-            throw ((("Match fail in pair-to-rect against: ")+anythingElseminus268994));
+          G10501 = (function (arguments)            {
+            var matchValminus10506 = G10502;
+            var anythingElseminus10500 = matchValminus10506;
+            throw ((("Match fail in pair-to-rect against: ")+anythingElseminus10500));
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G268995))))            {
-            return G268995;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G10501))))            {
+            return G10501;
             };
-          throw ((("match-fail at ((match (\.\. Array prototype slice (apply arguments)) ([: [: x1 y1] [: x2 y2]] (var cx (/ (+ x1 x2) 2) cy (/ (+ y1 y2) 2) w (Math\.abs (- x1 x2)) h (Math\.abs (- y1 y2))) [: cx cy w h 0]) (anything-else-268994 (_throw (_+ ''Match fail in pair-to-rect against: '' anything-else-268994))))) for value ")+(JSON.stringify(G268996))));
+          throw ((("match-fail at ((match (\.\. Array prototype slice (apply arguments)) ([: [: x1 y1] [: x2 y2]] (var cx (/ (+ x1 x2) 2) cy (/ (+ y1 y2) 2) w (Math\.abs (- x1 x2)) h (Math\.abs (- y1 y2))) [: cx cy w h 0]) (anything-else-10500 (_throw (_+ ''Match fail in pair-to-rect against: '' anything-else-10500))))) for value ")+(JSON.stringify(G10502))));
           }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
         });
-      returnValueminus268989 = actualFunminus268991.apply(this, arguments);
-      while (recurP268992(returnValueminus268989))        {
-        returnValueminus268989 = actualFunminus268991.apply(this, returnValueminus268989.args);
+      returnValueminus10495 = actualFunminus10497.apply(this, arguments);
+      while (recurP10498(returnValueminus10495))        {
+        returnValueminus10495 = actualFunminus10497.apply(this, returnValueminus10495.args);
         };
-      return returnValueminus268989;
+      return returnValueminus10495;
       });
     var atg = "macro - no dynamic value.";
     var atgk = "macro - no dynamic value.";
@@ -104,7 +104,7 @@ define(["hooves/operator-functions", "hooves/lisp-idioms", "hooves/hooves", "ros
       return gamvas.key.isPressed(k);
       });
     (function (arguments)      {
-      var defineToObjectminus269077 = extension;
+      var defineToObjectminus10583 = extension;
       var init = (function ()        {
         gamvas.physics.pixelsPerMeter = 128;
         var w = gamvas.physics.resetWorld(0, 9.8, false);
@@ -115,217 +115,217 @@ define(["hooves/operator-functions", "hooves/lisp-idioms", "hooves/hooves", "ros
         this.wallCount = 0;
         return console.log("init sub-state ", this.subState);
         });
-      defineToObjectminus269077.init = init;
-      return defineToObjectminus269077;
+      defineToObjectminus10583.init = init;
+      return defineToObjectminus10583;
       }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
     (function (arguments)      {
-      var defineToObjectminus269145 = extension;
+      var defineToObjectminus10651 = extension;
       var onMouseDown = (function (b, x, y, evt)        {
         this.mouseClick = [b, x, y, evt];
         });
-      defineToObjectminus269145.onMouseDown = onMouseDown;
-      return defineToObjectminus269145;
+      defineToObjectminus10651.onMouseDown = onMouseDown;
+      return defineToObjectminus10651;
       }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
     (function (arguments)      {
-      var defineToObjectminus269173 = extension;
+      var defineToObjectminus10679 = extension;
       var onKeyDown = (function (k, c, evt)        {
         this.keyPress = k;
         });
-      defineToObjectminus269173.onKeyDown = onKeyDown;
-      return defineToObjectminus269173;
+      defineToObjectminus10679.onKeyDown = onKeyDown;
+      return defineToObjectminus10679;
       }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
     (function (arguments)      {
-      var defineToObjectminus269201 = extension;
+      var defineToObjectminus10707 = extension;
       var maybePopKey = (function ()        {
         var k = this.keyPress;
         this.keyPress = undefined;
         return k;
         });
-      defineToObjectminus269201.maybePopKey = maybePopKey;
-      return defineToObjectminus269201;
+      defineToObjectminus10707.maybePopKey = maybePopKey;
+      return defineToObjectminus10707;
       }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
     (function (arguments)      {
-      var defineToObjectminus269237 = extension;
+      var defineToObjectminus10743 = extension;
       var mouseInWorld = (function ()        {
-        var matchVar269257 = gamvas.mouse.getPosition();
-        var x = matchVar269257.x;
+        var matchVar10763 = gamvas.mouse.getPosition();
+        var x = matchVar10763.x;
         if ((("undefined")===((typeof x))))          {
-          throw ((("Match error in var-match (({} x x y y) (gamvas\.mouse\.get-position)) against: ")+matchVar269257));
+          throw ((("Match error in var-match (({} x x y y) (gamvas\.mouse\.get-position)) against: ")+matchVar10763));
           };
-        var y = matchVar269257.y;
+        var y = matchVar10763.y;
         if ((("undefined")===((typeof y))))          {
-          throw ((("Match error in var-match (({} x x y y) (gamvas\.mouse\.get-position)) against: ")+matchVar269257));
+          throw ((("Match error in var-match (({} x x y y) (gamvas\.mouse\.get-position)) against: ")+matchVar10763));
           };
         ;
         return this.camera.toWorld(x, y);
         });
-      defineToObjectminus269237.mouseInWorld = mouseInWorld;
-      return defineToObjectminus269237;
+      defineToObjectminus10743.mouseInWorld = mouseInWorld;
+      return defineToObjectminus10743;
       }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
     (function (arguments)      {
-      var defineToObjectminus269267 = extension;
+      var defineToObjectminus10773 = extension;
       var moveToMouse = (function ()        {
-        var matchVar269288 = this.mouseClick;
-        if ((!((("object")===((typeof matchVar269288))))))          {
-          throw ((("Match error in var-match ([: btn x y evt] this\.mouse-click) against: ")+matchVar269288));
+        var matchVar10794 = this.mouseClick;
+        if ((!((("object")===((typeof matchVar10794))))))          {
+          throw ((("Match error in var-match ([: btn x y evt] this\.mouse-click) against: ")+matchVar10794));
           };
-        if ((!((4===matchVar269288.length))))          {
-          throw ((("Match error in var-match ([: btn x y evt] this\.mouse-click) against: ")+matchVar269288));
+        if ((!((4===matchVar10794.length))))          {
+          throw ((("Match error in var-match ([: btn x y evt] this\.mouse-click) against: ")+matchVar10794));
           };
-        var btn = matchVar269288[0];
-        var x = matchVar269288[1];
-        var y = matchVar269288[2];
-        var evt = matchVar269288[3];
+        var btn = matchVar10794[0];
+        var x = matchVar10794[1];
+        var y = matchVar10794[2];
+        var evt = matchVar10794[3];
         ;
-        var matchVar269289 = this.camera.toWorld(x, y);
-        var x = matchVar269289.x;
+        var matchVar10795 = this.camera.toWorld(x, y);
+        var x = matchVar10795.x;
         if ((("undefined")===((typeof x))))          {
-          throw ((("Match error in var-match (({} x x y y) (\.\. this\.camera (to-world x y))) against: ")+matchVar269289));
+          throw ((("Match error in var-match (({} x x y y) (\.\. this\.camera (to-world x y))) against: ")+matchVar10795));
           };
-        var y = matchVar269289.y;
+        var y = matchVar10795.y;
         if ((("undefined")===((typeof y))))          {
-          throw ((("Match error in var-match (({} x x y y) (\.\. this\.camera (to-world x y))) against: ")+matchVar269289));
+          throw ((("Match error in var-match (({} x x y y) (\.\. this\.camera (to-world x y))) against: ")+matchVar10795));
           };
         ;
         console.log("Mouse in world is ", x, y);
         return this.camera.setPosition(x, y);
         });
-      defineToObjectminus269267.moveToMouse = moveToMouse;
-      return defineToObjectminus269267;
+      defineToObjectminus10773.moveToMouse = moveToMouse;
+      return defineToObjectminus10773;
       }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
     (function (arguments)      {
-      var defineToObjectminus269299 = extension;
+      var defineToObjectminus10805 = extension;
       var drawBallPosition = (function ()        {
         return (function (arguments)          {
-          var G269346 = this;
+          var G10852 = this;
           return (function (arguments)            {
             return (function (arguments)              {
-              var context269360 = G269346.c;
-              context269360.save();
+              var context10866 = G10852.c;
+              context10866.save();
               try                {
-                G269346.c.beginPath();
-                G269346.c.strokeStyle = "red";
-                var matchVar269361 = G269346.ballStart;
-                if ((!((("object")===((typeof matchVar269361))))))                  {
-                  throw ((("Match error in var-match ([: x y] ball-start) against: ")+matchVar269361));
+                G10852.c.beginPath();
+                G10852.c.strokeStyle = "red";
+                var matchVar10867 = G10852.ballStart;
+                if ((!((("object")===((typeof matchVar10867))))))                  {
+                  throw ((("Match error in var-match ([: x y] ball-start) against: ")+matchVar10867));
                   };
-                if ((!((2===matchVar269361.length))))                  {
-                  throw ((("Match error in var-match ([: x y] ball-start) against: ")+matchVar269361));
+                if ((!((2===matchVar10867.length))))                  {
+                  throw ((("Match error in var-match ([: x y] ball-start) against: ")+matchVar10867));
                   };
-                var x = matchVar269361[0];
-                var y = matchVar269361[1];
+                var x = matchVar10867[0];
+                var y = matchVar10867[1];
                 ;
-                G269346.c.translate(x, y);
-                G269346.c.arc(0, 0, 10, 0, moduleminus58c4bce870.times(3, Math.PI));
-                G269346.c.stroke();
-                G269346.c.fillStyle = "blue";
-                G269346.c.fillText("START", 0, 0);
+                G10852.c.translate(x, y);
+                G10852.c.arc(0, 0, 10, 0, moduleminus58c4bce870.times(3, Math.PI));
+                G10852.c.stroke();
+                G10852.c.fillStyle = "blue";
+                G10852.c.fillText("START", 0, 0);
                 }finally                 {
-                context269360.restore();
+                context10866.restore();
                 };
               }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
           }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
         });
-      defineToObjectminus269299.drawBallPosition = drawBallPosition;
-      return defineToObjectminus269299;
+      defineToObjectminus10805.drawBallPosition = drawBallPosition;
+      return defineToObjectminus10805;
       }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
     (function (arguments)      {
-      var defineToObjectminus269367 = extension;
+      var defineToObjectminus10873 = extension;
       var pointToIntersectingWalls = (function (x, y)        {
         var walls = [];
         var actors = this.getActors();
         for (index in (actors))          {
           (function (arguments)            {
-            var G269396 = undefined;
-            var G269397 = actors[index];
-            G269396 = (function (arguments)              {
-              var matchValminus269398 = G269397;
-              var matchFunExprminus269400 = (function (G269399)                {
-                return (G269399 instanceof moduleB147560188.Wall);
+            var G10902 = undefined;
+            var G10903 = actors[index];
+            G10902 = (function (arguments)              {
+              var matchValminus10904 = G10903;
+              var matchFunExprminus10906 = (function (G10905)                {
+                return (G10905 instanceof moduleB147560188.Wall);
                 });
-              if ((!(matchFunExprminus269400(matchValminus269398))))                {
+              if ((!(matchFunExprminus10906(matchValminus10904))))                {
                 return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
                 };
-              var wall = matchValminus269398;
+              var wall = matchValminus10904;
               return ((wall.pointInside(x, y))?(walls.push(wall)) : (undefined));
               }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-            if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G269396))))              {
-              return G269396;
+            if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G10902))))              {
+              return G10902;
               };
-            G269396 = (function (arguments)              {
-              var matchValminus269401 = G269397;
-              var anything = matchValminus269401;
+            G10902 = (function (arguments)              {
+              var matchValminus10907 = G10903;
+              var anything = matchValminus10907;
               return undefined;
               }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-            if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G269396))))              {
-              return G269396;
+            if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G10902))))              {
+              return G10902;
               };
-            throw ((("match-fail at ((match [actors index] ((instance Wall wall) (if (wall\.point-inside x y) (walls\.push wall))) (anything undefined))) for value ")+(JSON.stringify(G269397))));
+            throw ((("match-fail at ((match [actors index] ((instance Wall wall) (if (wall\.point-inside x y) (walls\.push wall))) (anything undefined))) for value ")+(JSON.stringify(G10903))));
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
           };
         return walls;
         });
-      defineToObjectminus269367.pointToIntersectingWalls = pointToIntersectingWalls;
-      return defineToObjectminus269367;
+      defineToObjectminus10873.pointToIntersectingWalls = pointToIntersectingWalls;
+      return defineToObjectminus10873;
       }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
     (function (arguments)      {
-      var defineToObjectminus269407 = extension;
+      var defineToObjectminus10913 = extension;
       var handleClickCreating = (function ()        {
         return (function (arguments)          {
-          var G269466 = undefined;
-          var G269467 = this.createPoints;
-          G269466 = (function (arguments)            {
-            var matchValminus269472 = G269467;
-            if ((!((("undefined")===((typeof matchValminus269472))))))              {
+          var G10972 = undefined;
+          var G10973 = this.createPoints;
+          G10972 = (function (arguments)            {
+            var matchValminus10978 = G10973;
+            if ((!((("undefined")===((typeof matchValminus10978))))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            var matchVar269473 = this.mouseInWorld();
-            var mx = matchVar269473.x;
+            var matchVar10979 = this.mouseInWorld();
+            var mx = matchVar10979.x;
             if ((("undefined")===((typeof mx))))              {
-              throw ((("Match error in var-match (({} x mx y my) (@ (mouse-in-world))) against: ")+matchVar269473));
+              throw ((("Match error in var-match (({} x mx y my) (@ (mouse-in-world))) against: ")+matchVar10979));
               };
-            var my = matchVar269473.y;
+            var my = matchVar10979.y;
             if ((("undefined")===((typeof my))))              {
-              throw ((("Match error in var-match (({} x mx y my) (@ (mouse-in-world))) against: ")+matchVar269473));
+              throw ((("Match error in var-match (({} x mx y my) (@ (mouse-in-world))) against: ")+matchVar10979));
               };
             ;
             this.createPoints = [[mx, my]];
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G269466))))            {
-            return G269466;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G10972))))            {
+            return G10972;
             };
-          G269466 = (function (arguments)            {
-            var matchValminus269482 = G269467;
-            if ((!((("object")===((typeof matchValminus269482))))))              {
+          G10972 = (function (arguments)            {
+            var matchValminus10988 = G10973;
+            if ((!((("object")===((typeof matchValminus10988))))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            if ((!((1===matchValminus269482.length))))              {
+            if ((!((1===matchValminus10988.length))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            var p1 = matchValminus269482[0];
-            var matchVar269483 = this.mouseInWorld();
-            var mx = matchVar269483.x;
+            var p1 = matchValminus10988[0];
+            var matchVar10989 = this.mouseInWorld();
+            var mx = matchVar10989.x;
             if ((("undefined")===((typeof mx))))              {
-              throw ((("Match error in var-match (({} x mx y my) (@ (mouse-in-world))) against: ")+matchVar269483));
+              throw ((("Match error in var-match (({} x mx y my) (@ (mouse-in-world))) against: ")+matchVar10989));
               };
-            var my = matchVar269483.y;
+            var my = matchVar10989.y;
             if ((("undefined")===((typeof my))))              {
-              throw ((("Match error in var-match (({} x mx y my) (@ (mouse-in-world))) against: ")+matchVar269483));
+              throw ((("Match error in var-match (({} x mx y my) (@ (mouse-in-world))) against: ")+matchVar10989));
               };
             ;
-            var matchVar269488 = pairToRect(p1, [mx, my]);
-            if ((!((("object")===((typeof matchVar269488))))))              {
-              throw ((("Match error in var-match ([: x y w h _] (pair-to-rect p1 [: mx my])) against: ")+matchVar269488));
+            var matchVar10994 = pairToRect(p1, [mx, my]);
+            if ((!((("object")===((typeof matchVar10994))))))              {
+              throw ((("Match error in var-match ([: x y w h _] (pair-to-rect p1 [: mx my])) against: ")+matchVar10994));
               };
-            if ((!((5===matchVar269488.length))))              {
-              throw ((("Match error in var-match ([: x y w h _] (pair-to-rect p1 [: mx my])) against: ")+matchVar269488));
+            if ((!((5===matchVar10994.length))))              {
+              throw ((("Match error in var-match ([: x y w h _] (pair-to-rect p1 [: mx my])) against: ")+matchVar10994));
               };
-            var x = matchVar269488[0];
-            var y = matchVar269488[1];
-            var w = matchVar269488[2];
-            var h = matchVar269488[3];
-            var _ = matchVar269488[4];
+            var x = matchVar10994[0];
+            var y = matchVar10994[1];
+            var w = matchVar10994[2];
+            var h = matchVar10994[3];
+            var _ = matchVar10994[4];
             ;
             console.log("Create ", x, y, w, h);
             this.addActor((new (moduleB147560188.Wall)(moduleminus58c4bce870.plus("Wall-", this.wallCount), x, y, w, h, 0)));
@@ -333,209 +333,209 @@ define(["hooves/operator-functions", "hooves/lisp-idioms", "hooves/hooves", "ros
             this.createPoints = undefined;
             this.subState = "unfocused";
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G269466))))            {
-            return G269466;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G10972))))            {
+            return G10972;
             };
-          G269466 = (function (arguments)            {
-            var matchValminus269509 = G269467;
-            var otherwise = matchValminus269509;
+          G10972 = (function (arguments)            {
+            var matchValminus11015 = G10973;
+            var otherwise = matchValminus11015;
             return undefined;
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G269466))))            {
-            return G269466;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G10972))))            {
+            return G10972;
             };
-          throw ((("match-fail at ((match (@ create-points) (undefined (var-match ({} x mx y my) (@ (mouse-in-world))) (set! (@ create-points) [: [: mx my]])) ([: p1] (var-match ({} x mx y my) (@ (mouse-in-world))) (var-match [: x y w h _] (pair-to-rect p1 [: mx my])) (console\.log ''Create '' x y w h) (this\.add-actor (new Wall (+ ''Wall-'' (@ wall-count)) x y w h 0)) (set! (@ wall-count) (+ 1 (@ wall-count))) (set! (@ create-points) undefined) (set! (@ sub-state) :unfocused)) (otherwise undefined))) for value ")+(JSON.stringify(G269467))));
+          throw ((("match-fail at ((match (@ create-points) (undefined (var-match ({} x mx y my) (@ (mouse-in-world))) (set! (@ create-points) [: [: mx my]])) ([: p1] (var-match ({} x mx y my) (@ (mouse-in-world))) (var-match [: x y w h _] (pair-to-rect p1 [: mx my])) (console\.log ''Create '' x y w h) (this\.add-actor (new Wall (+ ''Wall-'' (@ wall-count)) x y w h 0)) (set! (@ wall-count) (+ 1 (@ wall-count))) (set! (@ create-points) undefined) (set! (@ sub-state) :unfocused)) (otherwise undefined))) for value ")+(JSON.stringify(G10973))));
           }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
         });
-      defineToObjectminus269407.handleClickCreating = handleClickCreating;
-      return defineToObjectminus269407;
+      defineToObjectminus10913.handleClickCreating = handleClickCreating;
+      return defineToObjectminus10913;
       }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
     (function (arguments)      {
-      var defineToObjectminus269515 = extension;
+      var defineToObjectminus11021 = extension;
       var handleClickUnfocused = (function ()        {
         this.moveToMouse();
-        var matchVar269567 = this.mouseClick;
-        if ((!((("object")===((typeof matchVar269567))))))          {
-          throw ((("Match error in var-match ([: btn x y evt] this\.mouse-click) against: ")+matchVar269567));
+        var matchVar11073 = this.mouseClick;
+        if ((!((("object")===((typeof matchVar11073))))))          {
+          throw ((("Match error in var-match ([: btn x y evt] this\.mouse-click) against: ")+matchVar11073));
           };
-        if ((!((4===matchVar269567.length))))          {
-          throw ((("Match error in var-match ([: btn x y evt] this\.mouse-click) against: ")+matchVar269567));
+        if ((!((4===matchVar11073.length))))          {
+          throw ((("Match error in var-match ([: btn x y evt] this\.mouse-click) against: ")+matchVar11073));
           };
-        var btn = matchVar269567[0];
-        var x = matchVar269567[1];
-        var y = matchVar269567[2];
-        var evt = matchVar269567[3];
+        var btn = matchVar11073[0];
+        var x = matchVar11073[1];
+        var y = matchVar11073[2];
+        var evt = matchVar11073[3];
         ;
-        var matchVar269568 = this.camera.toWorld(x, y);
-        var wx = matchVar269568.x;
+        var matchVar11074 = this.camera.toWorld(x, y);
+        var wx = matchVar11074.x;
         if ((("undefined")===((typeof wx))))          {
-          throw ((("Match error in var-match (({} x wx y wy) (this\.camera\.to-world x y)) against: ")+matchVar269568));
+          throw ((("Match error in var-match (({} x wx y wy) (this\.camera\.to-world x y)) against: ")+matchVar11074));
           };
-        var wy = matchVar269568.y;
+        var wy = matchVar11074.y;
         if ((("undefined")===((typeof wy))))          {
-          throw ((("Match error in var-match (({} x wx y wy) (this\.camera\.to-world x y)) against: ")+matchVar269568));
+          throw ((("Match error in var-match (({} x wx y wy) (this\.camera\.to-world x y)) against: ")+matchVar11074));
           };
         ;
         return (function (arguments)          {
-          var G269569 = undefined;
-          var G269570 = this.pointToIntersectingWalls(wx, wy);
-          G269569 = (function (arguments)            {
-            var matchValminus269575 = G269570;
-            if ((!((("object")===((typeof matchValminus269575))))))              {
+          var G11075 = undefined;
+          var G11076 = this.pointToIntersectingWalls(wx, wy);
+          G11075 = (function (arguments)            {
+            var matchValminus11081 = G11076;
+            if ((!((("object")===((typeof matchValminus11081))))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            if ((!((0===matchValminus269575.length))))              {
+            if ((!((0===matchValminus11081.length))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
             return undefined;
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G269569))))            {
-            return G269569;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G11075))))            {
+            return G11075;
             };
-          G269569 = (function (arguments)            {
-            var matchValminus269576 = G269570;
-            if ((!((("object")===((typeof matchValminus269576))))))              {
+          G11075 = (function (arguments)            {
+            var matchValminus11082 = G11076;
+            if ((!((("object")===((typeof matchValminus11082))))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            if ((!((1===matchValminus269576.length))))              {
+            if ((!((1===matchValminus11082.length))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            var w = matchValminus269576[0];
+            var w = matchValminus11082[0];
             var actors = this.getActors();
             for (index in (actors))              {
               (function (arguments)                {
-                var G269581 = undefined;
-                var G269582 = actors[index];
-                G269581 = (function (arguments)                  {
-                  var matchValminus269583 = G269582;
-                  var matchFunExprminus269585 = (function (G269584)                    {
-                    return (G269584 instanceof moduleB147560188.Wall);
+                var G11087 = undefined;
+                var G11088 = actors[index];
+                G11087 = (function (arguments)                  {
+                  var matchValminus11089 = G11088;
+                  var matchFunExprminus11091 = (function (G11090)                    {
+                    return (G11090 instanceof moduleB147560188.Wall);
                     });
-                  if ((!(matchFunExprminus269585(matchValminus269583))))                    {
+                  if ((!(matchFunExprminus11091(matchValminus11089))))                    {
                     return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
                     };
-                  var wall = matchValminus269583;
+                  var wall = matchValminus11089;
                   wall.focused = false;
                   }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-                if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G269581))))                  {
-                  return G269581;
+                if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G11087))))                  {
+                  return G11087;
                   };
-                G269581 = (function (arguments)                  {
-                  var matchValminus269586 = G269582;
-                  var anything = matchValminus269586;
+                G11087 = (function (arguments)                  {
+                  var matchValminus11092 = G11088;
+                  var anything = matchValminus11092;
                   return undefined;
                   }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-                if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G269581))))                  {
-                  return G269581;
+                if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G11087))))                  {
+                  return G11087;
                   };
-                throw ((("match-fail at ((match [actors index] ((instance Wall wall) (set! wall\.focused false)) (anything undefined))) for value ")+(JSON.stringify(G269582))));
+                throw ((("match-fail at ((match [actors index] ((instance Wall wall) (set! wall\.focused false)) (anything undefined))) for value ")+(JSON.stringify(G11088))));
                 }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
               };
             w.focused = true;
             this.focus = w;
             this.subState = "focused";
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G269569))))            {
-            return G269569;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G11075))))            {
+            return G11075;
             };
-          G269569 = (function (arguments)            {
-            var matchValminus269595 = G269570;
-            var anythingElse = matchValminus269595;
+          G11075 = (function (arguments)            {
+            var matchValminus11101 = G11076;
+            var anythingElse = matchValminus11101;
             return undefined;
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G269569))))            {
-            return G269569;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G11075))))            {
+            return G11075;
             };
-          throw ((("match-fail at ((match (@ (point->intersecting-walls wx wy)) ([:] undefined) ([: w] (var actors (@ (get-actors))) (for (index in actors) (match [actors index] ((instance Wall wall) (set! wall\.focused false)) (anything undefined))) (set! w\.focused true) (set! (@ focus) w) (set! (@ sub-state) :focused)) (anything-else undefined))) for value ")+(JSON.stringify(G269570))));
+          throw ((("match-fail at ((match (@ (point->intersecting-walls wx wy)) ([:] undefined) ([: w] (var actors (@ (get-actors))) (for (index in actors) (match [actors index] ((instance Wall wall) (set! wall\.focused false)) (anything undefined))) (set! w\.focused true) (set! (@ focus) w) (set! (@ sub-state) :focused)) (anything-else undefined))) for value ")+(JSON.stringify(G11076))));
           }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
         });
-      defineToObjectminus269515.handleClickUnfocused = handleClickUnfocused;
-      return defineToObjectminus269515;
+      defineToObjectminus11021.handleClickUnfocused = handleClickUnfocused;
+      return defineToObjectminus11021;
       }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
     (function (arguments)      {
-      var defineToObjectminus269601 = extension;
+      var defineToObjectminus11107 = extension;
       var handleKeyPressUnfocused = (function (k)        {
         return (function (arguments)          {
-          var G269635 = undefined;
-          var G269636 = this.maybePopKey();
-          G269635 = (function (arguments)            {
-            var matchValminus269641 = G269636;
-            var matchFunExprminus269642 = moduleminus4745e9d952.TripleEqualminus_(c);
-            if ((!(matchFunExprminus269642(matchValminus269641))))              {
+          var G11141 = undefined;
+          var G11142 = this.maybePopKey();
+          G11141 = (function (arguments)            {
+            var matchValminus11147 = G11142;
+            var matchFunExprminus11148 = moduleminus4745e9d952.TripleEqualminus_(c);
+            if ((!(matchFunExprminus11148(matchValminus11147))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
             this.subState = "creating";
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G269635))))            {
-            return G269635;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G11141))))            {
+            return G11141;
             };
-          G269635 = (function (arguments)            {
-            var matchValminus269647 = G269636;
-            var matchFunExprminus269648 = moduleminus4745e9d952.TripleEqualminus_(i);
-            if ((!(matchFunExprminus269648(matchValminus269647))))              {
+          G11141 = (function (arguments)            {
+            var matchValminus11153 = G11142;
+            var matchFunExprminus11154 = moduleminus4745e9d952.TripleEqualminus_(i);
+            if ((!(matchFunExprminus11154(matchValminus11153))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
             this.subState = "moveBallStart";
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G269635))))            {
-            return G269635;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G11141))))            {
+            return G11141;
             };
-          G269635 = (function (arguments)            {
-            var matchValminus269653 = G269636;
-            var otherwise = matchValminus269653;
+          G11141 = (function (arguments)            {
+            var matchValminus11159 = G11142;
+            var otherwise = matchValminus11159;
             return undefined;
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G269635))))            {
-            return G269635;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G11141))))            {
+            return G11141;
             };
-          throw ((("match-fail at ((match (@ (maybe-pop-key)) ((p (===_ c)) (set! (@ sub-state) :creating)) ((p (===_ i)) (set! (@ sub-state) :move-ball-start)) (otherwise undefined))) for value ")+(JSON.stringify(G269636))));
+          throw ((("match-fail at ((match (@ (maybe-pop-key)) ((p (===_ c)) (set! (@ sub-state) :creating)) ((p (===_ i)) (set! (@ sub-state) :move-ball-start)) (otherwise undefined))) for value ")+(JSON.stringify(G11142))));
           }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
         });
-      defineToObjectminus269601.handleKeyPressUnfocused = handleKeyPressUnfocused;
-      return defineToObjectminus269601;
+      defineToObjectminus11107.handleKeyPressUnfocused = handleKeyPressUnfocused;
+      return defineToObjectminus11107;
       }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
     (function (arguments)      {
-      var defineToObjectminus269659 = extension;
+      var defineToObjectminus11165 = extension;
       var handleKeyPressMoveBallStart = (function (k)        {
         return (function (arguments)          {
-          var G269691 = undefined;
-          var G269692 = this.maybePopKey();
-          G269691 = (function (arguments)            {
-            var matchValminus269697 = G269692;
-            var matchFunExprminus269698 = moduleminus4745e9d952.TripleEqualminus_(escape);
-            if ((!(matchFunExprminus269698(matchValminus269697))))              {
+          var G11197 = undefined;
+          var G11198 = this.maybePopKey();
+          G11197 = (function (arguments)            {
+            var matchValminus11203 = G11198;
+            var matchFunExprminus11204 = moduleminus4745e9d952.TripleEqualminus_(escape);
+            if ((!(matchFunExprminus11204(matchValminus11203))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
             this.this.mouseClick = undefined;
             this.subState = "unfocused";
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G269691))))            {
-            return G269691;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G11197))))            {
+            return G11197;
             };
-          G269691 = (function (arguments)            {
-            var matchValminus269707 = G269692;
-            var anything = matchValminus269707;
+          G11197 = (function (arguments)            {
+            var matchValminus11213 = G11198;
+            var anything = matchValminus11213;
             return undefined;
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G269691))))            {
-            return G269691;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G11197))))            {
+            return G11197;
             };
-          throw ((("match-fail at ((match (@ (maybe-pop-key)) ((p (===_ escape)) (set! (@ this\.mouse-click) undefined) (set! (@ sub-state) :unfocused)) (anything undefined))) for value ")+(JSON.stringify(G269692))));
+          throw ((("match-fail at ((match (@ (maybe-pop-key)) ((p (===_ escape)) (set! (@ this\.mouse-click) undefined) (set! (@ sub-state) :unfocused)) (anything undefined))) for value ")+(JSON.stringify(G11198))));
           }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
         });
-      defineToObjectminus269659.handleKeyPressMoveBallStart = handleKeyPressMoveBallStart;
-      return defineToObjectminus269659;
+      defineToObjectminus11165.handleKeyPressMoveBallStart = handleKeyPressMoveBallStart;
+      return defineToObjectminus11165;
       }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
     (function (arguments)      {
-      var defineToObjectminus269713 = extension;
+      var defineToObjectminus11219 = extension;
       var handleKeyPressCreating = (function (k)        {
         return (function (arguments)          {
-          var G269757 = undefined;
-          var G269758 = this.maybePopKey();
-          G269757 = (function (arguments)            {
-            var matchValminus269763 = G269758;
-            var matchFunExprminus269764 = moduleminus4745e9d952.TripleEqualminus_(escape);
-            if ((!(matchFunExprminus269764(matchValminus269763))))              {
+          var G11263 = undefined;
+          var G11264 = this.maybePopKey();
+          G11263 = (function (arguments)            {
+            var matchValminus11269 = G11264;
+            var matchFunExprminus11270 = moduleminus4745e9d952.TripleEqualminus_(escape);
+            if ((!(matchFunExprminus11270(matchValminus11269))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
             return ((moduleminus4745e9d952.definedPredicate(createPoints))?((function (arguments)              {
@@ -547,62 +547,62 @@ define(["hooves/operator-functions", "hooves/lisp-idioms", "hooves/hooves", "ros
               this.subState = "unfocused";
               }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)))));
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G269757))))            {
-            return G269757;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G11263))))            {
+            return G11263;
             };
-          G269757 = (function (arguments)            {
-            var matchValminus269785 = G269758;
-            var anything = matchValminus269785;
+          G11263 = (function (arguments)            {
+            var matchValminus11291 = G11264;
+            var anything = matchValminus11291;
             return undefined;
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G269757))))            {
-            return G269757;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G11263))))            {
+            return G11263;
             };
-          throw ((("match-fail at ((match (@ (maybe-pop-key)) ((p (===_ escape)) (if (defined\? create-points) (progn (set! (@ create-points) undefined) (set! (@ mouse-click) undefined)) (progn (set! (@ create-points) undefined) (set! (@ mouse-click undefined)) (set! (@ sub-state) :unfocused)))) (anything undefined))) for value ")+(JSON.stringify(G269758))));
+          throw ((("match-fail at ((match (@ (maybe-pop-key)) ((p (===_ escape)) (if (defined\? create-points) (progn (set! (@ create-points) undefined) (set! (@ mouse-click) undefined)) (progn (set! (@ create-points) undefined) (set! (@ mouse-click undefined)) (set! (@ sub-state) :unfocused)))) (anything undefined))) for value ")+(JSON.stringify(G11264))));
           }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
         });
-      defineToObjectminus269713.handleKeyPressCreating = handleKeyPressCreating;
-      return defineToObjectminus269713;
+      defineToObjectminus11219.handleKeyPressCreating = handleKeyPressCreating;
+      return defineToObjectminus11219;
       }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
     (function (arguments)      {
-      var defineToObjectminus269791 = extension;
+      var defineToObjectminus11297 = extension;
       var handleKeyPressFocused = (function (time)        {
-        var matchVar269838 = this.focus.position;
-        var x = matchVar269838.x;
+        var matchVar11344 = this.focus.position;
+        var x = matchVar11344.x;
         if ((("undefined")===((typeof x))))          {
-          throw ((("Match error in var-match (({} x x y y) this\.focus\.position) against: ")+matchVar269838));
+          throw ((("Match error in var-match (({} x x y y) this\.focus\.position) against: ")+matchVar11344));
           };
-        var y = matchVar269838.y;
+        var y = matchVar11344.y;
         if ((("undefined")===((typeof y))))          {
-          throw ((("Match error in var-match (({} x x y y) this\.focus\.position) against: ")+matchVar269838));
+          throw ((("Match error in var-match (({} x x y y) this\.focus\.position) against: ")+matchVar11344));
           };
         ;
         var r = this.focus.rotation;
         return (function (arguments)          {
-          var G269839 = undefined;
-          var G269840 = this.maybePopKey();
-          G269839 = (function (arguments)            {
-            var matchValminus269845 = G269840;
-            var previousMatchSucceededminus269846 = true;
+          var G11345 = undefined;
+          var G11346 = this.maybePopKey();
+          G11345 = (function (arguments)            {
+            var matchValminus11351 = G11346;
+            var previousMatchSucceededminus11352 = true;
             switch (1){
                           case 1:
-              var matchFunExprminus269847 = moduleminus4745e9d952.TripleEqualminus_(escape);
-              if ((!(matchFunExprminus269847(matchValminus269845))))                {
-                previousMatchSucceededminus269846 = false;
+              var matchFunExprminus11353 = moduleminus4745e9d952.TripleEqualminus_(escape);
+              if ((!(matchFunExprminus11353(matchValminus11351))))                {
+                previousMatchSucceededminus11352 = false;
                 };
-              if (previousMatchSucceededminus269846)                {
+              if (previousMatchSucceededminus11352)                {
                 break;
                 };
-              previousMatchSucceededminus269846 = true;
+              previousMatchSucceededminus11352 = true;
               case 1:
-              var matchFunExprminus269848 = moduleminus4745e9d952.TripleEqualminus_(u);
-              if ((!(matchFunExprminus269848(matchValminus269845))))                {
-                previousMatchSucceededminus269846 = false;
+              var matchFunExprminus11354 = moduleminus4745e9d952.TripleEqualminus_(u);
+              if ((!(matchFunExprminus11354(matchValminus11351))))                {
+                previousMatchSucceededminus11352 = false;
                 };
-              if (previousMatchSucceededminus269846)                {
+              if (previousMatchSucceededminus11352)                {
                 break;
                 };
-              previousMatchSucceededminus269846 = true;
+              previousMatchSucceededminus11352 = true;
               default :
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               
@@ -611,91 +611,91 @@ define(["hooves/operator-functions", "hooves/lisp-idioms", "hooves/hooves", "ros
             this.focus = undefined;
             this.subState = "unfocused";
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G269839))))            {
-            return G269839;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G11345))))            {
+            return G11345;
             };
-          G269839 = (function (arguments)            {
-            var matchValminus269857 = G269840;
-            var matchFunExprminus269858 = moduleminus4745e9d952.TripleEqualminus_(up);
-            if ((!(matchFunExprminus269858(matchValminus269857))))              {
+          G11345 = (function (arguments)            {
+            var matchValminus11363 = G11346;
+            var matchFunExprminus11364 = moduleminus4745e9d952.TripleEqualminus_(up);
+            if ((!(matchFunExprminus11364(matchValminus11363))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
             return this.focus.move(0, moduleminus58c4bce870.times(time, -70));
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G269839))))            {
-            return G269839;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G11345))))            {
+            return G11345;
             };
-          G269839 = (function (arguments)            {
-            var matchValminus269859 = G269840;
-            var matchFunExprminus269860 = moduleminus4745e9d952.TripleEqualminus_(down);
-            if ((!(matchFunExprminus269860(matchValminus269859))))              {
+          G11345 = (function (arguments)            {
+            var matchValminus11365 = G11346;
+            var matchFunExprminus11366 = moduleminus4745e9d952.TripleEqualminus_(down);
+            if ((!(matchFunExprminus11366(matchValminus11365))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
             return this.focus.move(0, moduleminus58c4bce870.times(time, 70));
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G269839))))            {
-            return G269839;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G11345))))            {
+            return G11345;
             };
-          G269839 = (function (arguments)            {
-            var matchValminus269861 = G269840;
-            var matchFunExprminus269862 = moduleminus4745e9d952.TripleEqualminus_(right);
-            if ((!(matchFunExprminus269862(matchValminus269861))))              {
+          G11345 = (function (arguments)            {
+            var matchValminus11367 = G11346;
+            var matchFunExprminus11368 = moduleminus4745e9d952.TripleEqualminus_(right);
+            if ((!(matchFunExprminus11368(matchValminus11367))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
             return this.focus.move(moduleminus58c4bce870.times(time, 70), 0);
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G269839))))            {
-            return G269839;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G11345))))            {
+            return G11345;
             };
-          G269839 = (function (arguments)            {
-            var matchValminus269863 = G269840;
-            var matchFunExprminus269864 = moduleminus4745e9d952.TripleEqualminus_(left);
-            if ((!(matchFunExprminus269864(matchValminus269863))))              {
+          G11345 = (function (arguments)            {
+            var matchValminus11369 = G11346;
+            var matchFunExprminus11370 = moduleminus4745e9d952.TripleEqualminus_(left);
+            if ((!(matchFunExprminus11370(matchValminus11369))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
             return this.focus.move(moduleminus58c4bce870.times(time, -70), 0);
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G269839))))            {
-            return G269839;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G11345))))            {
+            return G11345;
             };
-          G269839 = (function (arguments)            {
-            var matchValminus269865 = G269840;
-            var matchFunExprminus269866 = moduleminus4745e9d952.TripleEqualminus_(pageUp);
-            if ((!(matchFunExprminus269866(matchValminus269865))))              {
+          G11345 = (function (arguments)            {
+            var matchValminus11371 = G11346;
+            var matchFunExprminus11372 = moduleminus4745e9d952.TripleEqualminus_(pageUp);
+            if ((!(matchFunExprminus11372(matchValminus11371))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
             return this.focus.rotate(moduleminus58c4bce870.divide(Math.PI, 32));
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G269839))))            {
-            return G269839;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G11345))))            {
+            return G11345;
             };
-          G269839 = (function (arguments)            {
-            var matchValminus269867 = G269840;
-            var matchFunExprminus269868 = moduleminus4745e9d952.TripleEqualminus_(pageDown);
-            if ((!(matchFunExprminus269868(matchValminus269867))))              {
+          G11345 = (function (arguments)            {
+            var matchValminus11373 = G11346;
+            var matchFunExprminus11374 = moduleminus4745e9d952.TripleEqualminus_(pageDown);
+            if ((!(matchFunExprminus11374(matchValminus11373))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
             return this.focus.rotate(moduleminus58c4bce870.minus(moduleminus58c4bce870.divide(Math.PI, 32)));
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G269839))))            {
-            return G269839;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G11345))))            {
+            return G11345;
             };
-          G269839 = (function (arguments)            {
-            var matchValminus269869 = G269840;
-            var anything = matchValminus269869;
+          G11345 = (function (arguments)            {
+            var matchValminus11375 = G11346;
+            var anything = matchValminus11375;
             return undefined;
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G269839))))            {
-            return G269839;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G11345))))            {
+            return G11345;
             };
-          throw ((("match-fail at ((match (@ (maybe-pop-key)) ((or (p (===_ escape)) (p (===_ u))) (set! focus\.focused false) (set! (@ focus) undefined) (set! (@ sub-state) :unfocused)) ((p (===_ up)) (this\.focus\.move 0 (* time -70))) ((p (===_ down)) (this\.focus\.move 0 (* time 70))) ((p (===_ right)) (this\.focus\.move (* time 70) 0)) ((p (===_ left)) (this\.focus\.move (* time -70) 0)) ((p (===_ page-up)) (this\.focus\.rotate (/ Math\.PI 32))) ((p (===_ page-down)) (this\.focus\.rotate (- (/ Math\.PI 32)))) (anything undefined))) for value ")+(JSON.stringify(G269840))));
+          throw ((("match-fail at ((match (@ (maybe-pop-key)) ((or (p (===_ escape)) (p (===_ u))) (set! focus\.focused false) (set! (@ focus) undefined) (set! (@ sub-state) :unfocused)) ((p (===_ up)) (this\.focus\.move 0 (* time -70))) ((p (===_ down)) (this\.focus\.move 0 (* time 70))) ((p (===_ right)) (this\.focus\.move (* time 70) 0)) ((p (===_ left)) (this\.focus\.move (* time -70) 0)) ((p (===_ page-up)) (this\.focus\.rotate (/ Math\.PI 32))) ((p (===_ page-down)) (this\.focus\.rotate (- (/ Math\.PI 32)))) (anything undefined))) for value ")+(JSON.stringify(G11346))));
           }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
         });
-      defineToObjectminus269791.handleKeyPressFocused = handleKeyPressFocused;
-      return defineToObjectminus269791;
+      defineToObjectminus11297.handleKeyPressFocused = handleKeyPressFocused;
+      return defineToObjectminus11297;
       }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
     (function (arguments)      {
-      var defineToObjectminus269875 = extension;
+      var defineToObjectminus11381 = extension;
       var handleKeyPress = (function (time)        {
         (((!(moduleminus58c4bce870.TripleEqualminus("focused", this.subState))))?((function (arguments)          {
           ((((gamvas.key.isPressed(gamvas.key.PAGE_UP))&&(moduleminus58c4bce870.lessThan(this.camera.zoomFactor, 1.5))))?(this.camera.zoom(moduleminus58c4bce870.times(time, 0.7))) : (undefined));
@@ -706,214 +706,214 @@ define(["hooves/operator-functions", "hooves/lisp-idioms", "hooves/hooves", "ros
           return ((gamvas.key.isPressed(gamvas.key.RIGHT))?(this.camera.move(moduleminus58c4bce870.times(time, 70), 0)) : (undefined));
           }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)))) : (undefined));
         return (function (arguments)          {
-          var G269987 = undefined;
-          var G269988 = this.subState;
-          G269987 = (function (arguments)            {
-            var matchValminus269993 = G269988;
-            if ((!(("unfocused"===matchValminus269993))))              {
+          var G11493 = undefined;
+          var G11494 = this.subState;
+          G11493 = (function (arguments)            {
+            var matchValminus11499 = G11494;
+            if ((!(("unfocused"===matchValminus11499))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
             return this.handleKeyPressUnfocused();
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G269987))))            {
-            return G269987;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G11493))))            {
+            return G11493;
             };
-          G269987 = (function (arguments)            {
-            var matchValminus269998 = G269988;
-            if ((!(("moveBallStart"===matchValminus269998))))              {
+          G11493 = (function (arguments)            {
+            var matchValminus11504 = G11494;
+            if ((!(("moveBallStart"===matchValminus11504))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
             return this.handleKeyPressMoveBallStart();
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G269987))))            {
-            return G269987;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G11493))))            {
+            return G11493;
             };
-          G269987 = (function (arguments)            {
-            var matchValminus270003 = G269988;
-            if ((!(("creating"===matchValminus270003))))              {
+          G11493 = (function (arguments)            {
+            var matchValminus11509 = G11494;
+            if ((!(("creating"===matchValminus11509))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
             return this.handleKeyPressCreating();
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G269987))))            {
-            return G269987;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G11493))))            {
+            return G11493;
             };
-          G269987 = (function (arguments)            {
-            var matchValminus270008 = G269988;
-            if ((!(("focused"===matchValminus270008))))              {
+          G11493 = (function (arguments)            {
+            var matchValminus11514 = G11494;
+            if ((!(("focused"===matchValminus11514))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
             return this.handleKeyPressFocused(time);
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G269987))))            {
-            return G269987;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G11493))))            {
+            return G11493;
             };
-          G269987 = (function (arguments)            {
-            var matchValminus270013 = G269988;
-            var anything = matchValminus270013;
+          G11493 = (function (arguments)            {
+            var matchValminus11519 = G11494;
+            var anything = matchValminus11519;
             return undefined;
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G269987))))            {
-            return G269987;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G11493))))            {
+            return G11493;
             };
-          throw ((("match-fail at ((match (@ sub-state) (:unfocused (@ (handle-key-press-unfocused))) (:move-ball-start (@ (handle-key-press-move-ball-start))) (:creating (@ (handle-key-press-creating))) (:focused (@ (handle-key-press-focused time))) (anything undefined))) for value ")+(JSON.stringify(G269988))));
+          throw ((("match-fail at ((match (@ sub-state) (:unfocused (@ (handle-key-press-unfocused))) (:move-ball-start (@ (handle-key-press-move-ball-start))) (:creating (@ (handle-key-press-creating))) (:focused (@ (handle-key-press-focused time))) (anything undefined))) for value ")+(JSON.stringify(G11494))));
           }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
         });
-      defineToObjectminus269875.handleKeyPress = handleKeyPress;
-      return defineToObjectminus269875;
+      defineToObjectminus11381.handleKeyPress = handleKeyPress;
+      return defineToObjectminus11381;
       }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
     (function (arguments)      {
-      var defineToObjectminus270019 = extension;
+      var defineToObjectminus11525 = extension;
       var handleClick = (function ()        {
         ((moduleminus4745e9d952.definedPredicate(this.mouseClick))?((function (arguments)          {
-          var G270078 = undefined;
-          var G270079 = this.subState;
-          G270078 = (function (arguments)            {
-            var matchValminus270084 = G270079;
-            if ((!(("unfocused"===matchValminus270084))))              {
+          var G11584 = undefined;
+          var G11585 = this.subState;
+          G11584 = (function (arguments)            {
+            var matchValminus11590 = G11585;
+            if ((!(("unfocused"===matchValminus11590))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
             return this.handleClickUnfocused();
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G270078))))            {
-            return G270078;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G11584))))            {
+            return G11584;
             };
-          G270078 = (function (arguments)            {
-            var matchValminus270089 = G270079;
-            if ((!(("creating"===matchValminus270089))))              {
+          G11584 = (function (arguments)            {
+            var matchValminus11595 = G11585;
+            if ((!(("creating"===matchValminus11595))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
             return this.handleClickCreating();
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G270078))))            {
-            return G270078;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G11584))))            {
+            return G11584;
             };
-          G270078 = (function (arguments)            {
-            var matchValminus270094 = G270079;
-            if ((!(("moveBallStart"===matchValminus270094))))              {
+          G11584 = (function (arguments)            {
+            var matchValminus11600 = G11585;
+            if ((!(("moveBallStart"===matchValminus11600))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            var matchVar270095 = this.mouseClick;
-            if ((!((("object")===((typeof matchVar270095))))))              {
-              throw ((("Match error in var-match ([: btn x y evt] this\.mouse-click) against: ")+matchVar270095));
+            var matchVar11601 = this.mouseClick;
+            if ((!((("object")===((typeof matchVar11601))))))              {
+              throw ((("Match error in var-match ([: btn x y evt] this\.mouse-click) against: ")+matchVar11601));
               };
-            if ((!((4===matchVar270095.length))))              {
-              throw ((("Match error in var-match ([: btn x y evt] this\.mouse-click) against: ")+matchVar270095));
+            if ((!((4===matchVar11601.length))))              {
+              throw ((("Match error in var-match ([: btn x y evt] this\.mouse-click) against: ")+matchVar11601));
               };
-            var btn = matchVar270095[0];
-            var x = matchVar270095[1];
-            var y = matchVar270095[2];
-            var evt = matchVar270095[3];
+            var btn = matchVar11601[0];
+            var x = matchVar11601[1];
+            var y = matchVar11601[2];
+            var evt = matchVar11601[3];
             ;
-            var matchVar270096 = this.camera.toWorld(x, y);
-            var x = matchVar270096.x;
+            var matchVar11602 = this.camera.toWorld(x, y);
+            var x = matchVar11602.x;
             if ((("undefined")===((typeof x))))              {
-              throw ((("Match error in var-match (({} x x y y) (\.\. this\.camera (to-world x y))) against: ")+matchVar270096));
+              throw ((("Match error in var-match (({} x x y y) (\.\. this\.camera (to-world x y))) against: ")+matchVar11602));
               };
-            var y = matchVar270096.y;
+            var y = matchVar11602.y;
             if ((("undefined")===((typeof y))))              {
-              throw ((("Match error in var-match (({} x x y y) (\.\. this\.camera (to-world x y))) against: ")+matchVar270096));
+              throw ((("Match error in var-match (({} x x y y) (\.\. this\.camera (to-world x y))) against: ")+matchVar11602));
               };
             ;
             this.ballStart = [x, y];
             this.subState = "unfocused";
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G270078))))            {
-            return G270078;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G11584))))            {
+            return G11584;
             };
-          G270078 = (function (arguments)            {
-            var matchValminus270105 = G270079;
-            if ((!(("focused"===matchValminus270105))))              {
+          G11584 = (function (arguments)            {
+            var matchValminus11611 = G11585;
+            if ((!(("focused"===matchValminus11611))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
             return this.handleClickUnfocused();
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G270078))))            {
-            return G270078;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G11584))))            {
+            return G11584;
             };
-          throw ((("match-fail at ((match (@ sub-state) (:unfocused (@ (handle-click-unfocused))) (:creating (@ (handle-click-creating))) (:move-ball-start (var-match [: btn x y evt] this\.mouse-click) (var-match ({} x x y y) (\.\. this\.camera (to-world x y))) (set! (@ ball-start) [: x y]) (set! (@ sub-state) :unfocused)) (:focused (@ (handle-click-unfocused))))) for value ")+(JSON.stringify(G270079))));
+          throw ((("match-fail at ((match (@ sub-state) (:unfocused (@ (handle-click-unfocused))) (:creating (@ (handle-click-creating))) (:move-ball-start (var-match [: btn x y evt] this\.mouse-click) (var-match ({} x x y y) (\.\. this\.camera (to-world x y))) (set! (@ ball-start) [: x y]) (set! (@ sub-state) :unfocused)) (:focused (@ (handle-click-unfocused))))) for value ")+(JSON.stringify(G11585))));
           }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)))) : (undefined));
         this.mouseClick = undefined;
         });
-      defineToObjectminus270019.handleClick = handleClick;
-      return defineToObjectminus270019;
+      defineToObjectminus11525.handleClick = handleClick;
+      return defineToObjectminus11525;
       }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
     (function (arguments)      {
-      var defineToObjectminus270119 = extension;
+      var defineToObjectminus11625 = extension;
       var drawUnfocused = (function (time)        {
         return undefined;
         });
-      defineToObjectminus270119.drawUnfocused = drawUnfocused;
-      return defineToObjectminus270119;
+      defineToObjectminus11625.drawUnfocused = drawUnfocused;
+      return defineToObjectminus11625;
       }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
     (function (arguments)      {
-      var defineToObjectminus270139 = extension;
+      var defineToObjectminus11645 = extension;
       var drawCreating = (function (time)        {
         var c = this.c;
         return (function (arguments)          {
-          var G270185 = undefined;
-          var G270186 = this.createPoints;
-          G270185 = (function (arguments)            {
-            var matchValminus270191 = G270186;
-            if ((!((("undefined")===((typeof matchValminus270191))))))              {
+          var G11691 = undefined;
+          var G11692 = this.createPoints;
+          G11691 = (function (arguments)            {
+            var matchValminus11697 = G11692;
+            if ((!((("undefined")===((typeof matchValminus11697))))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
             return undefined;
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G270185))))            {
-            return G270185;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G11691))))            {
+            return G11691;
             };
-          G270185 = (function (arguments)            {
-            var matchValminus270192 = G270186;
-            if ((!((("object")===((typeof matchValminus270192))))))              {
+          G11691 = (function (arguments)            {
+            var matchValminus11698 = G11692;
+            if ((!((("object")===((typeof matchValminus11698))))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            if ((!((1===matchValminus270192.length))))              {
+            if ((!((1===matchValminus11698.length))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            var matchTempminus270193 = matchValminus270192[0];
-            if ((!((("object")===((typeof matchTempminus270193))))))              {
+            var matchTempminus11699 = matchValminus11698[0];
+            if ((!((("object")===((typeof matchTempminus11699))))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            if ((!((2===matchTempminus270193.length))))              {
+            if ((!((2===matchTempminus11699.length))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            var cx = matchTempminus270193[0];
-            var cy = matchTempminus270193[1];
+            var cx = matchTempminus11699[0];
+            var cy = matchTempminus11699[1];
             return (function (arguments)              {
-              var context270199 = c;
-              context270199.save();
+              var context11705 = c;
+              context11705.save();
               try                {
-                var matchVar270200 = this.mouseInWorld();
-                var mx = matchVar270200.x;
+                var matchVar11706 = this.mouseInWorld();
+                var mx = matchVar11706.x;
                 if ((("undefined")===((typeof mx))))                  {
-                  throw ((("Match error in var-match (({} x mx y my) (@ (mouse-in-world))) against: ")+matchVar270200));
+                  throw ((("Match error in var-match (({} x mx y my) (@ (mouse-in-world))) against: ")+matchVar11706));
                   };
-                var my = matchVar270200.y;
+                var my = matchVar11706.y;
                 if ((("undefined")===((typeof my))))                  {
-                  throw ((("Match error in var-match (({} x mx y my) (@ (mouse-in-world))) against: ")+matchVar270200));
+                  throw ((("Match error in var-match (({} x mx y my) (@ (mouse-in-world))) against: ")+matchVar11706));
                   };
                 ;
                 var xs = [mx];
-                var matchVar270205 = [cx, mx].sort();
-                if ((!((("object")===((typeof matchVar270205))))))                  {
-                  throw ((("Match error in var-match ([: x1 x2] (\.\. [: cx mx] (sort))) against: ")+matchVar270205));
+                var matchVar11711 = [cx, mx].sort();
+                if ((!((("object")===((typeof matchVar11711))))))                  {
+                  throw ((("Match error in var-match ([: x1 x2] (\.\. [: cx mx] (sort))) against: ")+matchVar11711));
                   };
-                if ((!((2===matchVar270205.length))))                  {
-                  throw ((("Match error in var-match ([: x1 x2] (\.\. [: cx mx] (sort))) against: ")+matchVar270205));
+                if ((!((2===matchVar11711.length))))                  {
+                  throw ((("Match error in var-match ([: x1 x2] (\.\. [: cx mx] (sort))) against: ")+matchVar11711));
                   };
-                var x1 = matchVar270205[0];
-                var x2 = matchVar270205[1];
+                var x1 = matchVar11711[0];
+                var x2 = matchVar11711[1];
                 ;
-                var matchVar270206 = [cy, my].sort();
-                if ((!((("object")===((typeof matchVar270206))))))                  {
-                  throw ((("Match error in var-match ([: y1 y2] (\.\. [: cy my] (sort))) against: ")+matchVar270206));
+                var matchVar11712 = [cy, my].sort();
+                if ((!((("object")===((typeof matchVar11712))))))                  {
+                  throw ((("Match error in var-match ([: y1 y2] (\.\. [: cy my] (sort))) against: ")+matchVar11712));
                   };
-                if ((!((2===matchVar270206.length))))                  {
-                  throw ((("Match error in var-match ([: y1 y2] (\.\. [: cy my] (sort))) against: ")+matchVar270206));
+                if ((!((2===matchVar11712.length))))                  {
+                  throw ((("Match error in var-match ([: y1 y2] (\.\. [: cy my] (sort))) against: ")+matchVar11712));
                   };
-                var y1 = matchVar270206[0];
-                var y2 = matchVar270206[1];
+                var y1 = matchVar11712[0];
+                var y2 = matchVar11712[1];
                 ;
                 c.strokeStyle = "red";
                 c.beginPath();
@@ -924,132 +924,132 @@ define(["hooves/operator-functions", "hooves/lisp-idioms", "hooves/hooves", "ros
                 c.lineTo(x1, y1);
                 c.stroke();
                 }finally                 {
-                context270199.restore();
+                context11705.restore();
                 };
               }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G270185))))            {
-            return G270185;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G11691))))            {
+            return G11691;
             };
-          G270185 = (function (arguments)            {
-            var matchValminus270207 = G270186;
-            var anything = matchValminus270207;
+          G11691 = (function (arguments)            {
+            var matchValminus11713 = G11692;
+            var anything = matchValminus11713;
             return anything;
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G270185))))            {
-            return G270185;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G11691))))            {
+            return G11691;
             };
-          throw ((("match-fail at ((match (@ create-points) (undefined undefined) ([: [: cx cy]] (save-excursion c (var-match ({} x mx y my) (@ (mouse-in-world))) (var xs [: mx]) (var-match [: x1 x2] (\.\. [: cx mx] (sort))) (var-match [: y1 y2] (\.\. [: cy my] (sort))) (set! c\.stroke-style ''red'') (c\.begin-path) (c\.move-to x1 y1) (c\.line-to x2 y1) (c\.line-to x2 y2) (c\.line-to x1 y2) (c\.line-to x1 y1) (c\.stroke))) (anything anything))) for value ")+(JSON.stringify(G270186))));
+          throw ((("match-fail at ((match (@ create-points) (undefined undefined) ([: [: cx cy]] (save-excursion c (var-match ({} x mx y my) (@ (mouse-in-world))) (var xs [: mx]) (var-match [: x1 x2] (\.\. [: cx mx] (sort))) (var-match [: y1 y2] (\.\. [: cy my] (sort))) (set! c\.stroke-style ''red'') (c\.begin-path) (c\.move-to x1 y1) (c\.line-to x2 y1) (c\.line-to x2 y2) (c\.line-to x1 y2) (c\.line-to x1 y1) (c\.stroke))) (anything anything))) for value ")+(JSON.stringify(G11692))));
           }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
         });
-      defineToObjectminus270139.drawCreating = drawCreating;
-      return defineToObjectminus270139;
+      defineToObjectminus11645.drawCreating = drawCreating;
+      return defineToObjectminus11645;
       }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
     (function (arguments)      {
-      var defineToObjectminus270213 = extension;
+      var defineToObjectminus11719 = extension;
       var draw = (function (time)        {
         return (function (arguments)          {
-          var G270308 = this;
+          var G11814 = this;
           return (function (arguments)            {
             this.handleClick();
             this.handleKeyPress(time);
             (function (arguments)              {
-              var G270325 = undefined;
-              var G270326 = G270308.subState;
-              G270325 = (function (arguments)                {
-                var matchValminus270327 = G270326;
-                if ((!(("unfocused"===matchValminus270327))))                  {
+              var G11831 = undefined;
+              var G11832 = G11814.subState;
+              G11831 = (function (arguments)                {
+                var matchValminus11833 = G11832;
+                if ((!(("unfocused"===matchValminus11833))))                  {
                   return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
                   };
                 return this.drawUnfocused(time);
                 }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-              if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G270325))))                {
-                return G270325;
+              if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G11831))))                {
+                return G11831;
                 };
-              G270325 = (function (arguments)                {
-                var matchValminus270332 = G270326;
-                if ((!(("focused"===matchValminus270332))))                  {
+              G11831 = (function (arguments)                {
+                var matchValminus11838 = G11832;
+                if ((!(("focused"===matchValminus11838))))                  {
                   return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
                   };
                 return this.drawUnfocused(time);
                 }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-              if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G270325))))                {
-                return G270325;
+              if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G11831))))                {
+                return G11831;
                 };
-              G270325 = (function (arguments)                {
-                var matchValminus270337 = G270326;
-                if ((!(("moveBallStart"===matchValminus270337))))                  {
+              G11831 = (function (arguments)                {
+                var matchValminus11843 = G11832;
+                if ((!(("moveBallStart"===matchValminus11843))))                  {
                   return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
                   };
                 return this.drawUnfocused(time);
                 }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-              if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G270325))))                {
-                return G270325;
+              if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G11831))))                {
+                return G11831;
                 };
-              G270325 = (function (arguments)                {
-                var matchValminus270342 = G270326;
-                if ((!(("creating"===matchValminus270342))))                  {
+              G11831 = (function (arguments)                {
+                var matchValminus11848 = G11832;
+                if ((!(("creating"===matchValminus11848))))                  {
                   return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
                   };
                 return this.drawCreating(time);
                 }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-              if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G270325))))                {
-                return G270325;
+              if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G11831))))                {
+                return G11831;
                 };
-              throw ((("match-fail at ((match sub-state (:unfocused (@ (draw-unfocused time))) (:focused (@ (draw-unfocused time))) (:move-ball-start (@ (draw-unfocused time))) (:creating (@ (draw-creating time))))) for value ")+(JSON.stringify(G270326))));
+              throw ((("match-fail at ((match sub-state (:unfocused (@ (draw-unfocused time))) (:focused (@ (draw-unfocused time))) (:move-ball-start (@ (draw-unfocused time))) (:creating (@ (draw-creating time))))) for value ")+(JSON.stringify(G11832))));
               }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
             this.drawBallPosition();
             this.camera.stop();
             return (function (arguments)              {
-              var context270356 = this.c;
-              context270356.save();
+              var context11862 = this.c;
+              context11862.save();
               try                {
-                G270308.c.textAlign = "center";
-                G270308.c.fillStyle = "red";
-                G270308.c.font = "bold 10px sans-serif";
-                var matchVar270361 = gamvas.getCanvasDimension();
-                var w = matchVar270361.w;
+                G11814.c.textAlign = "center";
+                G11814.c.fillStyle = "red";
+                G11814.c.font = "bold 10px sans-serif";
+                var matchVar11867 = gamvas.getCanvasDimension();
+                var w = matchVar11867.w;
                 if ((("undefined")===((typeof w))))                  {
-                  throw ((("Match error in var-match (({} w w h h) (gamvas\.get-canvas-dimension)) against: ")+matchVar270361));
+                  throw ((("Match error in var-match (({} w w h h) (gamvas\.get-canvas-dimension)) against: ")+matchVar11867));
                   };
-                var h = matchVar270361.h;
+                var h = matchVar11867.h;
                 if ((("undefined")===((typeof h))))                  {
-                  throw ((("Match error in var-match (({} w w h h) (gamvas\.get-canvas-dimension)) against: ")+matchVar270361));
+                  throw ((("Match error in var-match (({} w w h h) (gamvas\.get-canvas-dimension)) against: ")+matchVar11867));
                   };
                 ;
-                G270308.c.fillText(this.subState, moduleminus58c4bce870.divide(w, 2), 18);
-                var matchVar270366 = gamvas.mouse.getPosition();
-                var x = matchVar270366.x;
+                G11814.c.fillText(this.subState, moduleminus58c4bce870.divide(w, 2), 18);
+                var matchVar11872 = gamvas.mouse.getPosition();
+                var x = matchVar11872.x;
                 if ((("undefined")===((typeof x))))                  {
-                  throw ((("Match error in var-match (({} x x y y) (gamvas\.mouse\.get-position)) against: ")+matchVar270366));
+                  throw ((("Match error in var-match (({} x x y y) (gamvas\.mouse\.get-position)) against: ")+matchVar11872));
                   };
-                var y = matchVar270366.y;
+                var y = matchVar11872.y;
                 if ((("undefined")===((typeof y))))                  {
-                  throw ((("Match error in var-match (({} x x y y) (gamvas\.mouse\.get-position)) against: ")+matchVar270366));
+                  throw ((("Match error in var-match (({} x x y y) (gamvas\.mouse\.get-position)) against: ")+matchVar11872));
                   };
                 ;
-                var matchVar270367 = this.camera.toWorld(x, y);
-                var x = matchVar270367.x;
+                var matchVar11873 = this.camera.toWorld(x, y);
+                var x = matchVar11873.x;
                 if ((("undefined")===((typeof x))))                  {
-                  throw ((("Match error in var-match (({} x x y y) (\.\. (@ camera) (to-world x y))) against: ")+matchVar270367));
+                  throw ((("Match error in var-match (({} x x y y) (\.\. (@ camera) (to-world x y))) against: ")+matchVar11873));
                   };
-                var y = matchVar270367.y;
+                var y = matchVar11873.y;
                 if ((("undefined")===((typeof y))))                  {
-                  throw ((("Match error in var-match (({} x x y y) (\.\. (@ camera) (to-world x y))) against: ")+matchVar270367));
+                  throw ((("Match error in var-match (({} x x y y) (\.\. (@ camera) (to-world x y))) against: ")+matchVar11873));
                   };
                 ;
-                G270308.c.fillText(moduleminus58c4bce870.plus(x, ", ", y), moduleminus58c4bce870.divide(w, 2), moduleminus58c4bce870.times(18, 2));
+                G11814.c.fillText(moduleminus58c4bce870.plus(x, ", ", y), moduleminus58c4bce870.divide(w, 2), moduleminus58c4bce870.times(18, 2));
                 }finally                 {
-                context270356.restore();
+                context11862.restore();
                 };
               }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
           }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
         });
-      defineToObjectminus270213.draw = draw;
-      return defineToObjectminus270213;
+      defineToObjectminus11719.draw = draw;
+      return defineToObjectminus11719;
       }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-    currentModuleminus268984.Spoonbill = gamvas.State.extend(extension);
+    currentModuleminus10490.Spoonbill = gamvas.State.extend(extension);
     }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-  return currentModuleminus268984;
+  return currentModuleminus10490;
   }))

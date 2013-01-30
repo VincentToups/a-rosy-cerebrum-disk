@@ -24,6 +24,6 @@
 	 ({} geometry 
 		 geometry
 		 initial-position 
-		 [: 12 20]))))
+		 [: -20 20]))))
 
 

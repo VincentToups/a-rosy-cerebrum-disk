@@ -1,9 +1,9 @@
 define(["hooves/operator-functions", "hooves/lisp-idioms", "rosy/drawing", "rosy/utils", "hooves/hooves", "gamvas/gamvas-module"], (function (moduleminus58c4bce870, moduleminus295baa4e1e, moduleminus6acd260b96, moduleC47fa390df, moduleminus4745e9d952, gamvas)  {
-  var currentModuleminus295124 = {    
+  var currentModuleminus9178 = {    
     
   };
   var setModuleObject = (function (value)    {
-    currentModuleminus295124 = value;
+    currentModuleminus9178 = value;
     });
   (function (arguments)    {
     var defineplus = "macro - no dynamic value.";
@@ -44,10 +44,10 @@ define(["hooves/operator-functions", "hooves/lisp-idioms", "rosy/drawing", "rosy
       update:(function (time)        {
         ((moduleminus4745e9d952.definedPredicate(this.actor.gFactors))?((function (arguments)          {
           var gf = 1;
-          var arrayObject295194 = this.actor.gFactors;
-          for (index in (arrayObject295194))            {
-            var matchVar295195 = arrayObject295194[index];
-            var element = matchVar295195;
+          var arrayObject9248 = this.actor.gFactors;
+          for (index in (arrayObject9248))            {
+            var matchVar9249 = arrayObject9248[index];
+            var element = matchVar9249;
             ;
             gf = moduleminus58c4bce870.times(gf, element);
             };
@@ -59,10 +59,10 @@ define(["hooves/operator-functions", "hooves/lisp-idioms", "rosy/drawing", "rosy
           }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)))));
         ((moduleminus4745e9d952.definedPredicate(this.actor.dFactors))?((function (arguments)          {
           var df = 0;
-          var arrayObject295210 = this.actor.dFactors;
-          for (index in (arrayObject295210))            {
-            var matchVar295211 = arrayObject295210[index];
-            var element = matchVar295211;
+          var arrayObject9264 = this.actor.dFactors;
+          for (index in (arrayObject9264))            {
+            var matchVar9265 = arrayObject9264[index];
+            var element = matchVar9265;
             ;
             df = moduleminus58c4bce870.plus(df, element);
             };
@@ -73,10 +73,10 @@ define(["hooves/operator-functions", "hooves/lisp-idioms", "rosy/drawing", "rosy
           return this.actor.setLinearDamping(0);
           }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)))));
         return ((moduleminus4745e9d952.definedPredicate(this.actor.forces))?((function (arguments)          {
-          var arrayObject295231 = this.actor.forces;
-          for (index in (arrayObject295231))            {
-            var matchVar295232 = arrayObject295231[index];
-            var forceDesc = matchVar295232;
+          var arrayObject9285 = this.actor.forces;
+          for (index in (arrayObject9285))            {
+            var matchVar9286 = arrayObject9285[index];
+            var forceDesc = matchVar9286;
             ;
             this.actor.body.ApplyForce.apply(this.actor.body, forceDesc);
             };
@@ -86,51 +86,51 @@ define(["hooves/operator-functions", "hooves/lisp-idioms", "rosy/drawing", "rosy
         })
     });
     var ballCreate = (function ()      {
-      var returnValueminus295234 = undefined;
+      var returnValueminus9288 = undefined;
       var recur = (function ()        {
         return {          
-          recurSigil:"recurSigilminus295233",
+          recurSigil:"recurSigilminus9287",
           args:arguments
         };
         });
-      var recurP295237 = (function (valminus295238)        {
-        if ((("undefined")===((typeof valminus295238))))          {
+      var recurP9291 = (function (valminus9292)        {
+        if ((("undefined")===((typeof valminus9292))))          {
           return false;
           };
-        return (valminus295238.recurSigil===("recurSigilminus295233"));
+        return (valminus9292.recurSigil===("recurSigilminus9287"));
         });
-      var actualFunminus295236 = (function ()        {
+      var actualFunminus9290 = (function ()        {
         return (function (arguments)          {
-          var G295240 = undefined;
-          var G295241 = Array.prototype.slice.apply(arguments);
-          G295240 = (function (arguments)            {
-            var matchValminus295242 = G295241;
-            if ((!((("object")===((typeof matchValminus295242))))))              {
+          var G9294 = undefined;
+          var G9295 = Array.prototype.slice.apply(arguments);
+          G9294 = (function (arguments)            {
+            var matchValminus9296 = G9295;
+            if ((!((("object")===((typeof matchValminus9296))))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            if ((!((3===matchValminus295242.length))))              {
+            if ((!((3===matchValminus9296.length))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            var name = matchValminus295242[0];
-            var x = matchValminus295242[1];
-            var y = matchValminus295242[2];
+            var name = matchValminus9296[0];
+            var x = matchValminus9296[1];
+            var y = matchValminus9296[2];
             return recur(name, x, y, gamvas.physics.DYNAMIC);
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G295240))))            {
-            return G295240;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G9294))))            {
+            return G9294;
             };
-          G295240 = (function (arguments)            {
-            var matchValminus295243 = G295241;
-            if ((!((("object")===((typeof matchValminus295243))))))              {
+          G9294 = (function (arguments)            {
+            var matchValminus9297 = G9295;
+            if ((!((("object")===((typeof matchValminus9297))))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            if ((!((4===matchValminus295243.length))))              {
+            if ((!((4===matchValminus9297.length))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            var name = matchValminus295243[0];
-            var x = matchValminus295243[1];
-            var y = matchValminus295243[2];
-            var dynamicalCharacter = matchValminus295243[3];
+            var name = matchValminus9297[0];
+            var x = matchValminus9297[1];
+            var y = matchValminus9297[2];
+            var dynamicalCharacter = matchValminus9297[3];
             this._super(name, x, y);
             this.restitution = 0.4;
             this.pminus1 = [x, y];
@@ -139,25 +139,25 @@ define(["hooves/operator-functions", "hooves/lisp-idioms", "rosy/drawing", "rosy
             this.setState("forceable");
             return this.bodyCircle(this.position.x, this.position.y, 10, dynamicalCharacter);
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G295240))))            {
-            return G295240;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G9294))))            {
+            return G9294;
             };
-          G295240 = (function (arguments)            {
-            var matchValminus295244 = G295241;
-            var anythingElseminus295239 = matchValminus295244;
-            throw ((("Match fail in ball-create against: ")+anythingElseminus295239));
+          G9294 = (function (arguments)            {
+            var matchValminus9298 = G9295;
+            var anythingElseminus9293 = matchValminus9298;
+            throw ((("Match fail in ball-create against: ")+anythingElseminus9293));
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G295240))))            {
-            return G295240;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G9294))))            {
+            return G9294;
             };
-          throw ((("match-fail at ((match (\.\. Array prototype slice (apply arguments)) ([: name x y] (recur name x y gamvas\.physics\.DYNAMIC)) ([: name x y dynamical-character] (this\._super name x y) (set! this\.restitution 0.4) (set! this\.p-1 [: x y]) (set! this\.p-2 [: (+ 1 x) (+ 1 y)]) (this\.add-state (new Forceable-State :forceable)) (this\.set-state :forceable) (this\.body-circle this\.position\.x this\.position\.y 10 dynamical-character)) (anything-else-295239 (_throw (_+ ''Match fail in ball-create against: '' anything-else-295239))))) for value ")+(JSON.stringify(G295241))));
+          throw ((("match-fail at ((match (\.\. Array prototype slice (apply arguments)) ([: name x y] (recur name x y gamvas\.physics\.DYNAMIC)) ([: name x y dynamical-character] (this\._super name x y) (set! this\.restitution 0.4) (set! this\.p-1 [: x y]) (set! this\.p-2 [: (+ 1 x) (+ 1 y)]) (this\.add-state (new Forceable-State :forceable)) (this\.set-state :forceable) (this\.body-circle this\.position\.x this\.position\.y 10 dynamical-character)) (anything-else-9293 (_throw (_+ ''Match fail in ball-create against: '' anything-else-9293))))) for value ")+(JSON.stringify(G9295))));
           }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
         });
-      returnValueminus295234 = actualFunminus295236.apply(this, arguments);
-      while (recurP295237(returnValueminus295234))        {
-        returnValueminus295234 = actualFunminus295236.apply(this, returnValueminus295234.args);
+      returnValueminus9288 = actualFunminus9290.apply(this, arguments);
+      while (recurP9291(returnValueminus9288))        {
+        returnValueminus9288 = actualFunminus9290.apply(this, returnValueminus9288.args);
         };
-      return returnValueminus295234;
+      return returnValueminus9288;
       });
     var ballDraw = (function (time)      {
       this._super(time);
@@ -176,55 +176,55 @@ define(["hooves/operator-functions", "hooves/lisp-idioms", "rosy/drawing", "rosy
       });
     var stationaryPredicate = (function ()      {
       return (function (arguments)        {
-        var G295277 = undefined;
-        var G295278 = [this.position.x, this.position.y, this.pminus1, this.pminus2];
-        G295277 = (function (arguments)          {
-          var matchValminus295279 = G295278;
-          if ((!((("object")===((typeof matchValminus295279))))))            {
+        var G9331 = undefined;
+        var G9332 = [this.position.x, this.position.y, this.pminus1, this.pminus2];
+        G9331 = (function (arguments)          {
+          var matchValminus9333 = G9332;
+          if ((!((("object")===((typeof matchValminus9333))))))            {
             return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
             };
-          if ((!((4===matchValminus295279.length))))            {
+          if ((!((4===matchValminus9333.length))))            {
             return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
             };
-          var matchTempminus295280 = matchValminus295279[0];
-          var matchTempminus295281 = matchValminus295279[1];
-          var matchTempminus295282 = matchValminus295279[2];
-          var matchTempminus295283 = matchValminus295279[3];
-          var x = matchTempminus295280;
-          var y = matchTempminus295281;
-          if ((!((("object")===((typeof matchTempminus295282))))))            {
+          var matchTempminus9334 = matchValminus9333[0];
+          var matchTempminus9335 = matchValminus9333[1];
+          var matchTempminus9336 = matchValminus9333[2];
+          var matchTempminus9337 = matchValminus9333[3];
+          var x = matchTempminus9334;
+          var y = matchTempminus9335;
+          if ((!((("object")===((typeof matchTempminus9336))))))            {
             return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
             };
-          if ((!((2===matchTempminus295282.length))))            {
+          if ((!((2===matchTempminus9336.length))))            {
             return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
             };
-          var xminus1 = matchTempminus295282[0];
-          var yminus1 = matchTempminus295282[1];
-          if ((!((("object")===((typeof matchTempminus295283))))))            {
+          var xminus1 = matchTempminus9336[0];
+          var yminus1 = matchTempminus9336[1];
+          if ((!((("object")===((typeof matchTempminus9337))))))            {
             return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
             };
-          if ((!((2===matchTempminus295283.length))))            {
+          if ((!((2===matchTempminus9337.length))))            {
             return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
             };
-          var xminus2 = matchTempminus295283[0];
-          var yminus2 = matchTempminus295283[1];
+          var xminus2 = matchTempminus9337[0];
+          var yminus2 = matchTempminus9337[1];
           return ((moduleminus58c4bce870.TripleEqualminus(x, xminus1))&&(((moduleminus58c4bce870.TripleEqualminus(xminus1, xminus2))&&(((moduleminus58c4bce870.TripleEqualminus(y, yminus1))&&(moduleminus58c4bce870.TripleEqualminus(yminus1, yminus2)))))));
           }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-        if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G295277))))          {
-          return G295277;
+        if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G9331))))          {
+          return G9331;
           };
-        G295277 = (function (arguments)          {
-          var matchValminus295304 = G295278;
-          var G295276 = matchValminus295304;
+        G9331 = (function (arguments)          {
+          var matchValminus9358 = G9332;
+          var G9330 = matchValminus9358;
           throw ((("Match error in ")+("(let ((x this\.position\.x) (y this\.position\.y) ([: x-1 y-1] this\.p-1) ([: x-2 y-2] this\.p-2)) (&& (=== x x-1) (=== x-1 x-2) (=== y y-1) (=== y-1 y-2)))")));
           }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-        if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G295277))))          {
-          return G295277;
+        if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G9331))))          {
+          return G9331;
           };
-        throw ((("match-fail at ((match [: this\.position\.x this\.position\.y this\.p-1 this\.p-2] ([: x y [: x-1 y-1] [: x-2 y-2]] (&& (=== x x-1) (=== x-1 x-2) (=== y y-1) (=== y-1 y-2))) (G295276 (_throw (_+ ''Match error in '' ''(let ((x this\\.position\\.x) (y this\\.position\\.y) ([: x-1 y-1] this\\.p-1) ([: x-2 y-2] this\\.p-2)) (&& (=== x x-1) (=== x-1 x-2) (=== y y-1) (=== y-1 y-2)))''))))) for value ")+(JSON.stringify(G295278))));
+        throw ((("match-fail at ((match [: this\.position\.x this\.position\.y this\.p-1 this\.p-2] ([: x y [: x-1 y-1] [: x-2 y-2]] (&& (=== x x-1) (=== x-1 x-2) (=== y y-1) (=== y-1 y-2))) (G9330 (_throw (_+ ''Match error in '' ''(let ((x this\\.position\\.x) (y this\\.position\\.y) ([: x-1 y-1] this\\.p-1) ([: x-2 y-2] this\\.p-2)) (&& (=== x x-1) (=== x-1 x-2) (=== y y-1) (=== y-1 y-2)))''))))) for value ")+(JSON.stringify(G9332))));
         }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
       });
-    currentModuleminus295124.Ball = gamvas.Actor.extend({      
+    currentModuleminus9178.Ball = gamvas.Actor.extend({      
       create:ballCreate,
       draw:ballDraw,
       addForce:(function (f, a)        {
@@ -232,63 +232,63 @@ define(["hooves/operator-functions", "hooves/lisp-idioms", "rosy/drawing", "rosy
         return this.forces.push([f, a]);
         }),
       cancelGravityNextUpdate:(function ()        {
-        var returnValueminus295318 = undefined;
+        var returnValueminus9372 = undefined;
         var recur = (function ()          {
           return {            
-            recurSigil:"recurSigilminus295317",
+            recurSigil:"recurSigilminus9371",
             args:arguments
           };
           });
-        var recurP295321 = (function (valminus295322)          {
-          if ((("undefined")===((typeof valminus295322))))            {
+        var recurP9375 = (function (valminus9376)          {
+          if ((("undefined")===((typeof valminus9376))))            {
             return false;
             };
-          return (valminus295322.recurSigil===("recurSigilminus295317"));
+          return (valminus9376.recurSigil===("recurSigilminus9371"));
           });
-        var actualFunminus295320 = (function ()          {
+        var actualFunminus9374 = (function ()          {
           return (function (arguments)            {
-            var G295324 = undefined;
-            var G295325 = Array.prototype.slice.apply(arguments);
-            G295324 = (function (arguments)              {
-              var matchValminus295326 = G295325;
-              if ((!((("object")===((typeof matchValminus295326))))))                {
+            var G9378 = undefined;
+            var G9379 = Array.prototype.slice.apply(arguments);
+            G9378 = (function (arguments)              {
+              var matchValminus9380 = G9379;
+              if ((!((("object")===((typeof matchValminus9380))))))                {
                 return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
                 };
-              if ((!((matchValminus295326.length>=0))))                {
+              if ((!((matchValminus9380.length>=0))))                {
                 return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
                 };
-              var matchArraySimplePartminus295327 = Array.prototype.slice.call(matchValminus295326, 0, 0);
-              if ((!((("object")===((typeof matchArraySimplePartminus295327))))))                {
+              var matchArraySimplePartminus9381 = Array.prototype.slice.call(matchValminus9380, 0, 0);
+              if ((!((("object")===((typeof matchArraySimplePartminus9381))))))                {
                 return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
                 };
-              if ((!((0===matchArraySimplePartminus295327.length))))                {
+              if ((!((0===matchArraySimplePartminus9381.length))))                {
                 return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
                 };
-              var matchArrayTailPartminus295328 = Array.prototype.slice.call(matchValminus295326, 0);
-              var matchTempminus295329 = matchArrayTailPartminus295328[0];
-              var previousMatchSucceededminus295330 = true;
+              var matchArrayTailPartminus9382 = Array.prototype.slice.call(matchValminus9380, 0);
+              var matchTempminus9383 = matchArrayTailPartminus9382[0];
+              var previousMatchSucceededminus9384 = true;
               switch (1){
                               case 1:
-                if ((("undefined")===((typeof matchTempminus295329))))                  {
-                  previousMatchSucceededminus295330 = false;
+                if ((("undefined")===((typeof matchTempminus9383))))                  {
+                  previousMatchSucceededminus9384 = false;
                   };
-                var by = matchTempminus295329;
-                if (previousMatchSucceededminus295330)                  {
+                var by = matchTempminus9383;
+                if (previousMatchSucceededminus9384)                  {
                   break;
                   };
-                previousMatchSucceededminus295330 = true;
+                previousMatchSucceededminus9384 = true;
                 case 1:
-                var fResult295331 = ((function (x)                  {
+                var fResult9385 = ((function (x)                  {
                   return 0;
-                  }))(matchTempminus295329);
-                if ((fResult295331===("match-fail-e1aa3b7e7ce9731266013c178de842b5")))                  {
-                  previousMatchSucceededminus295330 = false;
+                  }))(matchTempminus9383);
+                if ((fResult9385===("match-fail-e1aa3b7e7ce9731266013c178de842b5")))                  {
+                  previousMatchSucceededminus9384 = false;
                   };
-                var by = fResult295331;
-                if (previousMatchSucceededminus295330)                  {
+                var by = fResult9385;
+                if (previousMatchSucceededminus9384)                  {
                   break;
                   };
-                previousMatchSucceededminus295330 = true;
+                previousMatchSucceededminus9384 = true;
                 default :
                 return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
                 
@@ -296,84 +296,84 @@ define(["hooves/operator-functions", "hooves/lisp-idioms", "rosy/drawing", "rosy
               ((moduleminus4745e9d952.undefinedPredicate(this.gFactors))?(this.gFactors = []) : (undefined));
               return this.gFactors.push(by);
               }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-            if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G295324))))              {
-              return G295324;
+            if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G9378))))              {
+              return G9378;
               };
-            G295324 = (function (arguments)              {
-              var matchValminus295332 = G295325;
-              var anythingElseminus295323 = matchValminus295332;
-              throw ((("Match fail in anonymous against: ")+anythingElseminus295323));
+            G9378 = (function (arguments)              {
+              var matchValminus9386 = G9379;
+              var anythingElseminus9377 = matchValminus9386;
+              throw ((("Match fail in anonymous against: ")+anythingElseminus9377));
               }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-            if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G295324))))              {
-              return G295324;
+            if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G9378))))              {
+              return G9378;
               };
-            throw ((("match-fail at ((match (\.\. Array prototype slice (apply arguments)) ([: :- (opt by 0)] (if (undefined\? this\.g-factors) (set! this\.g-factors [:])) (this\.g-factors\.push by)) (anything-else-295323 (_throw (_+ ''Match fail in anonymous against: '' anything-else-295323))))) for value ")+(JSON.stringify(G295325))));
+            throw ((("match-fail at ((match (\.\. Array prototype slice (apply arguments)) ([: :- (opt by 0)] (if (undefined\? this\.g-factors) (set! this\.g-factors [:])) (this\.g-factors\.push by)) (anything-else-9377 (_throw (_+ ''Match fail in anonymous against: '' anything-else-9377))))) for value ")+(JSON.stringify(G9379))));
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
           });
-        returnValueminus295318 = actualFunminus295320.apply(this, arguments);
-        while (recurP295321(returnValueminus295318))          {
-          returnValueminus295318 = actualFunminus295320.apply(this, returnValueminus295318.args);
+        returnValueminus9372 = actualFunminus9374.apply(this, arguments);
+        while (recurP9375(returnValueminus9372))          {
+          returnValueminus9372 = actualFunminus9374.apply(this, returnValueminus9372.args);
           };
-        return returnValueminus295318;
+        return returnValueminus9372;
         }),
       addDampingNextUpdate:(function ()        {
-        var returnValueminus295334 = undefined;
+        var returnValueminus9388 = undefined;
         var recur = (function ()          {
           return {            
-            recurSigil:"recurSigilminus295333",
+            recurSigil:"recurSigilminus9387",
             args:arguments
           };
           });
-        var recurP295337 = (function (valminus295338)          {
-          if ((("undefined")===((typeof valminus295338))))            {
+        var recurP9391 = (function (valminus9392)          {
+          if ((("undefined")===((typeof valminus9392))))            {
             return false;
             };
-          return (valminus295338.recurSigil===("recurSigilminus295333"));
+          return (valminus9392.recurSigil===("recurSigilminus9387"));
           });
-        var actualFunminus295336 = (function ()          {
+        var actualFunminus9390 = (function ()          {
           return (function (arguments)            {
-            var G295340 = undefined;
-            var G295341 = Array.prototype.slice.apply(arguments);
-            G295340 = (function (arguments)              {
-              var matchValminus295342 = G295341;
-              if ((!((("object")===((typeof matchValminus295342))))))                {
+            var G9394 = undefined;
+            var G9395 = Array.prototype.slice.apply(arguments);
+            G9394 = (function (arguments)              {
+              var matchValminus9396 = G9395;
+              if ((!((("object")===((typeof matchValminus9396))))))                {
                 return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
                 };
-              if ((!((matchValminus295342.length>=0))))                {
+              if ((!((matchValminus9396.length>=0))))                {
                 return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
                 };
-              var matchArraySimplePartminus295343 = Array.prototype.slice.call(matchValminus295342, 0, 0);
-              if ((!((("object")===((typeof matchArraySimplePartminus295343))))))                {
+              var matchArraySimplePartminus9397 = Array.prototype.slice.call(matchValminus9396, 0, 0);
+              if ((!((("object")===((typeof matchArraySimplePartminus9397))))))                {
                 return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
                 };
-              if ((!((0===matchArraySimplePartminus295343.length))))                {
+              if ((!((0===matchArraySimplePartminus9397.length))))                {
                 return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
                 };
-              var matchArrayTailPartminus295344 = Array.prototype.slice.call(matchValminus295342, 0);
-              var matchTempminus295345 = matchArrayTailPartminus295344[0];
-              var previousMatchSucceededminus295346 = true;
+              var matchArrayTailPartminus9398 = Array.prototype.slice.call(matchValminus9396, 0);
+              var matchTempminus9399 = matchArrayTailPartminus9398[0];
+              var previousMatchSucceededminus9400 = true;
               switch (1){
                               case 1:
-                if ((("undefined")===((typeof matchTempminus295345))))                  {
-                  previousMatchSucceededminus295346 = false;
+                if ((("undefined")===((typeof matchTempminus9399))))                  {
+                  previousMatchSucceededminus9400 = false;
                   };
-                var by = matchTempminus295345;
-                if (previousMatchSucceededminus295346)                  {
+                var by = matchTempminus9399;
+                if (previousMatchSucceededminus9400)                  {
                   break;
                   };
-                previousMatchSucceededminus295346 = true;
+                previousMatchSucceededminus9400 = true;
                 case 1:
-                var fResult295347 = ((function (x)                  {
+                var fResult9401 = ((function (x)                  {
                   return 0;
-                  }))(matchTempminus295345);
-                if ((fResult295347===("match-fail-e1aa3b7e7ce9731266013c178de842b5")))                  {
-                  previousMatchSucceededminus295346 = false;
+                  }))(matchTempminus9399);
+                if ((fResult9401===("match-fail-e1aa3b7e7ce9731266013c178de842b5")))                  {
+                  previousMatchSucceededminus9400 = false;
                   };
-                var by = fResult295347;
-                if (previousMatchSucceededminus295346)                  {
+                var by = fResult9401;
+                if (previousMatchSucceededminus9400)                  {
                   break;
                   };
-                previousMatchSucceededminus295346 = true;
+                previousMatchSucceededminus9400 = true;
                 default :
                 return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
                 
@@ -381,28 +381,28 @@ define(["hooves/operator-functions", "hooves/lisp-idioms", "rosy/drawing", "rosy
               ((moduleminus4745e9d952.undefinedPredicate(this.dFactors))?(this.dFactors = []) : (undefined));
               return this.dFactors.push(by);
               }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-            if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G295340))))              {
-              return G295340;
+            if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G9394))))              {
+              return G9394;
               };
-            G295340 = (function (arguments)              {
-              var matchValminus295348 = G295341;
-              var anythingElseminus295339 = matchValminus295348;
-              throw ((("Match fail in anonymous against: ")+anythingElseminus295339));
+            G9394 = (function (arguments)              {
+              var matchValminus9402 = G9395;
+              var anythingElseminus9393 = matchValminus9402;
+              throw ((("Match fail in anonymous against: ")+anythingElseminus9393));
               }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-            if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G295340))))              {
-              return G295340;
+            if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G9394))))              {
+              return G9394;
               };
-            throw ((("match-fail at ((match (\.\. Array prototype slice (apply arguments)) ([: :- (opt by 0)] (if (undefined\? this\.d-factors) (set! this\.d-factors [:])) (this\.d-factors\.push by)) (anything-else-295339 (_throw (_+ ''Match fail in anonymous against: '' anything-else-295339))))) for value ")+(JSON.stringify(G295341))));
+            throw ((("match-fail at ((match (\.\. Array prototype slice (apply arguments)) ([: :- (opt by 0)] (if (undefined\? this\.d-factors) (set! this\.d-factors [:])) (this\.d-factors\.push by)) (anything-else-9393 (_throw (_+ ''Match fail in anonymous against: '' anything-else-9393))))) for value ")+(JSON.stringify(G9395))));
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
           });
-        returnValueminus295334 = actualFunminus295336.apply(this, arguments);
-        while (recurP295337(returnValueminus295334))          {
-          returnValueminus295334 = actualFunminus295336.apply(this, returnValueminus295334.args);
+        returnValueminus9388 = actualFunminus9390.apply(this, arguments);
+        while (recurP9391(returnValueminus9388))          {
+          returnValueminus9388 = actualFunminus9390.apply(this, returnValueminus9388.args);
           };
-        return returnValueminus295334;
+        return returnValueminus9388;
         }),
       stationaryPredicate:stationaryPredicate
     });
     }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-  return currentModuleminus295124;
+  return currentModuleminus9178;
   }))
