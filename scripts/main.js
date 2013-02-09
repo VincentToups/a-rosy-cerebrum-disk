@@ -1,3 +1,4 @@
+// inserting contents of jquery/actual-jquery.js
 /*!
  * jQuery JavaScript Library v1.8.3
  * http://jquery.com/
@@ -9471,6 +9472,7 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
 
 })( window );
 ;
+// inserting contents of gamvas/Box2dWeb-2.1.a.3.js
 /*
 * Copyright (c) 2006-2007 Erin Catto http://www.gphysics.com
 *
@@ -20351,6 +20353,7 @@ var i;
 for (i = 0; i < Box2D.postDefs.length; ++i) Box2D.postDefs[i]();
 delete Box2D.postDefs;
 ;
+// inserting contents of gamvas/gamvas.debug.js
 /**
  * Copyright (C) 2012 Heiko Irrgang <hi@93i.de>
  * 
@@ -27592,6 +27595,14 @@ var main = (function ()  {
       // ("spoonbill/spoonbill" :all)
       ;
       console.log("Hello World");
+      var arrayObject79019 = moduleminus4745e9d952.range(10);
+      for (i in (arrayObject79019))        {
+        var matchVar79020 = arrayObject79019[i];
+        var v = matchVar79020;
+        ;
+        console.log("normal ", i, moduleC47fa390df.randomNormal());
+        };
+      ;
       // All the real code goes here.
       ;
       console.log("Got a level: ", moduleDcbf7f2cbd.testBed);

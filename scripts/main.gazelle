@@ -17,6 +17,9 @@
 	("spoonbill/spoonbill" :all))
    (console.log "Hello World")
 
+   (for* ((i v) in (range 10))
+		 (console.log "normal " i (random-normal)))
+
    (comment "All the real code goes here.")
    (console.log "Got a level: " level-test-bed)
    (var color (make-drgba 

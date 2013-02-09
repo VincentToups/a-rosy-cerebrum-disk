@@ -1,9 +1,9 @@
 define(["hooves/operator-functions", "hooves/lisp-idioms", "hooves/hooves", "rosy/drawing", "rosy/utils", "rosy/wall", "rosy/ball", "rosy/goal", "gamvas/gamvas-module", "gamvas/box-2d-module"], (function (moduleminus58c4bce870, moduleminus295baa4e1e, moduleminus4745e9d952, moduleminus6acd260b96, moduleC47fa390df, moduleB147560188, moduleC4807d4439, moduleminus2184996f81, gamvas, b2d)  {
-  var currentModuleminus9431 = {    
+  var currentModuleminus76490 = {    
     
   };
   var setModuleObject = (function (value)    {
-    currentModuleminus9431 = value;
+    currentModuleminus76490 = value;
     });
   (function (arguments)    {
     var defineplus = "macro - no dynamic value.";
@@ -39,27 +39,27 @@ define(["hooves/operator-functions", "hooves/lisp-idioms", "hooves/hooves", "ros
         this.subState = "inPlay";
         this.logCounter = 0;
         (function (arguments)          {
-          var G9793 = undefined;
-          var G9794 = level();
-          G9793 = (function (arguments)            {
-            var matchValminus9795 = G9794;
-            var matchObjectTempminus9796 = matchValminus9795.geometry;
-            if ((("undefined")===((typeof matchObjectTempminus9796))))              {
+          var G76860 = undefined;
+          var G76861 = level();
+          G76860 = (function (arguments)            {
+            var matchValminus76862 = G76861;
+            var matchObjectTempminus76863 = matchValminus76862.geometry;
+            if ((("undefined")===((typeof matchObjectTempminus76863))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            var g = matchObjectTempminus9796;
-            var matchObjectTempminus9797 = matchValminus9795.initialPosition;
-            if ((("undefined")===((typeof matchObjectTempminus9797))))              {
+            var g = matchObjectTempminus76863;
+            var matchObjectTempminus76864 = matchValminus76862.initialPosition;
+            if ((("undefined")===((typeof matchObjectTempminus76864))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            if ((!((("object")===((typeof matchObjectTempminus9797))))))              {
+            if ((!((("object")===((typeof matchObjectTempminus76864))))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            if ((!((2===matchObjectTempminus9797.length))))              {
+            if ((!((2===matchObjectTempminus76864.length))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            var px = matchObjectTempminus9797[0];
-            var py = matchObjectTempminus9797[1];
+            var px = matchObjectTempminus76864[0];
+            var py = matchObjectTempminus76864[1];
             for (i in (g))              {
               this.addActor(g[i]);
               };
@@ -67,10 +67,10 @@ define(["hooves/operator-functions", "hooves/lisp-idioms", "hooves/hooves", "ros
             this.addActor(this.ball);
             return this.addActor((new (moduleminus2184996f81.Goal)("Goal", 25, 150, this.ball)));
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G9793))))            {
-            return G9793;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G76860))))            {
+            return G76860;
             };
-          throw ((("match-fail at ((match (level) (({} geometry g initial-position [: px py]) (for (i :in g) (this\.add-actor [g i])) (set! this\.ball (new Ball ''Player'' px py)) (this\.add-actor this\.ball) (this\.add-actor (new Goal ''Goal'' 25 150 this\.ball))))) for value ")+(JSON.stringify(G9794))));
+          throw ((("match-fail at ((match (level) (({} geometry g initial-position [: px py]) (for (i :in g) (this\.add-actor [g i])) (set! this\.ball (new Ball ''Player'' px py)) (this\.add-actor this\.ball) (this\.add-actor (new Goal ''Goal'' 25 150 this\.ball))))) for value ")+(JSON.stringify(G76861))));
           }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
         return console.log("this.ball is ", this.ball);
         });
@@ -91,99 +91,99 @@ define(["hooves/operator-functions", "hooves/lisp-idioms", "hooves/hooves", "ros
     var draw = (function (time)      {
       this.logCounter = moduleminus58c4bce870.plus(1, this.logCounter);
       (function (arguments)        {
-        var G9854 = undefined;
-        var G9855 = this.subState;
-        G9854 = (function (arguments)          {
-          var matchValminus9856 = G9855;
-          if ((!(("inPlay"===matchValminus9856))))            {
+        var G76921 = undefined;
+        var G76922 = this.subState;
+        G76921 = (function (arguments)          {
+          var matchValminus76923 = G76922;
+          if ((!(("inPlay"===matchValminus76923))))            {
             return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
             };
           return this.drawInPlay(time);
           }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-        if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G9854))))          {
-          return G9854;
+        if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G76921))))          {
+          return G76921;
           };
-        G9854 = (function (arguments)          {
-          var matchValminus9857 = G9855;
-          var otherValue = matchValminus9857;
+        G76921 = (function (arguments)          {
+          var matchValminus76924 = G76922;
+          var otherValue = matchValminus76924;
           return this.drawInPlay(time);
           }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-        if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G9854))))          {
-          return G9854;
+        if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G76921))))          {
+          return G76921;
           };
-        throw ((("match-fail at ((match this\.sub-state (:in-play (this\.draw-in-play time)) (other-value (this\.draw-in-play time)))) for value ")+(JSON.stringify(G9855))));
+        throw ((("match-fail at ((match this\.sub-state (:in-play (this\.draw-in-play time)) (other-value (this\.draw-in-play time)))) for value ")+(JSON.stringify(G76922))));
         }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
       return // (gamvas\.physics\.draw-debug)
       ;
       });
     var log = (function ()      {
-      var returnValueminus9859 = undefined;
+      var returnValueminus76926 = undefined;
       var recur = (function ()        {
         return {          
-          recurSigil:"recurSigilminus9858",
+          recurSigil:"recurSigilminus76925",
           args:arguments
         };
         });
-      var recurP9862 = (function (valminus9863)        {
-        if ((("undefined")===((typeof valminus9863))))          {
+      var recurP76929 = (function (valminus76930)        {
+        if ((("undefined")===((typeof valminus76930))))          {
           return false;
           };
-        return (valminus9863.recurSigil===("recurSigilminus9858"));
+        return (valminus76930.recurSigil===("recurSigilminus76925"));
         });
-      var actualFunminus9861 = (function ()        {
+      var actualFunminus76928 = (function ()        {
         return (function (arguments)          {
-          var G9865 = undefined;
-          var G9866 = Array.prototype.slice.apply(arguments);
-          G9865 = (function (arguments)            {
-            var matchValminus9867 = G9866;
-            if ((!((("object")===((typeof matchValminus9867))))))              {
+          var G76932 = undefined;
+          var G76933 = Array.prototype.slice.apply(arguments);
+          G76932 = (function (arguments)            {
+            var matchValminus76934 = G76933;
+            if ((!((("object")===((typeof matchValminus76934))))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            if ((!((2===matchValminus9867.length))))              {
+            if ((!((2===matchValminus76934.length))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            var matchTempminus9868 = matchValminus9867[0];
-            var matchTempminus9869 = matchValminus9867[1];
-            var arguments = matchTempminus9868;
-            if ((("undefined")===((typeof matchTempminus9869))))              {
+            var matchTempminus76935 = matchValminus76934[0];
+            var matchTempminus76936 = matchValminus76934[1];
+            var arguments = matchTempminus76935;
+            if ((("undefined")===((typeof matchTempminus76936))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            var modulo = matchTempminus9869;
+            var modulo = matchTempminus76936;
             return ((moduleC47fa390df.modsignTripleEqualminus0(this.logCounter, modulo))?(console.log.apply(console, arguments)) : (undefined));
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G9865))))            {
-            return G9865;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G76932))))            {
+            return G76932;
             };
-          G9865 = (function (arguments)            {
-            var matchValminus9870 = G9866;
-            if ((!((("object")===((typeof matchValminus9870))))))              {
+          G76932 = (function (arguments)            {
+            var matchValminus76937 = G76933;
+            if ((!((("object")===((typeof matchValminus76937))))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            if ((!((1===matchValminus9870.length))))              {
+            if ((!((1===matchValminus76937.length))))              {
               return "match-fail-e1aa3b7e7ce9731266013c178de842b5";
               };
-            var arguments = matchValminus9870[0];
+            var arguments = matchValminus76937[0];
             return recur(arguments, 300);
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G9865))))            {
-            return G9865;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G76932))))            {
+            return G76932;
             };
-          G9865 = (function (arguments)            {
-            var matchValminus9871 = G9866;
-            var anythingElseminus9864 = matchValminus9871;
-            throw ((("Match fail in log against: ")+anythingElseminus9864));
+          G76932 = (function (arguments)            {
+            var matchValminus76938 = G76933;
+            var anythingElseminus76931 = matchValminus76938;
+            throw ((("Match fail in log against: ")+anythingElseminus76931));
             }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G9865))))            {
-            return G9865;
+          if ((!((("match-fail-e1aa3b7e7ce9731266013c178de842b5")===G76932))))            {
+            return G76932;
             };
-          throw ((("match-fail at ((match (\.\. Array prototype slice (apply arguments)) ([: arguments (defined modulo)] (if (%===0 this\.log-counter modulo) (console\.log\.apply console arguments))) ([: arguments] (recur arguments 300)) (anything-else-9864 (_throw (_+ ''Match fail in log against: '' anything-else-9864))))) for value ")+(JSON.stringify(G9866))));
+          throw ((("match-fail at ((match (\.\. Array prototype slice (apply arguments)) ([: arguments (defined modulo)] (if (%===0 this\.log-counter modulo) (console\.log\.apply console arguments))) ([: arguments] (recur arguments 300)) (anything-else-76931 (_throw (_+ ''Match fail in log against: '' anything-else-76931))))) for value ")+(JSON.stringify(G76933))));
           }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
         });
-      returnValueminus9859 = actualFunminus9861.apply(this, arguments);
-      while (recurP9862(returnValueminus9859))        {
-        returnValueminus9859 = actualFunminus9861.apply(this, returnValueminus9859.args);
+      returnValueminus76926 = actualFunminus76928.apply(this, arguments);
+      while (recurP76929(returnValueminus76926))        {
+        returnValueminus76926 = actualFunminus76928.apply(this, returnValueminus76926.args);
         };
-      return returnValueminus9859;
+      return returnValueminus76926;
       });
     var onMouseDown = (function (btn, x, y, evt)      {
       var actors = this.getActors();
@@ -192,7 +192,7 @@ define(["hooves/operator-functions", "hooves/lisp-idioms", "hooves/hooves", "ros
         actor.getCurrentState().onMouseDown(btn, x, y, evt);
         };
       });
-    currentModuleminus9431.createPlayState = (function (params)      {
+    currentModuleminus76490.createPlayState = (function (params)      {
       return gamvas.State.extend({        
         init:makeInit(params),
         draw:draw,
@@ -202,5 +202,5 @@ define(["hooves/operator-functions", "hooves/lisp-idioms", "hooves/hooves", "ros
       });
       });
     }).call(this, (((((typeof arguments))===("undefined")))?(undefined) : (arguments)));
-  return currentModuleminus9431;
+  return currentModuleminus76490;
   }))

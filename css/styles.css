@@ -1,8 +1,10 @@
-.column1of3, column2of3, column3of3 {
-
-	width:300px;
-    float:left;
-	margin:10px;
-
+* {
+	background-color:rgb(201,90,73);
+}
+h1.title {
+	text-align:center;
 }
 
+canvas.game {
+
+}

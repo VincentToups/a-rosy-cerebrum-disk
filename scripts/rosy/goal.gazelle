@@ -10,6 +10,7 @@
  (define state-extension ({}))
  (define actor-extension ({}))
 
+
  (define vec (lambda (x y) 
 			   (new Box2D.Common.Math.b2Vec2 x y)))
 
@@ -21,7 +22,7 @@
 									dg 10
 									db 10
 									a 0.4)))
- (define number-of-circles 8)
+ (define number-of-circles 5)
 
  (define-to state-extension 
    (do-collide (a c om)
@@ -62,7 +63,7 @@
    (set! (@ vis-radii)
 		 (range 0 1 number-of-circles
 				(lambda ()
-				  [: (random-normal (/ goal-radius 2)) 0])))
+				  [: (random-normal (/ goal-radius 2) 5) 5])))
    (this.add-state (new Goal-State :goal-state))
    (this.set-state :goal-state)
    (set! (@ ball) ball)
@@ -73,18 +74,27 @@
 	 (if (< val low) low val)))
 
  (define (circle-clamp val low high)
-   (if (> val high) (+ low (- val high))
-	 (if (< val low) (- high (- low val)) val)))
+   (if (> val high) high
+	 (if (< val low) low val)))
 
  (define (_clamp low high)
    (lambda (val)
 	 (clamp val low high)))
+
+ (define (bounce? r min max)
+   (if (|| (>= r max)
+		   (<= r min))
+	   true
+	 false))
 
  (define-to actor-extension
    (update-radii time)
    (set! (@ vis-radii)
 		 (map 
 		  (lambda ([: r d])
+			(comment (console.log "update radii" [: r d] ", " goal-radius ", " (>= r goal-radius) ", bounce " (bounce? r 0 goal-radius)))
+			(if (bounce? r 0 goal-radius)
+				(set! d (- d)))
 			[: (circle-clamp (+ r (* time d)) 0 goal-radius)
 			   (clamp (+ d (random-normal)) -10 10)])
 		  (@ vis-radii))))

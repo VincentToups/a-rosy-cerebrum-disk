@@ -1,0 +1,38 @@
+(module 
+ (("hooves/operator-functions" :all)
+  ("hooves/lisp-idioms" :all)
+  ("hooves/hooves" :all)
+  ("rosy/drawing" :all)
+  ("rosy/utils" :all)
+  ((js "gamvas/gamvas-module" gamvas))
+  ((js "gamvas/box-2d-module" Box2D)))
+
+ (define monster-state-extension ({}))
+ (define monster-extension ({}))
+
+ (define monsters [:])
+
+ (define+ (fetch-live-monster-array)
+   "Return an array of all active monsters."
+   (if (defined? monsters) monsters [:]))
+
+ (define+ (clear-monsters)
+   (set! monsters [:]))
+
+ (define+ (add-monster m)
+   (monsters.push m))
+
+ (define+ (remove-monster m)
+   (var i (monsters.index-of m))
+   (monsters.slice i 1))
+
+ (define-to monster-extension (create name x y)
+   (this._super name x y)
+   (add-monster this))
+
+ (define-to monster-extension (die)
+   (remove-monster this)
+   (var state (gamvas.state.get-current-state)))
+
+ )
+

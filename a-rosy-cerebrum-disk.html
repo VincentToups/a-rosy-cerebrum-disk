@@ -1,16 +1,33 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>A Rosy Cerebrum Disk</title>
-        <!-- data-main attribute tells require.js to load
-             scripts/main.js after require.js loads. -->
-        <script data-main="scripts/main.js" src="scripts/require.js"></script>
-    </head>
-    <body>
-	  <canvas id="canvas" width="256" height="192">
-		Canvas is not supported.
-	  </canvas>
-    </body>
+  <head>
+    <title>A Rosy Cerebrum Disk</title>
+	<link href="css/toast.css" type="text/css" rel="stylesheet">
+	<link href="css/styles.css" type="text/css" rel="stylesheet">
+    <!-- data-main attribute tells require.js to load
+         scripts/main.js after require.js loads. -->
+    <script data-main="scripts/main.js" src="scripts/require.js"></script>
+  </head>
+  <body>
+	<div class="wrap">
+	  <div class="grids">
+		<div class="grid-12"><h1 class="title">A Rosy Cerebrum Disk</h1></div>
+		<div class="grid-4">
+		  <em>A Rosy Cerebrum Disk</em> is an HTML5/Canvas game written
+		  in Gazelle, a dialect of Lisp which is meant to operate within
+		  the Javascript Universe.
+		</div>
+
+		  <canvas class="grid-4" id="canvas" width="256" height="192">
+			Canvas is not supported.
+		  </canvas>
+
+		<div class="grid-4">
+		  There are no controls yet since the game is unfinished.
+		</div>
+	  </div>
+	</div>
+
 </html>
 
 
